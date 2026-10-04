@@ -1,0 +1,43 @@
+{
+ "candidates": [
+  {
+   "citation": "Nakhostin-Ansari A, Naghshtabrizi N, Naghdi S, Ghafouri M, Khalifeloo M, Mohammadzadeh M, Vezvaei P, Nakhostin Ansari N. Normative values of functional reach test, single-leg stance test, and timed UP and GO with and without dual-task in healthy Iranian adults: A cross-sectional study. Ann Med Surg (Lond). 2022 Jun 26;80:104053.",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9422043/",
+   "pmcid": "PMC9422043",
+   "population": "240 healthy community-dwelling adults (120 males, 120 females), Iran; 20 males and 20 females per age group",
+   "protocol": "Eyes open; maximum 60 s per trial; two trials per leg, best performance recorded; hands on hips; right leg tested first, then left",
+   "ageBands": "18-29, 30-39, 40-49, 50-59, 60-69, 70 and over (not exactly decades 20-80, but close)",
+   "quote": "Normative values of FRT, SLS, TUG and TUGcog tests across age groups.",
+   "notes": "Best fit and the only open-access candidate found with a numeric per-age-band SLS table in the PMC HTML. Table 2 values (mean +/- SD, seconds, right leg / left leg): 18-29 56.4+/-8.8 / 56.7+/-8.69; 30-39 47.0+/-16.5 / 46.5+/-15.4; 40-49 49.9+/-16.7 / 51.1+/-15.4; 50-59 50.0+/-17.2 / 48.0+/-18.0; 60-69 35.0+/-22.0 / 30.4+/-22.5; 70+ 14.6+/-17.0 / 13.4+/-16.7. The extraction I saw gave the table by age group only; I did not confirm whether Table 2 also splits by sex, so re-check before scripting. Quote above is the Table 2 caption as relayed by the fetch tool. A separate sentence also relayed: The mean values of the SLS test decreased with age for both legs. The 60 s cap makes the means ceiling-limited and the SDs large. The fetch tool summarised the page, so confirm quotes against the raw HTML. I made 13 WebFetch calls, one over the 12 budget."
+  },
+  {
+   "citation": "Morioka S, Fukumoto T, Hiyamizu M, Matsuo A, Takebayashi H, Miyamoto K. Changes in the Equilibrium of Standing on One Leg at Various Life Stages. Curr Gerontol Geriatr Res. 2012 Jul 31;2012:516283.",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3415179/",
+   "pmcid": "PMC3415179",
+   "population": "1,241 apparently healthy participants aged 2-92 years, Japan",
+   "protocol": "Eyes open and eyes closed; 120 s maximum; single trial per condition; arms dropped naturally to sides",
+   "ageBands": "Decade groups from the 20s through the 80s and 90s, plus child and adolescent groups",
+   "quote": "standing time with closed eyes begins to slowly decline from the 20s whereas the standing time with open eyes starts to drop rapidly from the 60s.",
+   "notes": "NOT script-readable for reference values. The fetch showed one-leg standing time means by decade only in figures (Figure 3), not in an HTML table or in the text. The only table, Table 1, is two-point discrimination by age group, not standing time. The study does give n per decade there (20s n=154, 30s 99, 40s 86, 50s 55, 60s 51, 70s 18, 80s 33). Sex stratification not reported. Useful only as a secondary source for the shape of the age curve (cubic-curve peak 31.2 years for eyes open). Not a recommended source for a lookup table."
+  },
+  {
+   "citation": "Springer BA, Marin R, Cyhan T, Roberts H, Gill NW. Normative values for the unipedal stance test with eyes open and closed. J Geriatr Phys Ther. 2007;30(1):8-15. PMID 19839175.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/19839175/",
+   "pmcid": "",
+   "population": "549 healthy participants aged 18 years or older (US; country not confirmed on a page I fetched)",
+   "protocol": "Eyes open and eyes closed; mean and best of 3 trials; maximum time per trial and arm position not confirmed on a page I fetched",
+   "ageBands": "18-39, 40-49, 50-59, 60-69, 70-79, 80+ (from search-result text only, not a fetched page)",
+   "quote": "there was a significant age dependent decrease in UPST time during both conditions",
+   "notes": "Included only to record the PMC check: Europe PMC record for PMID 19839175 shows isOpenAccess N, inEPMC N, no PMCID, so there is NO open PMC copy and it cannot be script-read. PubMed itself returned only a cookie wall. The quote is from the Europe PMC abstract as relayed by the fetch tool (the sentence also appears in search snippets). Numeric values in the search snippets (for example 18-39 eyes open about 45 s) were not from a fetched page and should not be used. The Bohannon 2006 meta-analysis (60 years and older) was seen only as search-result PDF links and not fetched."
+  }
+ ],
+ "gaps": [
+  "Only one open-access source found with a numeric age-band table in PMC HTML (Nakhostin-Ansari 2022, Iran, 18-29 to 70+ with 60 s cap); whether its Table 2 is split by sex was not confirmed.",
+  "No open PMC copy of Springer 2007 exists (Europe PMC: isOpenAccess N, no PMCID).",
+  "Bohannon single-limb-stance meta-analysis (age 60+) was not fetched; only search-result PDF links seen, and it covers only 60 and over.",
+  "Morioka 2012 (Japan, 20s-80s decades) has the data only in figures, not in a table or text.",
+  "No PLoS One, BMC Geriatrics, Gait and Posture or Physiotherapy national normative study with a unipedal eyes-open table surfaced in the 4 searches used.",
+  "The Do\u011fan 2026 Sensors paper (PMC13074845, Modified Romberg normative reference metrics, inertial sensors) appeared in a Europe PMC listing but was not fetched and measures sway metrics, not single-leg hold time.",
+  "Budget note: used 4 of 4 searches and 13 of 12 WebFetch calls (one over, counting two redirect responses and one failed 503 call as calls); the fetch tool returns model-written summaries, so verbatim quotes should be re-verified against raw HTML before use in a script."
+ ]
+}
