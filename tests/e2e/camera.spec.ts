@@ -21,5 +21,6 @@ test('camera screen loads the pose model and asks the person to step into view',
 
   await expect(page.locator('video')).toBeVisible()
   await expect(page.getByText(/step into view/i)).toBeVisible({ timeout: 90_000 })
+  await expect(page.getByRole('img', { name: /shoulders to ankles/i })).toBeVisible()
   expect(crashes).toEqual([])
 })

@@ -18,6 +18,7 @@ import { drawPose } from '../pose/draw'
 import { placeSts } from '../norms/sts'
 import { placeSls } from '../norms/sls'
 import { summarizeBalance } from '../norms/balance'
+import { chairStandDiagram, framingDiagram, oneLegStandDiagram } from './diagrams'
 
 const EXPLAINER_URL = './explainer/'
 const SOURCE_URL = 'https://github.com/wilsonwu-ai/sundai-hack-143'
@@ -91,6 +92,16 @@ function btn(label: string, cls: string, onClick: () => void): HTMLButtonElement
   b.type = 'button'
   b.addEventListener('click', onClick)
   return b
+}
+
+/** A figure holding one instruction diagram. The markup is static and trusted (src/ui/diagrams.ts). */
+function diagramFigure(svg: string, caption?: string): HTMLElement {
+  const fig = el('figure', 'diagram')
+  const art = el('div', 'diagram-art')
+  art.innerHTML = svg
+  fig.appendChild(art)
+  if (caption) fig.appendChild(el('figcaption', 'diagram-cap', caption))
+  return fig
 }
 
 function link(label: string, href: string, external: boolean, cls?: string): HTMLAnchorElement {
@@ -355,7 +366,20 @@ export const mountApp: MountApp = (root) => {
     li2.appendChild(link('Source code', SOURCE_URL, true))
     links.append(li1, li2)
 
-    screen.append(eyebrow, title, lead, form, notes, links)
+    const howto = el('section', 'howto')
+    howto.append(
+      el('h2', undefined, 'What you will do'),
+      diagramFigure(
+        chairStandDiagram(),
+        '1. Chair stands: sit with your arms crossed, stand up fully, sit back down, five times as fast as you safely can.',
+      ),
+      diagramFigure(
+        oneLegStandDiagram(),
+        `2. One-leg stand: barefoot, hands on hips, lift one foot and hold for up to ${SLS_MAX_MS / 1000} seconds.`,
+      ),
+    )
+
+    screen.append(eyebrow, title, lead, howto, form, notes, links)
     show(screen, title)
   }
 
@@ -522,7 +546,7 @@ export const mountApp: MountApp = (root) => {
       })
       const actions = el('div', 'actions')
       actions.append(begin, retry, flip)
-      panel.replaceChildren(intro, status, actions)
+      panel.replaceChildren(diagramFigure(framingDiagram()), intro, status, actions)
 
       let okSince: number | null = null
       let badSince: number | null = null
@@ -630,6 +654,7 @@ export const mountApp: MountApp = (root) => {
       actions.append(redo, skip)
 
       panel.replaceChildren(
+        diagramFigure(chairStandDiagram()),
         instruction,
         goal,
         resultBox,
@@ -751,7 +776,7 @@ export const mountApp: MountApp = (root) => {
       const skip = btn('Skip balance test', 'ghost', () => toResult())
       const actions = el('div', 'actions')
       actions.append(again, see, skip)
-      panel.replaceChildren(instruction, attemptLine, list, actions)
+      panel.replaceChildren(diagramFigure(oneLegStandDiagram()), instruction, attemptLine, list, actions)
 
       // The best attempt keeps its own lifted side; an earlier attempt wins a tie.
       function best(): BalanceAttempt | null {

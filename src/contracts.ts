@@ -10,6 +10,7 @@
 //   src/norms/sts.ts     -> export const placeSts: PlaceSts
 //   src/norms/balance.ts -> export const summarizeBalance: SummarizeBalance
 //   src/norms/sls.ts     -> export const placeSls: PlaceSls
+//   src/ui/diagrams.ts   -> export const chairStandDiagram, oneLegStandDiagram, framingDiagram: Diagram
 //   src/ui/app.ts        -> export const mountApp: MountApp
 
 /** A MediaPipe pose landmark: x and y normalised to [0, 1] of the image, y growing downward. */
@@ -188,6 +189,27 @@ export interface SlsPlacement {
 }
 /** Places a single-leg stance hold on the F61 reference table in src/data/sls-norms.json. */
 export type PlaceSls = (heldMs: number, liftedSide: 'left' | 'right' | null, age: number) => SlsPlacement
+
+// ---------- ui diagrams: src/ui/diagrams.ts ----------
+
+/**
+ * Returns static inline SVG markup (a string starting with <svg) for one
+ * instruction diagram. The root has role="img", an aria-label equal to its
+ * <title> text, and a viewBox; colours come only from CSS custom properties, so
+ * it follows the light and dark themes.
+ *
+ * chairStandDiagram: aria-label contains "chair stand". Numbered steps: seated
+ * upright on a chair with arms crossed over the chest and feet flat; standing
+ * fully upright with hips and knees straight; seated again; the cycle is labelled
+ * as 1 rep.
+ * oneLegStandDiagram: aria-label contains "one-leg stand". Barefoot, hands on
+ * hips, eyes open, standing next to a wall, one foot lifted off the floor with the
+ * knee bent and the foot not touching the standing leg; up to 60 seconds.
+ * framingDiagram: aria-label contains "shoulders to ankles". A phone propped at
+ * about hip height 2 to 3 m away, and its screen showing the whole body from
+ * shoulders to ankles.
+ */
+export type Diagram = () => string
 
 // ---------- ui: src/ui/ ----------
 

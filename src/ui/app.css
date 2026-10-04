@@ -320,6 +320,61 @@ input:focus-visible,
 .src a { overflow-wrap: anywhere; font-size: 0.9rem; }
 .disclaimer { font-weight: 700; margin: 0; }
 
+/* instruction diagrams (src/ui/diagrams.ts); colours come from the theme tokens */
+.howto { display: grid; gap: 14px; }
+.howto h2 { color: var(--teal); }
+.diagram {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 440px;
+  display: grid;
+  gap: 8px;
+}
+.diagram-art {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+}
+.diagram-cap { font-size: 1rem; line-height: 1.4; margin: 0; }
+.dg { display: block; width: 100%; height: auto; }
+.dg-t { fill: var(--fg); font-family: var(--body); font-size: 13px; }
+.dg-tb { font-weight: 700; }
+.dg-tm { fill: var(--muted); }
+.dg-tl { font-size: 14px; }
+.dg-mid { text-anchor: middle; }
+.dg-num { fill: var(--amber-ink); font-family: var(--display); font-size: 15px; font-weight: 800; text-anchor: middle; }
+.dg-limb, .dg-head, .dg-floor, .dg-chair, .dg-arrow, .dg-hot, .dg-lead, .dg-dash, .dg-brace,
+.dg-frame, .dg-check, .dg-icon {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.dg-limb { stroke: var(--teal); stroke-width: 3; }
+.dg-head { fill: var(--panel); stroke: var(--teal); stroke-width: 3; }
+.dg-limb.dg-thin, .dg-head.dg-thin { stroke-width: 2.2; }
+.dg-dot { fill: var(--amber); }
+.dg-eye { fill: var(--fg); }
+.dg-floor { stroke: var(--line); stroke-width: 2; }
+.dg-chair { stroke: var(--muted); stroke-width: 3; }
+.dg-wall { fill: var(--panel2); stroke: var(--line); stroke-width: 2; }
+.dg-arrow { stroke: var(--muted); stroke-width: 2; }
+.dg-mk { fill: var(--muted); }
+.dg-hot { stroke: var(--amber); stroke-width: 3; }
+.dg-mkhot { fill: var(--amber); }
+.dg-badge { fill: var(--amber-soft); stroke: var(--amber); stroke-width: 2; }
+.dg-lead { stroke: var(--muted); stroke-width: 1.5; }
+.dg-dash { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.dg-card { fill: var(--panel2); stroke: var(--line); stroke-width: 1.5; }
+.dg-brace { stroke: var(--teal); stroke-width: 2; }
+.dg-phone { fill: var(--panel); stroke: var(--fg); stroke-width: 3; }
+.dg-phone.dg-slim { stroke-width: 2.5; }
+.dg-screen { fill: var(--panel2); }
+.dg-frame { stroke: var(--teal); stroke-width: 3; }
+.dg-ok { fill: var(--pass); }
+.dg-check { stroke: var(--panel); stroke-width: 2.5; }
+.dg-icon { stroke: var(--fg); stroke-width: 2; }
+
 @media (prefers-reduced-motion: no-preference) {
   .btn { transition: background-color 120ms, color 120ms; }
   .hud-fill { transition: transform 120ms linear; }
