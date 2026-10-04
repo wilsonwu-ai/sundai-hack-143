@@ -1,0 +1,26 @@
+{
+  "name": "sundai-hack-143",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Sundai Hack 143, Biomarkers of Aging: a STAR write-up and a live demo, built at the hack on 4 Oct 2026.",
+  "license": "MIT",
+  "repository": "github:wilsonwu-ai/sundai-hack-143",
+  "homepage": "https://wilsonwu-ai.github.io/sundai-hack-143/",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "readme": "node scripts/build-readme.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
+  }
+}
