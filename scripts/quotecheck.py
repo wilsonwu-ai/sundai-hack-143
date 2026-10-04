@@ -34,7 +34,7 @@ def get(url):
         req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'text/html,application/xhtml+xml'})
         raw = urllib.request.urlopen(req, timeout=25).read().decode('utf-8', 'ignore')
         text = re.sub(r'(?is)<(script|style)[^>]*>.*?</\1>', ' ', raw)
-        cache[url] = norm(html.unescape(re.sub(r'<[^>]+>', ' ', text)))
+        cache[url] = norm(html.unescape(re.sub(r'</?[A-Za-z][^>]*>', ' ', text)))
     except Exception as e:  # blocked, timed out, not HTML: the finding stays unverified
         cache[url] = None
         print('FETCH FAIL', url, str(e)[:80], file=sys.stderr)
@@ -53,7 +53,7 @@ def epmc_abstract(pmid):
             req = urllib.request.Request(api, headers={'User-Agent': UA, 'Accept': 'application/json'})
             res = json.loads(urllib.request.urlopen(req, timeout=25).read())['resultList']['result']
             text = ' '.join(r.get('title', '') + ' ' + r.get('abstractText', '') for r in res)
-            cache[key] = norm(html.unescape(re.sub(r'<[^>]+>', ' ', text)))
+            cache[key] = norm(html.unescape(re.sub(r'</?[A-Za-z][^>]*>', ' ', text)))
         except Exception as e:
             cache[key] = None
             print('FETCH FAIL', api, str(e)[:80], file=sys.stderr)
@@ -77,7 +77,7 @@ def epmc_fulltext(pmcid):
         try:
             req = urllib.request.Request(api, headers={'User-Agent': UA})
             raw = urllib.request.urlopen(req, timeout=25).read().decode('utf-8', 'ignore')
-            cache[key] = norm(html.unescape(re.sub(r'<[^>]+>', ' ', raw)))
+            cache[key] = norm(html.unescape(re.sub(r'</?[A-Za-z][^>]*>', ' ', raw)))
         except Exception as e:
             cache[key] = None
             print('FETCH FAIL', api, str(e)[:80], file=sys.stderr)

@@ -20,7 +20,7 @@ API = 'ebi.ac.uk/europepmc/webservices/rest/search'
 
 
 def norm(s):
-    s = html.unescape(re.sub(r'<[^>]+>', ' ', s or ''))
+    s = html.unescape(re.sub(r'</?[A-Za-z][^>]*>', ' ', s or ''))
     s = re.sub(r'[^\w\s]', ' ', s.lower())
     return re.sub(r'\s+', ' ', s).strip()
 

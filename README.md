@@ -1,10 +1,14 @@
-# Sundai Hack 143, explained: Biomarkers of Aging
+# Movement Age
+
+**How old do your legs move?** Your phone's camera counts your chair stands, then places your time on a published age table built from 393 adults aged 18 to 80 [F23]. It also times a one-leg stand: failing to hold one for 10 seconds was linked to higher all-cause mortality in adults aged 51 to 75 [F21]. Pose tracking runs in your browser, so nothing is uploaded.
+
+**Try it now:** https://wilsonwu-ai.github.io/sundai-hack-143/
+
+<a href="https://wilsonwu-ai.github.io/sundai-hack-143/"><img src="docs/img/qr-movement-age.svg" alt="QR code that opens the Movement Age app" width="150"></a>
 
 [![ci-cd](https://github.com/wilsonwu-ai/sundai-hack-143/actions/workflows/ci.yml/badge.svg)](https://github.com/wilsonwu-ai/sundai-hack-143/actions/workflows/ci.yml)
 
-**Live site:** https://wilsonwu-ai.github.io/sundai-hack-143/ (the demo ships there during the hack, 4 Oct 2026)
-
-A STAR write-up of Sundai Hack 143 at the Harvard Innovation Lab: the **Situation** (what the hack asked, and what a biomarker of aging is), the **Task and Action** (every candidate approach, and why we chose ours), and the **Result** (what we built and deployed).
+Built in one day at **Sundai Hack 143, Biomarkers of Aging** (Harvard Innovation Lab, 4 Oct 2026). An estimate from published reference data: not a medical device, not a diagnosis.
 
 ## Start here: the picture explainer
 
@@ -19,7 +23,7 @@ A STAR write-up of Sundai Hack 143 at the Harvard Innovation Lab: the **Situatio
 
 The same page is in this repo at [`research/explainer.html`](research/explainer.html) (source) and [`public/explainer/`](public/explainer/) (what GitHub Pages serves). The diagrams below are extracted from it by [`scripts/extract-diagrams.mjs`](scripts/extract-diagrams.mjs), so the page and this README never drift apart.
 
-Every number in this repo cites a finding ID like [F21]. Findings live in `research/verified.json` with their source URL, publication date and how they were checked.
+The rest of this README is a STAR write-up: the **Situation** (what the hack asked, and what a biomarker of aging is), the **Task and Action** (every candidate approach, and why we chose ours), and the **Result** (what we built and deployed). Every number cites a finding ID like [F21]; findings live in `research/verified.json` with their source URL, publication date and how they were checked.
 
 ## ELI5: the whole hack in one paragraph
 
@@ -170,7 +174,7 @@ Before choosing, we had research agents survey five lanes (imaging, movement and
 - **Evidence:**
   - Unipedal stance norms for 549 healthy adults aged 18 and over, with six age bands from 18 to 39 up to 80 and over, for eyes open and closed [F22]. The abstract gives no per-band seconds.
   - Sit-to-stand percentiles by sex and age (5-rep, 30-second and 1-minute tests) in 393 healthy Colombian adults [F23]. The abstract gives no percentile tables.
-  - Inability to complete a 10-second one-leg stance was associated with all-cause mortality after adjusting for age, sex, BMI and comorbidities, hazard ratio 1.84 (95% CI 1.23 to 2.78), in 1702 adults aged 51 to 75 [F21] (unverified: the script quote check failed, though reviewers upheld it from the Europe PMC abstract). It must not be applied to people under 51.
+  - Inability to complete a 10-second one-leg stance was associated with all-cause mortality after adjusting for age, sex, BMI and comorbidities, hazard ratio 1.84 (95% CI 1.23 to 2.78), in 1702 adults aged 51 to 75 [F21]. It must not be applied to people under 51.
   - Remote video sit-to-stand assessment showed good to moderate validity against in-person testing in 38 post-COVID adults, with minimal detectable change values of 6.6 and 10.5 repetitions [F24]. Human raters did that rating, not pose estimation.
   - Thin spots: we found no study validating pose estimation for rep counting or balance timing. We did not retrieve chair height and arm position protocols.
 - **One-day build:** realistic. It is a static site with no server and no training. The risk is transcribing reference tables from full texts and getting the camera framing right.
@@ -243,7 +247,7 @@ The pick is Movement Age: prop up your phone, do a one-leg stand and five chair 
 Why:
 
 - Every voter can test themselves in the room, and the result rests on published reference values that span adult ages for both tests [F22] [F23].
-- It is the only phone-friendly test in our findings with a mortality association after adjusting for age, sex, BMI and comorbidities [F21] (unverified). It is narrow (adults aged 51 to 75), so we show it as context and never as a prediction about the user.
+- It is the only phone-friendly test in our findings with a mortality association after adjusting for age, sex, BMI and comorbidities [F21]. It is narrow (adults aged 51 to 75), so we show it as context and never as a prediction about the user.
 - Remote video assessment of sit-to-stand already showed good to moderate validity against in-person testing [F24]. Adding a live tap check, where a friend taps for each rep and the app shows camera count against tap count, turns that into a visible measured error. That fits the reliability-first template this audience uses [F42] [F46].
 - It fits a day's build: a static site, pose estimation on the device, no server and no training [F51].
 - It stays out of the crowd most likely to build selfie age, and out of FaceAge's research-only terms [F14]. Hand-age evidence did not survive review.
@@ -260,7 +264,7 @@ Kill criteria we set before choosing, and their status as of the synthesis:
 | ID | Criterion | Status |
 |---|---|---|
 | K1 | A published reference table for the chosen tests covers adults from roughly 20 to 80. | Pass on coverage [F22] [F23]. The per-band numbers are not yet in hand. |
-| K2 | Evidence that the measure predicts mortality or morbidity beyond chronological age. | Narrow pass: [F21] (unverified), adults aged 51 to 75 only. For chair stands the only outcome link is a composite fitness age in adults aged 60 and over [F26]. Nothing in our findings covers ages 20 to 50. |
+| K2 | Evidence that the measure predicts mortality or morbidity beyond chronological age. | Narrow pass: [F21], adults aged 51 to 75 only. For chair stands the only outcome link is a composite fitness age in adults aged 60 and over [F26]. Nothing in our findings covers ages 20 to 50. |
 | K3 | The 10:30 intro does not hand out data, a model or a prize that favours another modality. | Pending, to be judged live at 10:30 [F51]. |
 | K4 | No teammate brings a better idea at 11:00. | Pending, to be judged at team formation. |
 
@@ -298,7 +302,7 @@ In progress. This section is written after the demo ships, with the live URL, wh
 - **Aging clock:** a model that turns a set of measurements into an age estimate, such as DNAm PhenoAge [F43].
 - **DNA methylation:** chemical marks on DNA, read from a blood sample, that DunedinPACE and DNAm PhenoAge are built on [F41] [F43].
 - **Test-retest reliability:** whether you get about the same answer when you measure the same person again; part of the validation template [F42].
-- **Hazard ratio (HR):** how much more often an outcome happens in one group than another over time; above 1 means more often, and the 10-second one-leg stance result is 1.84 [F21] (unverified).
+- **Hazard ratio (HR):** how much more often an outcome happens in one group than another over time; above 1 means more often, and the 10-second one-leg stance result is 1.84 [F21].
 - **95% confidence interval (CI):** the range of values the data are reasonably consistent with; a wide range means more uncertainty.
 - **Mean absolute error (MAE):** the average size of a model's mistakes, in the units of what it predicts, such as years [F34].
 - **Pose estimation:** software that finds body joints in video, so an app can see a knee bend or a lifted ankle.
@@ -318,7 +322,7 @@ Every [F##] in this repo resolves here. **verified**: a script found the quoted 
 | F13 | FaceAge was evaluated in 6,196 cancer patients from two centers. Older FaceAge was associated with worse survival, especially in people who looked older than 85. | [eurekalert.org](https://www.eurekalert.org/news-releases/1082875) | unknown | verified |
 | F14 | FaceAge code is public at github.com/AIM-Harvard/FaceAge, with MTCNN face localization plus an Inception-ResNet v1 age estimator. The repo states it is not for clinical or commercial use. No license type was seen on the page. | [github.com](https://github.com/AIM-Harvard/FaceAge) | unknown | verified |
 | F16 | Caveats: the hand-age study notes hand images can identify a person, as faces can (privacy risk). FaceAge authors say more research is needed before clinical use. | [biometricupdate.com](https://www.biometricupdate.com/202405/study-finds-dorsal-hand-images-as-effective-as-face-biometrics-for-age-estimation) | 2024 | verified |
-| F21 | Araujo 2022 (BJSM): in 1702 adults aged 51-75, inability to complete a 10-second one-legged stance was independently associated with all-cause mortality, adjusted HR 1.84 (95% CI 1.23 to 2.78); 20.4% could not do it; median follow-up 7 years. | [pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/35728834/) | 2022 | unverified |
+| F21 | Araujo 2022 (BJSM): in 1702 adults aged 51-75, inability to complete a 10-second one-legged stance was independently associated with all-cause mortality, adjusted HR 1.84 (95% CI 1.23 to 2.78); 20.4% could not do it; median follow-up 7 years. | [pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/35728834/) | 2022 | verified |
 | F22 | Springer 2007 normative unipedal stance test (eyes open and closed): 549 healthy adults 18+, six age bands, best of 3 trials, performance age-specific and not gender-related; abstract gives no per-band seconds. | [pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/19839175/) | 2007 | verified |
 | F23 | Colombian multicenter study (2025) set sex- and age-specific percentile reference values for 5-repetition, 30-second and 1-minute sit-to-stand in 393 healthy adults aged 18 to 80; abstract gives no percentile tables. | [pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/42183074/) | 2025 | verified |
 | F24 | Remote video-based sit-to-stand tele-assessment (synchronous and asynchronous) showed good to moderate validity against in-person testing in 38 post-COVID adults; asynchronous reliability between raters was high; minimal detectable change 6.6 and 10.5 reps. | [pubmed.ncbi.nlm.nih.gov](https://pubmed.ncbi.nlm.nih.gov/41328073/) | 2025 | verified |

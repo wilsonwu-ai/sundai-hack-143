@@ -1,10 +1,14 @@
-# Sundai Hack 143, explained: Biomarkers of Aging
+# Movement Age
+
+**How old do your legs move?** Your phone's camera counts your chair stands, then places your time on a published age table built from 393 adults aged 18 to 80 [F23]. It also times a one-leg stand: failing to hold one for 10 seconds was linked to higher all-cause mortality in adults aged 51 to 75 [F21]. Pose tracking runs in your browser, so nothing is uploaded.
+
+**Try it now:** https://wilsonwu-ai.github.io/sundai-hack-143/
+
+<a href="https://wilsonwu-ai.github.io/sundai-hack-143/"><img src="docs/img/qr-movement-age.svg" alt="QR code that opens the Movement Age app" width="150"></a>
 
 [![ci-cd](https://github.com/wilsonwu-ai/sundai-hack-143/actions/workflows/ci.yml/badge.svg)](https://github.com/wilsonwu-ai/sundai-hack-143/actions/workflows/ci.yml)
 
-**Live site:** https://wilsonwu-ai.github.io/sundai-hack-143/ (the demo ships there during the hack, 4 Oct 2026)
-
-A STAR write-up of Sundai Hack 143 at the Harvard Innovation Lab: the **Situation** (what the hack asked, and what a biomarker of aging is), the **Task and Action** (every candidate approach, and why we chose ours), and the **Result** (what we built and deployed).
+Built in one day at **Sundai Hack 143, Biomarkers of Aging** (Harvard Innovation Lab, 4 Oct 2026). An estimate from published reference data: not a medical device, not a diagnosis.
 
 ## Start here: the picture explainer
 
@@ -19,4 +23,4 @@ A STAR write-up of Sundai Hack 143 at the Harvard Innovation Lab: the **Situatio
 
 The same page is in this repo at [`research/explainer.html`](research/explainer.html) (source) and [`public/explainer/`](public/explainer/) (what GitHub Pages serves). The diagrams below are extracted from it by [`scripts/extract-diagrams.mjs`](scripts/extract-diagrams.mjs), so the page and this README never drift apart.
 
-Every number in this repo cites a finding ID like [F21]. Findings live in `research/verified.json` with their source URL, publication date and how they were checked.
+The rest of this README is a STAR write-up: the **Situation** (what the hack asked, and what a biomarker of aging is), the **Task and Action** (every candidate approach, and why we chose ours), and the **Result** (what we built and deployed). Every number cites a finding ID like [F21]; findings live in `research/verified.json` with their source URL, publication date and how they were checked.

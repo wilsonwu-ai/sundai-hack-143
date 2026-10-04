@@ -19,7 +19,7 @@ UNITS = {'1min': ('reps', 'higher'), '30s': ('reps', 'higher'), '5rep': ('second
 
 
 def text(s):
-    return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', s))).strip()
+    return re.sub(r'\s+', ' ', html.unescape(re.sub(r'</?[A-Za-z][^>]*>', ' ', s))).strip()
 
 
 def main(src, out):

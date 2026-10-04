@@ -1,9 +1,9 @@
 {
  "reviewed": true,
  "counts": {
-  "verified": 26,
+  "verified": 27,
   "killed": 1,
-  "unverified": 3
+  "unverified": 2
  },
  "lanesSent": 5,
  "lanesReturned": 5,
@@ -148,8 +148,8 @@
    "retrievedVia": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22one-legged%20stance%22%20mortality%20Araujo&format=json&resultType=core&pageSize=3",
    "citation": "Araujo CG et al. Successful 10-second one-legged stance performance predicts survival in middle-aged and older individuals. Br J Sports Med 2022",
    "quotecheck": {
-    "status": "not_found",
-    "score": "0/1"
+    "status": "verified",
+    "score": "1/1 (Europe PMC abstract)"
    },
    "review": {
     "correct": {
@@ -166,7 +166,7 @@
     }
    },
    "appliesWarning": null,
-   "status": "unverified"
+   "status": "verified"
   },
   {
    "id": "F22",

@@ -7,7 +7,7 @@
 - **Aging clock:** a model that turns a set of measurements into an age estimate, such as DNAm PhenoAge [F43].
 - **DNA methylation:** chemical marks on DNA, read from a blood sample, that DunedinPACE and DNAm PhenoAge are built on [F41] [F43].
 - **Test-retest reliability:** whether you get about the same answer when you measure the same person again; part of the validation template [F42].
-- **Hazard ratio (HR):** how much more often an outcome happens in one group than another over time; above 1 means more often, and the 10-second one-leg stance result is 1.84 [F21] (unverified).
+- **Hazard ratio (HR):** how much more often an outcome happens in one group than another over time; above 1 means more often, and the 10-second one-leg stance result is 1.84 [F21].
 - **95% confidence interval (CI):** the range of values the data are reasonably consistent with; a wide range means more uncertainty.
 - **Mean absolute error (MAE):** the average size of a model's mistakes, in the units of what it predicts, such as years [F34].
 - **Pose estimation:** software that finds body joints in video, so an app can see a knee bend or a lifted ankle.

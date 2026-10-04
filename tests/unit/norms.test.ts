@@ -64,7 +64,7 @@ describe('summarizeBalance', () => {
     expect(b.heldSeconds).toBe(12.3)
     expect(b.passedTenSeconds).toBe(true)
     expect(b.context).toMatch(/51 to 75/)
-    expect(b.context).toMatch(/unverified/i)
+    expect(b.context).toMatch(/not studied under 51/)
     expect(b.source.id).toBe('F21')
     expect(summarizeBalance(9999).passedTenSeconds).toBe(false)
   })

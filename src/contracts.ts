@@ -157,7 +157,7 @@ export interface BalanceSummary {
   heldSeconds: number
   /** heldMs >= 10000 */
   passedTenSeconds: boolean
-  /** One plain sentence stating the F21 finding with its 51 to 75 age scope, marked unverified. */
+  /** One plain sentence stating the F21 finding with its 51 to 75 age scope. */
   context: string
   source: SourceRef
 }
