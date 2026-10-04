@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Sundai 143 Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --bg: #eef4f3;
+  --panel: #ffffff;
+  --panel2: #e1ecea;
+  --fg: #112a2e;
+  --muted: #4a6468;
+  --line: #b9cdcb;
+  --teal: #0a6f6a;
+  --teal-soft: #cfe8e4;
+  --amber: #c2610f;
+  --amber-ink: #8f4608;
+  --amber-soft: #fbe3c9;
+  --blue: #2a5ba8;
+  --blue-soft: #d9e4f5;
+  --pass: #1c7a3f;
+  --pass-bg: #d7efdf;
+  --pend: #7d5800;
+  --pend-bg: #f8ecc4;
+  --fail: #b3261e;
+  --fail-bg: #f7d9d6;
+  --focus: #1b4fd6;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1c20;
+    --panel: #15292e;
+    --panel2: #1c353b;
+    --fg: #e3efee;
+    --muted: #9db8b8;
+    --line: #2f4d53;
+    --teal: #4fc9bd;
+    --teal-soft: #1b4a4a;
+    --amber: #f0a64e;
+    --amber-ink: #f4b469;
+    --amber-soft: #4a3216;
+    --blue: #8db4f2;
+    --blue-soft: #23375c;
+    --pass: #6fd197;
+    --pass-bg: #1b4430;
+    --pend: #f0cc66;
+    --pend-bg: #4a3c10;
+    --fail: #f59a93;
+    --fail-bg: #4d1f1c;
+    --focus: #9ec1ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1c20;
+  --panel: #15292e;
+  --panel2: #1c353b;
+  --fg: #e3efee;
+  --muted: #9db8b8;
+  --line: #2f4d53;
+  --teal: #4fc9bd;
+  --teal-soft: #1b4a4a;
+  --amber: #f0a64e;
+  --amber-ink: #f4b469;
+  --amber-soft: #4a3216;
+  --blue: #8db4f2;
+  --blue-soft: #23375c;
+  --pass: #6fd197;
+  --pass-bg: #1b4430;
+  --pend: #f0cc66;
+  --pend-bg: #4a3c10;
+  --fail: #f59a93;
+  --fail-bg: #4d1f1c;
+  --focus: #9ec1ff;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+@media (prefers-reduced-motion: no-preference) {
+  :root { scroll-behavior: smooth; }
+}
+body {
+  margin: 0;
+  padding-inline: 16px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+main { max-width: 44rem; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; }
+h1 { font-size: clamp(2.2rem, 9vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.55rem, 6vw, 2.1rem); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0 0 12px; }
+a { color: var(--blue); }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+.c {
+  font-family: var(--mono);
+  font-size: 0.8em;
+  white-space: nowrap;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.unv {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--amber-ink);
+  background: var(--amber-soft);
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.small { font-size: 0.92rem; color: var(--muted); }
+.lead { font-size: 1.25rem; line-height: 1.4; }
+
+section { padding-block: 40px; border-top: 1px solid var(--line); }
+.sh { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+.num { font-family: var(--mono); font-weight: 700; color: var(--teal); font-size: 0.95rem; }
+.fig { margin-block: 0 20px; }
+.fig svg { display: block; width: 100%; height: auto; }
+.fig.narrow { max-width: 30rem; }
+
+/* svg paint classes */
+.sf-panel { fill: var(--panel); }
+.sf-panel2 { fill: var(--panel2); }
+.sf-teal { fill: var(--teal); }
+.sf-tealsoft { fill: var(--teal-soft); }
+.sf-amber { fill: var(--amber); }
+.sf-ambersoft { fill: var(--amber-soft); }
+.sf-blue { fill: var(--blue); }
+.sf-bluesoft { fill: var(--blue-soft); }
+.sf-fg { fill: var(--fg); }
+.sf-line { fill: var(--line); }
+.sf-none { fill: none; }
+.ss { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ss-fg { stroke: var(--fg); }
+.ss-line { stroke: var(--line); }
+.ss-teal { stroke: var(--teal); }
+.ss-amber { stroke: var(--amber); }
+.ss-blue { stroke: var(--blue); }
+.ss-muted { stroke: var(--muted); }
+.w1 { stroke-width: 1; }
+.w2 { stroke-width: 2; }
+.w3 { stroke-width: 3; }
+.w4 { stroke-width: 4; }
+.dash { stroke-dasharray: 4 4; }
+.tx { fill: var(--fg); font-family: var(--body); font-size: 13px; }
+.tm { fill: var(--muted); font-family: var(--body); font-size: 12px; }
+.tb { font-weight: 700; }
+.ta { fill: var(--amber-ink); }
+.tt { fill: var(--teal); }
+.tbg { fill: var(--bg); }
+.tbig { font-family: var(--display); font-size: 14px; font-weight: 700; fill: var(--fg); }
+.mid { text-anchor: middle; }
+.end { text-anchor: end; }
+.mk { fill: var(--muted); }
+
+.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.ic { width: 44px; flex: none; }
+.ic svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ic.am svg { stroke: var(--amber); }
+.ic.bl svg { stroke: var(--blue); }
+
+/* hero */
+.hero { padding-block: 28px 36px; display: grid; gap: 20px; }
+.hero .q { font-family: var(--display); font-size: 1.35rem; font-weight: 600; line-height: 1.25; margin: 14px 0 12px; }
+.goal { border-left: 6px solid var(--amber); padding: 4px 0 4px 14px; margin: 16px 0 0; }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 18px 0 0; padding: 0; }
+.jump a {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-decoration: none;
+  color: var(--fg);
+  background: var(--panel);
+}
+@media (min-width: 640px) {
+  .hero { grid-template-columns: 1.15fr 1fr; align-items: center; gap: 28px; }
+}
+
+/* section 2 */
+.facts { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.facts li { padding: 10px 14px; background: var(--panel2); border-radius: 4px; }
+.facts li strong { font-family: var(--display); }
+
+/* section 3 */
+.crit { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; counter-reset: k; }
+.crit li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 4px 14px;
+  padding-block: 14px;
+  border-top: 1px solid var(--line);
+}
+.crit li:first-child { border-top: 0; }
+.crit h3 { grid-column: 2; }
+.crit p { grid-column: 2; margin: 0; }
+.crit .ic { grid-row: 1 / span 2; }
+
+/* menu */
+.menu { display: grid; gap: 12px; grid-template-columns: 1fr; margin: 0; padding: 0; list-style: none; }
+@media (min-width: 600px) { .menu { grid-template-columns: 1fr 1fr; } }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--teal);
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.card.no { border-left-color: var(--amber); }
+.card .hd { display: flex; align-items: center; gap: 12px; }
+.card .reads { font-size: 0.95rem; color: var(--muted); margin: 0; }
+.card .ev { margin: 0; font-size: 0.98rem; }
+.card .cv { margin: 0; font-size: 0.88rem; color: var(--muted); }
+.card .demo { margin-top: auto; padding-top: 4px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.chip svg { width: 14px; height: 14px; flex: none; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.chip.pass { background: var(--pass-bg); color: var(--pass); }
+.chip.pend { background: var(--pend-bg); color: var(--pend); }
+.chip.fail { background: var(--fail-bg); color: var(--fail); }
+.chip.yes { background: var(--teal-soft); color: var(--teal); }
+.chip.nope { background: var(--amber-soft); color: var(--amber-ink); }
+.demo-note { font-size: 0.85rem; color: var(--muted); margin-left: 6px; }
+
+/* wins */
+.wins { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 0; }
+.wins li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 4px 14px;
+  padding-block: 12px;
+  border-top: 1px solid var(--line);
+}
+.wins li:first-child { border-top: 0; }
+.wins h3 { grid-column: 2; }
+.wins p { grid-column: 2; margin: 0; font-size: 0.97rem; }
+.wins .ic { grid-row: 1 / span 2; }
+.chart { overflow-x: auto; margin-block: 8px 12px; }
+.chart svg { display: block; width: 100%; min-width: 320px; height: auto; }
+
+/* pick */
+.pickname { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 8px; }
+.pickname h3 { font-size: clamp(1.8rem, 7vw, 2.4rem); font-weight: 800; color: var(--teal); }
+.pipe {
+  list-style: none;
+  margin: 20px 0 8px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 20px;
+}
+.step {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.93rem;
+  line-height: 1.4;
+}
+.step .top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.step .ic { width: 36px; }
+.step .n {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: var(--blue-soft);
+  color: var(--blue);
+  border-radius: 4px;
+  padding: 0 7px;
+}
+.step h4 { font-family: var(--display); font-size: 1.02rem; margin: 0; }
+.step p { margin: 0; }
+.step::after {
+  position: absolute;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--teal);
+  content: "\2192";
+  right: -17px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.step:nth-child(2n)::after {
+  content: "\2199";
+  right: auto;
+  left: 50%;
+  top: auto;
+  bottom: -23px;
+  transform: translateX(-50%);
+}
+@media (min-width: 640px) {
+  .pipe { grid-template-columns: repeat(3, 1fr); }
+  .step:nth-child(2n)::after {
+    content: "\2192";
+    right: -17px;
+    left: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+  .step:nth-child(3n)::after {
+    content: "\2199";
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -23px;
+    transform: translateX(-50%);
+  }
+}
+.step:last-child::after { content: none; }
+.callout {
+  background: var(--amber-soft);
+  border-left: 6px solid var(--amber);
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 0.96rem;
+  margin: 16px 0;
+}
+.why { margin: 0 0 16px; padding-left: 1.2rem; }
+.why li { margin-bottom: 8px; padding-left: 4px; }
+.kill { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 12px; }
+.kill li { display: grid; gap: 4px; padding: 12px 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; }
+.kill .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.kill .id { font-family: var(--mono); font-weight: 700; }
+.kill p { margin: 0; font-size: 0.95rem; }
+.kill .why2 { color: var(--muted); font-size: 0.9rem; }
+.key { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 12px; font-size: 0.85rem; color: var(--muted); }
+.diffbox { background: var(--panel2); border-radius: 6px; padding: 14px; margin-top: 16px; }
+.diffbox h3 { margin-bottom: 8px; }
+.diffbox p:last-child { margin-bottom: 0; }
+
+/* pitch */
+.pitch {
+  background: var(--teal-soft);
+  border: 2px solid var(--teal);
+  border-radius: 8px;
+  padding: 16px;
+}
+.pitch p.say { font-size: 1.15rem; line-height: 1.5; margin-bottom: 14px; }
+.btn {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 2px solid var(--teal);
+  background: var(--teal);
+  color: var(--bg);
+  cursor: pointer;
+}
+.btn:hover { background: var(--fg); border-color: var(--fg); }
+.status { margin-left: 12px; font-size: 0.9rem; color: var(--muted); }
+.ask { margin-top: 20px; display: grid; gap: 10px; }
+.ask h3 { margin-bottom: 4px; }
+.ask ul { margin: 0; padding-left: 1.2rem; }
+.ask li { margin-bottom: 6px; }
+
+/* demo */
+.beats { list-style: none; margin: 0 0 12px; padding: 0; counter-reset: b; display: grid; gap: 10px; }
+.beats li { display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; }
+.beats .bn {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+.beats .t { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); display: block; }
+
+/* unknown */
+.unk { margin: 0 0 16px; padding-left: 1.2rem; font-size: 0.93rem; color: var(--muted); }
+.unk li { margin-bottom: 6px; }
+.unk strong { color: var(--fg); font-weight: 700; }
+.gaps { font-size: 0.9rem; color: var(--muted); }
+
+/* sources */
+.src { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.src li { padding-block: 12px; border-top: 1px solid var(--line); scroll-margin-top: 12px; }
+.src li:first-child { border-top: 0; }
+.src li:target { background: var(--panel2); }
+.src .sid { font-family: var(--mono); font-weight: 700; color: var(--teal); margin-right: 8px; }
+.src .claim { font-size: 0.97rem; }
+.src .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 4px; font-size: 0.85rem; color: var(--muted); }
+.src .meta a { overflow-wrap: anywhere; }
+
+footer { padding-block: 28px 48px; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--muted); }
+footer p { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<svg class="defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <symbol id="ic-face" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><circle cx="18" cy="21" r="1.5"/><circle cx="30" cy="21" r="1.5"/><path d="M17 30 Q24 36 31 30"/></symbol>
+  <symbol id="ic-hand" viewBox="0 0 48 48"><rect x="13" y="22" width="22" height="19" rx="7"/><rect x="13" y="8" width="5" height="18" rx="2.5"/><rect x="20" y="5" width="5" height="21" rx="2.5"/><rect x="27" y="7" width="5" height="19" rx="2.5"/><path d="M35 28 L41 22"/></symbol>
+  <symbol id="ic-watch" viewBox="0 0 48 48"><rect x="14" y="12" width="20" height="24" rx="6"/><path d="M19 12 V5 H29 V12 M19 36 V43 H29 V36"/><path d="M18 25 H22 L24 20 L27 29 L29 25 H30"/></symbol>
+  <symbol id="ic-mic" viewBox="0 0 48 48"><rect x="18" y="5" width="12" height="22" rx="6"/><path d="M12 22 A12 12 0 0 0 36 22"/><path d="M24 34 V42 M17 42 H31"/></symbol>
+  <symbol id="ic-move" viewBox="0 0 48 48"><circle cx="22" cy="8" r="4"/><path d="M22 13 V28 M12 20 H32 M22 28 V42 M22 28 L33 33 L31 41"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 48 48"><path d="M30 7 A17 17 0 1 0 41 30 A14 14 0 0 1 30 7 Z"/><path d="M36 10 V16 M33 13 H39"/></symbol>
+  <symbol id="ic-heart" viewBox="0 0 48 48"><path d="M24 41 C8 29 6 17 14 12 C19 9 23 12 24 16 C25 12 29 9 34 12 C42 17 40 29 24 41 Z"/></symbol>
+  <symbol id="ic-dumb" viewBox="0 0 48 48"><rect x="5" y="19" width="5" height="10" rx="2"/><rect x="10" y="14" width="6" height="20" rx="2"/><rect x="32" y="14" width="6" height="20" rx="2"/><rect x="38" y="19" width="5" height="10" rx="2"/><path d="M16 24 H32"/></symbol>
+  <symbol id="ic-combo" viewBox="0 0 48 48"><circle cx="18" cy="19" r="11"/><circle cx="30" cy="19" r="11"/><circle cx="24" cy="30" r="11"/></symbol>
+  <symbol id="ic-phone" viewBox="0 0 48 48"><rect x="14" y="5" width="20" height="38" rx="4"/><path d="M21 38 H27"/></symbol>
+  <symbol id="ic-lens" viewBox="0 0 48 48"><circle cx="21" cy="21" r="12"/><path d="M30 30 L41 41"/></symbol>
+  <symbol id="ic-globe" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><ellipse cx="24" cy="24" rx="7" ry="17"/><path d="M7 24 H41"/></symbol>
+  <symbol id="ic-two" viewBox="0 0 48 48"><rect x="6" y="9" width="21" height="21" rx="3"/><circle cx="31" cy="31" r="11"/></symbol>
+  <symbol id="ic-rise" viewBox="0 0 48 48"><path d="M6 40 H42 M6 40 V6"/><path d="M10 34 L19 24 L27 28 L40 11 M32 11 H40 V19"/></symbol>
+  <symbol id="ic-frame" viewBox="0 0 48 48"><path d="M8 17 V8 H17 M31 8 H40 V17 M40 31 V40 H31 M17 40 H8 V31"/><circle cx="24" cy="17" r="3"/><path d="M24 21 V31 M18 25 H30 M24 31 L19 38 M24 31 L29 38"/></symbol>
+  <symbol id="ic-chair" viewBox="0 0 48 48"><path d="M14 6 V26 H34 M14 26 V42 M34 26 V42"/></symbol>
+  <symbol id="ic-table" viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="28" rx="3"/><path d="M8 20 H40 M8 29 H40 M22 10 V38"/></symbol>
+  <symbol id="ic-card" viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="4"/><path d="M12 19 H30 M12 25 H36 M12 31 H24"/></symbol>
+  <symbol id="ic-repeat" viewBox="0 0 48 48"><path d="M10 20 A14 14 0 0 1 36 15 M38 8 V16 H30"/><path d="M38 28 A14 14 0 0 1 12 33 M10 40 V32 H18"/></symbol>
+  <symbol id="ic-doc" viewBox="0 0 48 48"><path d="M12 5 H29 L38 14 V43 H12 Z"/><path d="M29 5 V14 H38 M18 24 H32 M18 31 H32 M18 38 H26"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4"/></symbol>
+  <symbol id="ic-wait" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 4.5 V8 L10.5 9.5"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 16 16"><path d="M4 4 L12 12 M12 4 L4 12"/></symbol>
+</svg>
+
+<main>
+
+<!-- 1. HERO -->
+<header class="hero" id="s-hero">
+  <div>
+    <p class="eyebrow">Sundai Hack 143 &middot; Sun 4 Oct 2026 &middot; Biomarkers of Aging <a class="c" href="#src-F51">[F51]</a></p>
+    <h1>Sundai 143 Explained</h1>
+    <p class="q">How can we measure how fast someone is aging using data we can collect today?</p>
+    <p class="goal lead">Today's goal: a working app on a public URL by the 20:00 presentations. It estimates an age from published data and shows where each number comes from. <a class="c" href="#src-F51">[F51]</a></p>
+    <ul class="jump">
+      <li><a href="#s-age">Aging</a></li>
+      <li><a href="#s-good">Good</a></li>
+      <li><a href="#s-menu">Menu</a></li>
+      <li><a href="#s-wins">Wins</a></li>
+      <li><a href="#s-pick">Pick</a></li>
+      <li><a href="#s-pitch">Pitch</a></li>
+      <li><a href="#s-demo">Demo</a></li>
+      <li><a href="#s-unknown">Unknown</a></li>
+      <li><a href="#s-sources">Sources</a></li>
+    </ul>
+  </div>
+  <figure class="fig narrow" style="margin:0">
+    <svg viewBox="0 0 360 200" role="img" aria-labelledby="hero-t hero-d">
+      <title id="hero-t">A birthday clock beside a body clock</title>
+      <desc id="hero-d">Two clock faces side by side. The left one counts years since birth. The right one has a pulse line and shows how worn the body is. They may differ.</desc>
+      <defs>
+        <g id="hero-ticks" class="ss ss-muted w2">
+          <path d="M90 38 V32 M117 45 L120 40 M137 65 L142 62 M144 92 H150 M137 119 L142 122 M117 139 L120 144 M90 146 V152 M63 139 L60 144 M43 119 L38 122 M36 92 H30 M43 65 L38 62 M63 45 L60 40"/>
+        </g>
+      </defs>
+      <circle cx="90" cy="92" r="64" class="sf-panel ss ss-fg w3"/>
+      <use href="#hero-ticks"/>
+      <path d="M90 92 V46" class="ss ss-fg w3"/>
+      <path d="M90 92 L110 104" class="ss ss-fg w4"/>
+      <circle cx="90" cy="92" r="4" class="sf-fg"/>
+      <circle cx="270" cy="92" r="64" class="sf-panel ss ss-amber w3"/>
+      <use href="#hero-ticks" transform="translate(180 0)"/>
+      <path d="M270 92 L300 64" class="ss ss-amber w3"/>
+      <path d="M270 92 L250 80" class="ss ss-amber w4"/>
+      <path d="M236 118 H252 L258 106 L264 130 L270 110 L276 118 H304" class="ss ss-teal w2"/>
+      <circle cx="270" cy="92" r="4" class="sf-amber"/>
+      <text x="180" y="102" class="tbig mid" style="font-size:28px">&ne;</text>
+      <text x="90" y="178" class="tbig mid">Birthday clock</text>
+      <text x="90" y="194" class="tm mid">years since you were born</text>
+      <text x="270" y="178" class="tbig mid">Body clock</text>
+      <text x="270" y="194" class="tm mid">how worn the body is</text>
+    </svg>
+  </figure>
+</header>
+
+<!-- 2. BIRTHDAY AGE VS BODY AGE -->
+<section id="s-age" aria-labelledby="h-age">
+  <div class="sh"><span class="num">02</span><h2 id="h-age">Birthday age vs body age</h2></div>
+  <figure class="fig narrow" style="margin-inline:0">
+    <svg viewBox="0 0 360 200" role="img" aria-labelledby="age-t age-d">
+      <title id="age-t">Two cars with the same odometer and different engine wear</title>
+      <desc id="age-d">One odometer is shared by two cars. Car A has a gauge pointing to light wear. Car B has a gauge pointing to heavy wear.</desc>
+      <rect x="100" y="8" width="160" height="36" rx="4" class="sf-panel ss ss-fg w2"/>
+      <rect x="108" y="14" width="24" height="24" rx="2" class="sf-panel2"/>
+      <rect x="138" y="14" width="24" height="24" rx="2" class="sf-panel2"/>
+      <rect x="168" y="14" width="24" height="24" rx="2" class="sf-panel2"/>
+      <rect x="198" y="14" width="24" height="24" rx="2" class="sf-panel2"/>
+      <rect x="228" y="14" width="24" height="24" rx="2" class="sf-panel2"/>
+      <text x="180" y="64" class="tx mid tb">Same odometer = same birthday age</text>
+      <path d="M34 150 A56 56 0 0 1 146 150" class="ss ss-line w4"/>
+      <path d="M90 150 L54 125" class="ss ss-teal w3"/>
+      <circle cx="90" cy="150" r="5" class="sf-teal"/>
+      <path d="M214 150 A56 56 0 0 1 326 150" class="ss ss-line w4"/>
+      <path d="M270 150 L306 125" class="ss ss-amber w3"/>
+      <circle cx="270" cy="150" r="5" class="sf-amber"/>
+      <text x="90" y="172" class="tbig mid">Car A</text>
+      <text x="90" y="190" class="tm mid">light engine wear</text>
+      <text x="270" y="172" class="tbig mid">Car B</text>
+      <text x="270" y="190" class="tm mid">heavy engine wear</text>
+    </svg>
+  </figure>
+  <p class="lead">Birthday age counts candles. Body age tries to say how worn the body is.</p>
+  <p>A biomarker of aging is a measurement that tries to read that wear. Nobody has one agreed way to do it yet <a class="c" href="#src-F46">[F46]</a>.</p>
+  <ul class="facts">
+    <li><strong>Speed.</strong> The event asks how fast. That is a speedometer. DunedinPACE was built as a rate: it followed 19 organ-system indicators across four time points over two decades <a class="c" href="#src-F41">[F41]</a>.</li>
+    <li><strong>Wear that shows.</strong> FaceAge found cancer patients looked 4.79 years older than a non-cancerous reference cohort <a class="c" href="#src-F11">[F11]</a>.</li>
+    <li><strong>Odometer guesses.</strong> An open voice model guesses age in years with an error of 7.1 to 10.8 years, depending on dataset. It reads chronological age only <a class="c" href="#src-F34">[F34]</a>.</li>
+  </ul>
+</section>
+
+<!-- 3. GOOD ONE -->
+<section id="s-good" aria-labelledby="h-good">
+  <div class="sh"><span class="num">03</span><h2 id="h-good">What makes a good one</h2></div>
+  <figure class="fig">
+    <svg viewBox="0 0 360 96" role="img" aria-labelledby="good-t good-d">
+      <title id="good-t">A tape measure</title>
+      <desc id="good-d">A tape measure with tick marks and the words measure it twice.</desc>
+      <rect x="8" y="24" width="344" height="48" rx="4" class="sf-tealsoft ss ss-teal w2"/>
+      <path d="M24 24v14M40 24v8M56 24v14M72 24v8M88 24v14M104 24v8M120 24v14M136 24v8M152 24v14M168 24v8M184 24v14M200 24v8M216 24v14M232 24v8M248 24v14M264 24v8M280 24v14M296 24v8M312 24v14M328 24v8M344 24v14" class="ss ss-teal w2"/>
+      <text x="180" y="60" class="tbig mid">Measure it twice. Same answer?</text>
+    </svg>
+  </figure>
+  <p class="small">There is no single agreed checklist yet <a class="c" href="#src-F46">[F46]</a>. These parts keep showing up in the evidence we found. The Consortium aims at standard, clinically validated ways to measure aging <a class="c" href="#src-F53">[F53]</a>.</p>
+  <ul class="crit">
+    <li>
+      <div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-repeat"/></svg></div>
+      <h3>Repeatable</h3>
+      <p>Test it again and get about the same result. DunedinPACE showed high test-retest reliability <a class="c" href="#src-F42">[F42]</a>.</p>
+    </li>
+    <li>
+      <div class="ic bl"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-rise"/></svg></div>
+      <h3>Linked to what happens next</h3>
+      <p>It goes with illness, disability or death later on <a class="c" href="#src-F42">[F42]</a>. DNAm PhenoAge predicts all-cause mortality, cancers, healthspan, physical functioning and Alzheimer's disease <a class="c" href="#src-F43">[F43]</a>.</p>
+    </li>
+    <li>
+      <div class="ic am"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-lens"/></svg></div>
+      <h3>Adds more than the birthday</h3>
+      <p>The link holds after age is accounted for. Example: a failed 10-second one-leg stand stayed linked to mortality after adjusting for age, sex, BMI and comorbidities, in adults aged 51 to 75 <a class="c" href="#src-F21">[F21]</a> <span class="unv">unverified</span>.</p>
+    </li>
+    <li>
+      <div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-doc"/></svg></div>
+      <h3>Shows its sources and limits</h3>
+      <p>A result that names its study, its cohort and its error can be checked. One that does not cannot, and the field already lacks shared standards <a class="c" href="#src-F46">[F46]</a>.</p>
+    </li>
+  </ul>
+</section>
+
+<!-- 4. MENU -->
+<section id="s-menu" aria-labelledby="h-menu">
+  <div class="sh"><span class="num">04</span><h2 id="h-menu">The menu</h2></div>
+  <figure class="fig">
+    <svg viewBox="0 0 360 80" role="img" aria-labelledby="menu-t menu-d">
+      <title id="menu-t">Nine directions from the organizers</title>
+      <desc id="menu-d">A row of nine dots, one for each direction the organizers named: FaceAge, HandAge, wearables, voice, movement, sleep, heart signals, fitness and combinations.</desc>
+      <path d="M28 36 H332" class="ss ss-line w2"/>
+      <circle cx="28" cy="36" r="9" class="sf-tealsoft ss ss-teal w2"/>
+      <circle cx="66" cy="36" r="9" class="sf-ambersoft ss ss-amber w2"/>
+      <circle cx="104" cy="36" r="9" class="sf-ambersoft ss ss-amber w2"/>
+      <circle cx="142" cy="36" r="9" class="sf-tealsoft ss ss-teal w2"/>
+      <circle cx="180" cy="36" r="9" class="sf-teal ss ss-teal w2"/>
+      <circle cx="218" cy="36" r="9" class="sf-ambersoft ss ss-amber w2"/>
+      <circle cx="256" cy="36" r="9" class="sf-tealsoft ss ss-teal w2"/>
+      <circle cx="294" cy="36" r="9" class="sf-tealsoft ss ss-teal w2"/>
+      <circle cx="332" cy="36" r="9" class="sf-ambersoft ss ss-amber w2"/>
+      <text x="180" y="72" class="tm mid">Teal: can demo in 60 seconds. Amber: cannot. Solid: our pick.</text>
+    </svg>
+  </figure>
+  <ul class="menu">
+    <li class="card">
+      <div class="hd"><div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-face"/></svg></div><h3>FaceAge</h3></div>
+      <p class="reads">Reads: a face photo.</p>
+      <p class="ev">Cancer patients looked 4.79 years older than a non-cancerous reference cohort <a class="c" href="#src-F11">[F11]</a>. Older FaceAge went with worse survival in 6,196 cancer patients <a class="c" href="#src-F13">[F13]</a>.</p>
+      <p class="cv">The code is public, for research only <a class="c" href="#src-F14">[F14]</a>. Weights link not confirmed.</p>
+      <p class="demo"><span class="chip yes">Demo in 60 s: yes</span></p>
+    </li>
+    <li class="card no">
+      <div class="hd"><div class="ic am"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-hand"/></svg></div><h3>HandAge</h3></div>
+      <p class="reads">Reads: a photo of the back of the hand.</p>
+      <p class="ev">No hand-age evidence is established in our research, and no model weights were found. Hand photos can identify a person, as faces can <a class="c" href="#src-F16">[F16]</a>.</p>
+      <p class="demo"><span class="chip nope">Demo in 60 s: no</span></p>
+    </li>
+    <li class="card no">
+      <div class="hd"><div class="ic am"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-watch"/></svg></div><h3>Wearables</h3></div>
+      <p class="reads">Reads: watch or ring data collected over days.</p>
+      <p class="ev">Not established. Our files hold no study showing that a wearable composite tracks aging.</p>
+      <p class="demo"><span class="chip nope">Demo in 60 s: no</span><span class="demo-note">needs a personal data export</span></p>
+    </li>
+    <li class="card">
+      <div class="hd"><div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-mic"/></svg></div><h3>Voice</h3></div>
+      <p class="reads">Reads: a short voice clip.</p>
+      <p class="ev">An open model guesses age in years with an error of 7.1 to 10.8 years, depending on dataset <a class="c" href="#src-F34">[F34]</a>.</p>
+      <p class="cv">Chronological age only, so a weak aging proxy <a class="c" href="#src-F34">[F34]</a>.</p>
+      <p class="demo"><span class="chip yes">Demo in 60 s: yes</span></p>
+    </li>
+    <li class="card">
+      <div class="hd"><div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-move"/></svg></div><h3>Movement</h3></div>
+      <p class="reads">Reads: camera video of a simple test, such as a one-leg stand.</p>
+      <p class="ev">Not completing a 10-second one-leg stand went with higher all-cause mortality, HR 1.84 (95% CI 1.23 to 2.78), in 1702 adults aged 51 to 75 <a class="c" href="#src-F21">[F21]</a> <span class="unv">unverified</span>.</p>
+      <p class="cv">Our pick builds on this one.</p>
+      <p class="demo"><span class="chip yes">Demo in 60 s: yes</span></p>
+    </li>
+    <li class="card no">
+      <div class="hd"><div class="ic am"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-moon"/></svg></div><h3>Sleep</h3></div>
+      <p class="reads">Reads: sleep timing from a tracker.</p>
+      <p class="ev">Sleep regularity predicted mortality better than sleep duration <a class="c" href="#src-F32">[F32]</a> <span class="unv">unverified</span>.</p>
+      <p class="cv">The cohort averaged 62.8 years and used 7 days of wrist data. Do not apply it to adults aged 20 to 70 <a class="c" href="#src-F32">[F32]</a>.</p>
+      <p class="demo"><span class="chip nope">Demo in 60 s: no</span><span class="demo-note">needs a health export</span></p>
+    </li>
+    <li class="card">
+      <div class="hd"><div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-heart"/></svg></div><h3>Heart signals</h3></div>
+      <p class="reads">Reads: pulse from a fingertip on the phone camera, or from face video.</p>
+      <p class="ev">Fingertip pulse matched resting ECG heart rate (r=.997, RMSE 1.03 beats/min) in healthy young adults. Face pulse was less accurate <a class="c" href="#src-F35">[F35]</a>.</p>
+      <p class="cv">That checks heart rate accuracy. Our files hold no evidence that camera pulse tracks aging.</p>
+      <p class="demo"><span class="chip yes">Demo in 60 s: yes</span><span class="demo-note">fingertip</span></p>
+    </li>
+    <li class="card">
+      <div class="hd"><div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-dumb"/></svg></div><h3>Fitness</h3></div>
+      <p class="reads">Reads: strength and stamina tests, such as chair stands.</p>
+      <p class="ev">In 2207 adults aged 60 and over, a fitness age running ahead of birthday age went with depressive symptoms (aOR 1.88) and cognitive impairment (aOR 1.76) <a class="c" href="#src-F26">[F26]</a>.</p>
+      <p class="cv">A snapshot study. Korean fitness-age equations came from 501,774 people <a class="c" href="#src-F25">[F25]</a>.</p>
+      <p class="demo"><span class="chip yes">Demo in 60 s: yes</span><span class="demo-note">chair stands only</span></p>
+    </li>
+    <li class="card no">
+      <div class="hd"><div class="ic am"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-combo"/></svg></div><h3>Combinations</h3></div>
+      <p class="reads">Reads: two or more signals at once.</p>
+      <p class="ev">A blood-protein study found nearly 20% of people show strongly accelerated age in one organ and 1.7% in several. That favors a profile of parts over one number <a class="c" href="#src-F45">[F45]</a>.</p>
+      <p class="cv">No published method in our files merges face, movement and pulse into one age.</p>
+      <p class="demo"><span class="chip nope">Demo in 60 s: no</span><span class="demo-note">three captures will not fit</span></p>
+    </li>
+  </ul>
+</section>
+
+<!-- 5. WHAT WINS -->
+<section id="s-wins" aria-labelledby="h-wins">
+  <div class="sh"><span class="num">05</span><h2 id="h-wins">What wins tonight</h2></div>
+  <p class="small">The room votes after the 20:00 presentations. That comes from Wilson's notes. Sundai's own judging rules are not confirmed. <a class="c" href="#src-F51">[F51]</a></p>
+  <ul class="wins">
+    <li>
+      <div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-phone"/></svg></div>
+      <h3>Voters try it on themselves</h3>
+      <p>A demo each person runs on their own phone in under a minute gets remembered. A slide does not. <a class="c" href="#src-F51">[F51]</a></p>
+    </li>
+    <li>
+      <div class="ic bl"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-lens"/></svg></div>
+      <h3>Honest science</h3>
+      <p>Researchers and clinicians are in the room, and the Consortium conference starts the next day <a class="c" href="#src-F52">[F52]</a>. Show sources, error and limits <a class="c" href="#src-F42">[F42]</a> <a class="c" href="#src-F46">[F46]</a>.</p>
+    </li>
+    <li>
+      <div class="ic am"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-rise"/></svg></div>
+      <h3>Linked to outcomes</h3>
+      <p>A guess of age in years looks thin: the open voice model errs by 7.1 to 10.8 years <a class="c" href="#src-F34">[F34]</a>. A link to mortality or illness looks more like a biomarker <a class="c" href="#src-F42">[F42]</a> <a class="c" href="#src-F43">[F43]</a>.</p>
+    </li>
+    <li>
+      <div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-globe"/></svg></div>
+      <h3>Live on a public URL by 20:00</h3>
+      <p>The format is a new AI app built from scratch by the end of the day. Broken or offline on stage is out. <a class="c" href="#src-F51">[F51]</a></p>
+    </li>
+    <li>
+      <div class="ic bl"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-two"/></svg></div>
+      <h3>Looks new</h3>
+      <p>FaceAge code is public <a class="c" href="#src-F14">[F14]</a>, so expect several selfie-age teams. Phone apps for chair rise <a class="c" href="#src-F55">[F55]</a> and fingertip body age <a class="c" href="#src-F56">[F56]</a> already exist. Credit them openly.</p>
+    </li>
+  </ul>
+
+  <h3>The ideas, ranked</h3>
+  <p class="small">Each idea was scored on live demo, science, differentiation, buildability and AI wow. Live demo and science count most. Totals are weighted, computed in code, out of 100.</p>
+  <div class="chart">
+    <svg viewBox="0 0 360 540" role="img" aria-labelledby="bar-t bar-d">
+      <title id="bar-t">Ranked ideas, weighted score out of 100</title>
+      <desc id="bar-d">Horizontal bars. Movement Age scores 77, Chair-Rise Age 73, Count vs Tap 71, Look Age vs Move Age 67, AgeGap Selfie Lab 62, Age-Gap Evidence Board 62, Three-Signal Aging Panel 57, Aging Clock Arcade 57, Pulse plus Pose 55, Clock Report Card 47, Regularity Check 44, Pace Not Age 41.</desc>
+      <path d="M8 4 V492 M154 4 V492 M300 4 V492" class="ss ss-line w1 dash"/>
+
+      <text x="8" y="22" class="tx tb">Movement Age (our pick)</text>
+      <rect x="8" y="28" width="224.8" height="12" rx="3" class="sf-amber"/>
+      <text x="238.8" y="39" class="tx tb">77</text>
+
+      <text x="8" y="62" class="tx">Chair-Rise Age (merged with I51)</text>
+      <rect x="8" y="68" width="213.2" height="12" rx="3" class="sf-teal"/>
+      <text x="227.2" y="79" class="tx tb">73</text>
+
+      <text x="8" y="102" class="tx">Count vs Tap</text>
+      <rect x="8" y="108" width="207.3" height="12" rx="3" class="sf-teal"/>
+      <text x="221.3" y="119" class="tx tb">71</text>
+
+      <text x="8" y="142" class="tx">Look Age vs Move Age</text>
+      <rect x="8" y="148" width="195.6" height="12" rx="3" class="sf-teal"/>
+      <text x="209.6" y="159" class="tx tb">67</text>
+
+      <text x="8" y="182" class="tx">AgeGap Selfie Lab</text>
+      <rect x="8" y="188" width="181" height="12" rx="3" class="sf-teal"/>
+      <text x="195" y="199" class="tx tb">62</text>
+
+      <text x="8" y="222" class="tx">Age-Gap Evidence Board</text>
+      <rect x="8" y="228" width="181" height="12" rx="3" class="sf-teal"/>
+      <text x="195" y="239" class="tx tb">62</text>
+
+      <text x="8" y="262" class="tx">Three-Signal Aging Panel</text>
+      <rect x="8" y="268" width="166.4" height="12" rx="3" class="sf-teal"/>
+      <text x="180.4" y="279" class="tx tb">57</text>
+
+      <text x="8" y="302" class="tx">Aging Clock Arcade</text>
+      <rect x="8" y="308" width="166.4" height="12" rx="3" class="sf-teal"/>
+      <text x="180.4" y="319" class="tx tb">57</text>
+
+      <text x="8" y="342" class="tx">Pulse plus Pose</text>
+      <rect x="8" y="348" width="160.6" height="12" rx="3" class="sf-teal"/>
+      <text x="174.6" y="359" class="tx tb">55</text>
+
+      <text x="8" y="382" class="tx">Clock Report Card</text>
+      <rect x="8" y="388" width="137.2" height="12" rx="3" class="sf-teal"/>
+      <text x="151.2" y="399" class="tx tb">47</text>
+
+      <text x="8" y="422" class="tx">Regularity Check</text>
+      <rect x="8" y="428" width="128.5" height="12" rx="3" class="sf-teal"/>
+      <text x="142.5" y="439" class="tx tb">44</text>
+
+      <text x="8" y="462" class="tx">Pace Not Age</text>
+      <rect x="8" y="468" width="119.7" height="12" rx="3" class="sf-teal"/>
+      <text x="133.7" y="479" class="tx tb">41</text>
+
+      <text x="8" y="512" class="tm">0</text>
+      <text x="154" y="512" class="tm mid">50</text>
+      <text x="300" y="512" class="tm mid">100</text>
+      <text x="8" y="532" class="tm">Weighted score, out of 100</text>
+    </svg>
+  </div>
+  <p class="small">Second place, Chair-Rise Age, is the easiest to build. It has weaker science and less difference from the iOS app <a class="c" href="#src-F55">[F55]</a>, so it scores lower.</p>
+</section>
+
+<!-- 6. OUR PICK -->
+<section id="s-pick" aria-labelledby="h-pick">
+  <div class="sh"><span class="num">06</span><h2 id="h-pick">Our pick</h2></div>
+  <figure class="fig">
+    <svg viewBox="0 0 360 160" role="img" aria-labelledby="pick-t pick-d">
+      <title id="pick-t">Phone watches a one-leg stand and shows an age band</title>
+      <desc id="pick-d">A propped-up phone looks at a stick figure standing on one leg with joint dots. An arrow leads to a result card with two band bars, one for balance and one for leg strength, and a source line.</desc>
+      <defs>
+        <marker id="pick-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="mk"/></marker>
+      </defs>
+      <path d="M84 80 H128" class="ss ss-muted w2" marker-end="url(#pick-arrow)"/>
+      <rect x="16" y="24" width="60" height="112" rx="8" class="sf-panel ss ss-fg w3"/>
+      <circle cx="46" cy="38" r="4" class="sf-fg"/>
+      <path d="M36 128 H56" class="ss ss-line w3"/>
+      <path d="M170 54 V92 M150 66 H190 M170 92 V132 M170 92 L192 108 L184 126" class="ss ss-teal w3"/>
+      <circle cx="170" cy="42" r="10" class="sf-panel ss ss-teal w3"/>
+      <circle cx="170" cy="54" r="3.5" class="sf-amber"/>
+      <circle cx="150" cy="66" r="3.5" class="sf-amber"/>
+      <circle cx="190" cy="66" r="3.5" class="sf-amber"/>
+      <circle cx="170" cy="92" r="3.5" class="sf-amber"/>
+      <circle cx="192" cy="108" r="3.5" class="sf-amber"/>
+      <circle cx="184" cy="126" r="3.5" class="sf-amber"/>
+      <circle cx="170" cy="132" r="3.5" class="sf-amber"/>
+      <path d="M156 138 H184" class="ss ss-line w3"/>
+      <path d="M212 80 H228" class="ss ss-muted w2" marker-end="url(#pick-arrow)"/>
+      <rect x="236" y="20" width="112" height="120" rx="6" class="sf-panel ss ss-fg w2"/>
+      <text x="246" y="44" class="tx tb">Balance</text>
+      <rect x="246" y="50" width="12" height="8" class="sf-line"/><rect x="260" y="50" width="12" height="8" class="sf-line"/><rect x="274" y="50" width="12" height="8" class="sf-teal"/><rect x="288" y="50" width="12" height="8" class="sf-line"/><rect x="302" y="50" width="12" height="8" class="sf-line"/><rect x="316" y="50" width="12" height="8" class="sf-line"/>
+      <text x="246" y="84" class="tx tb">Leg strength</text>
+      <rect x="246" y="90" width="12" height="8" class="sf-line"/><rect x="260" y="90" width="12" height="8" class="sf-line"/><rect x="274" y="90" width="12" height="8" class="sf-line"/><rect x="288" y="90" width="12" height="8" class="sf-blue"/><rect x="302" y="90" width="12" height="8" class="sf-line"/><rect x="316" y="90" width="12" height="8" class="sf-line"/>
+      <text x="246" y="122" class="tm">age band + source</text>
+    </svg>
+  </figure>
+
+  <div class="pickname"><h3>Movement Age</h3></div>
+  <p class="lead">Prop up your phone, do a one-leg stand and five chair stands. On-device pose estimation places each result on a published age-band reference table, with the source shown and nothing leaving the device.</p>
+  <p class="small">An estimate from published reference data. Not a medical device, not a diagnosis, and no replacement for a clinician.</p>
+
+  <h3>How it works</h3>
+  <p class="small">Read in order: left to right, then down.</p>
+  <ol class="pipe">
+    <li class="step">
+      <div class="top"><div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-phone"/></svg></div><span class="n">1</span></div>
+      <h4>Open the page</h4>
+      <p>Public GitHub Pages URL. A start screen says nothing leaves the device and that this is not a medical device. You pick sex and age band, because the studies report by both <a class="c" href="#src-F22">[F22]</a> <a class="c" href="#src-F23">[F23]</a>.</p>
+    </li>
+    <li class="step">
+      <div class="top"><div class="ic bl"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-frame"/></svg></div><span class="n">2</span></div>
+      <h4>Frame the body</h4>
+      <p>Prop the camera. A live skeleton appears. The app waits until hips, knees and ankles are visible.</p>
+    </li>
+    <li class="step">
+      <div class="top"><div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-move"/></svg></div><span class="n">3</span></div>
+      <h4>One-leg stand</h4>
+      <p>Timer runs while one foot is up. Best of three, like the reference protocol <a class="c" href="#src-F22">[F22]</a>. The 10-second mark lights up, the threshold studied in adults 51 to 75 <a class="c" href="#src-F21">[F21]</a> <span class="unv">unverified</span>.</p>
+    </li>
+    <li class="step">
+      <div class="top"><div class="ic bl"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-chair"/></svg></div><span class="n">4</span></div>
+      <h4>Chair stands</h4>
+      <p>Reps are counted from hip and knee angles. The app reports the 5-rep time or the 30-second count <a class="c" href="#src-F23">[F23]</a>. A friend can tap each rep to compare counts.</p>
+    </li>
+    <li class="step">
+      <div class="top"><div class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-table"/></svg></div><span class="n">5</span></div>
+      <h4>Look up the band</h4>
+      <p>Each result is compared with age-band tables from the full texts of <a class="c" href="#src-F22">[F22]</a> and <a class="c" href="#src-F23">[F23]</a>. It names the band whose typical result matches. It never gives one year.</p>
+    </li>
+    <li class="step">
+      <div class="top"><div class="ic am"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ic-card"/></svg></div><span class="n">6</span></div>
+      <h4>Result card</h4>
+      <p>Balance and leg strength as two separate bars, each naming its study, cohort and limits. Ends with: an estimate from published reference data, not a medical device, not a diagnosis.</p>
+    </li>
+  </ol>
+  <p class="callout"><strong>Biggest open item.</strong> Neither abstract gives per-band numbers, so the tables must be read from the full texts and typed in, by about 13:00. If that fails, the fallback shows raw time and reps with the study bands described, and no placement <a class="c" href="#src-F22">[F22]</a> <a class="c" href="#src-F23">[F23]</a>.</p>
+
+  <h3>Why this one</h3>
+  <ol class="why">
+    <li>Every voter can test themselves in the room, and both tests have published reference values across adult ages <a class="c" href="#src-F22">[F22]</a> <a class="c" href="#src-F23">[F23]</a>.</li>
+    <li>The one-leg stand has a mortality link after adjusting for age, sex, BMI and comorbidities. It covers ages 51 to 75 only and is unverified, so it appears as context, never as a prediction about the user <a class="c" href="#src-F21">[F21]</a> <span class="unv">unverified</span>.</li>
+    <li>Remote video sit-to-stand showed good to moderate validity against in-person testing <a class="c" href="#src-F24">[F24]</a>. A live tap check turns that into a visible measured error, which fits the reliability-first template this crowd uses <a class="c" href="#src-F42">[F42]</a> <a class="c" href="#src-F46">[F46]</a>.</li>
+    <li>It fits one day: a static site, pose estimation on the device, no server, no training <a class="c" href="#src-F51">[F51]</a>.</li>
+    <li>It stays away from the crowd most likely to build selfie age and from FaceAge's research-only terms <a class="c" href="#src-F14">[F14]</a>.</li>
+  </ol>
+
+  <h3>Scores for Movement Age</h3>
+  <figure class="fig narrow" style="margin-inline:0">
+    <svg viewBox="0 0 360 160" role="img" aria-labelledby="dots-t dots-d">
+      <title id="dots-t">Movement Age scores on five criteria</title>
+      <desc id="dots-d">Five rows of five dots. Live demo 4 filled, science 4 filled, differentiation 3 filled, buildability 4 filled, AI wow 4 filled.</desc>
+      <text x="8" y="26" class="tx">Live demo</text>
+      <circle cx="170" cy="22" r="8" class="sf-teal"/><circle cx="198" cy="22" r="8" class="sf-teal"/><circle cx="226" cy="22" r="8" class="sf-teal"/><circle cx="254" cy="22" r="8" class="sf-teal"/><circle cx="282" cy="22" r="8" class="sf-none ss ss-teal w2"/>
+      <text x="8" y="56" class="tx">Science</text>
+      <circle cx="170" cy="52" r="8" class="sf-teal"/><circle cx="198" cy="52" r="8" class="sf-teal"/><circle cx="226" cy="52" r="8" class="sf-teal"/><circle cx="254" cy="52" r="8" class="sf-teal"/><circle cx="282" cy="52" r="8" class="sf-none ss ss-teal w2"/>
+      <text x="8" y="86" class="tx">Differentiation</text>
+      <circle cx="170" cy="82" r="8" class="sf-teal"/><circle cx="198" cy="82" r="8" class="sf-teal"/><circle cx="226" cy="82" r="8" class="sf-teal"/><circle cx="254" cy="82" r="8" class="sf-none ss ss-teal w2"/><circle cx="282" cy="82" r="8" class="sf-none ss ss-teal w2"/>
+      <text x="8" y="116" class="tx">Buildability</text>
+      <circle cx="170" cy="112" r="8" class="sf-teal"/><circle cx="198" cy="112" r="8" class="sf-teal"/><circle cx="226" cy="112" r="8" class="sf-teal"/><circle cx="254" cy="112" r="8" class="sf-teal"/><circle cx="282" cy="112" r="8" class="sf-none ss ss-teal w2"/>
+      <text x="8" y="146" class="tx">AI wow</text>
+      <circle cx="170" cy="142" r="8" class="sf-teal"/><circle cx="198" cy="142" r="8" class="sf-teal"/><circle cx="226" cy="142" r="8" class="sf-teal"/><circle cx="254" cy="142" r="8" class="sf-teal"/><circle cx="282" cy="142" r="8" class="sf-none ss ss-teal w2"/>
+    </svg>
+  </figure>
+
+  <h3>Kill criteria</h3>
+  <p class="key">Key:
+    <span class="chip pass"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ic-check"/></svg>pass</span>
+    <span class="chip pend"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ic-wait"/></svg>pending</span>
+    <span class="chip fail"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ic-x"/></svg>fail</span>
+    Any fail means re-score before pitching.
+  </p>
+  <ul class="kill">
+    <li>
+      <div class="row"><span class="id">K1</span><span class="chip pass"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ic-check"/></svg>pass</span></div>
+      <p>A published reference table for the chosen tests covers adults from roughly 20 to 80.</p>
+      <p class="why2">Passes on coverage. One-leg norms: 549 healthy adults aged 18 and over, six bands from 18 to 39 up to 80 and over <a class="c" href="#src-F22">[F22]</a>. Chair-stand percentiles by sex and age: 393 Colombian adults, though the age range could not be confirmed in the fetched text <a class="c" href="#src-F23">[F23]</a>. The per-band numbers are not in hand. The youngest band spans 18 to 39, so results are bands, not years.</p>
+    </li>
+    <li>
+      <div class="row"><span class="id">K2</span><span class="chip pass"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ic-check"/></svg>pass</span><span class="small">narrow pass</span></div>
+      <p>Evidence that the measure predicts mortality or illness beyond birthday age.</p>
+      <p class="why2">One-leg stand: HR 1.84 (95% CI 1.23 to 2.78) in 1702 adults aged 51 to 75, adjusted for age, sex, BMI and comorbidities <a class="c" href="#src-F21">[F21]</a> <span class="unv">unverified</span>. Do not extend it below 51. Chair stands: the only outcome link is a fitness-age composite in adults 60 and over <a class="c" href="#src-F26">[F26]</a>. Nothing in our files covers ages 20 to 50.</p>
+    </li>
+    <li>
+      <div class="row"><span class="id">K3</span><span class="chip pend"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ic-wait"/></svg>pending</span></div>
+      <p>The 10:30 intro does not hand out data, a model or a prize that favors another modality.</p>
+      <p class="why2">Judge it live. No co-host or speaker is listed <a class="c" href="#src-F51">[F51]</a>. If the intro releases a face or wearable dataset, or a prize for one modality, re-score before the 11:00 pitch.</p>
+    </li>
+    <li>
+      <div class="row"><span class="id">K4</span><span class="chip pend"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ic-wait"/></svg>pending</span></div>
+      <p>No teammate brings a better idea at 11:00.</p>
+      <p class="why2">Judge it at team formation. Score any rival idea on the same five criteria, with live demo and science weighted most.</p>
+    </li>
+  </ul>
+
+  <div class="diffbox">
+    <h3>How it differs from what exists</h3>
+    <p>A camera sit-to-stand app already exists. The iOS Sit To Stand App scores the chair rise from 240 frames-per-second video and reports time, velocity and muscle power <a class="c" href="#src-F55">[F55]</a>. Its "scientifically validated" label is the developer's own claim, and it runs on Apple devices only. Movement Age names it as prior art, in the README and on stage, and does not compete on biomechanics.</p>
+    <p>What differs: Movement Age runs in any phone or laptop browser with no install. It pairs a balance test with the chair test. It places each result on published age-band tables and shows the source study and cohort. The F55 finding does not describe an age-referenced readout.</p>
+    <p>It also differs from AgeQ, a phone body-age app that uses fingertip pulse and an activity questionnaire <a class="c" href="#src-F56">[F56]</a>. Movement Age shows its sources and its measured counting error, and gives no single body-age score.</p>
+  </div>
+</section>
+
+<!-- 7. PITCH -->
+<section id="s-pitch" aria-labelledby="h-pitch">
+  <div class="sh"><span class="num">07</span><h2 id="h-pitch">Your 11:00 pitch</h2></div>
+  <figure class="fig narrow" style="margin-inline:0">
+    <svg viewBox="0 0 360 96" role="img" aria-labelledby="pitch-t pitch-d">
+      <title id="pitch-t">Four beats of the pitch</title>
+      <desc id="pitch-d">Four steps in a row: the question, the build, the safety line, the ask.</desc>
+      <path d="M52 40 H92 M132 40 H172 M212 40 H252" class="ss ss-line w2 dash"/>
+      <circle cx="32" cy="40" r="20" class="sf-tealsoft ss ss-teal w2"/><text x="32" y="45" class="tbig mid">?</text>
+      <circle cx="112" cy="40" r="20" class="sf-bluesoft ss ss-blue w2"/><text x="112" y="45" class="tbig mid">Build</text>
+      <circle cx="192" cy="40" r="20" class="sf-ambersoft ss ss-amber w2"/><text x="192" y="45" class="tbig mid">Safe</text>
+      <circle cx="272" cy="40" r="20" class="sf-teal"/><text x="272" y="45" class="tbig mid tbg">Ask</text>
+      <text x="32" y="82" class="tm mid">question</text>
+      <text x="112" y="82" class="tm mid">Movement Age</text>
+      <text x="192" y="82" class="tm mid">not medical</text>
+      <text x="272" y="82" class="tm mid">who's in?</text>
+    </svg>
+  </figure>
+  <div class="pitch">
+    <p class="say" id="pitch-text">Hi, I'm Wilson. Today's question is how fast someone is aging, using data we can collect now. I want to build Movement Age. Open a web page, prop up your phone, and on-device pose tracking times a one-leg stand and counts your chair stands. We place you on published age reference tables for both tests, with the source shown. It is not a medical test, and nothing leaves your phone. I need someone strong in front-end or computer vision. Who's in?</p>
+    <button type="button" class="btn" id="copy-pitch">Copy pitch</button><span class="status" id="copy-status" role="status" aria-live="polite"></span>
+    <p class="small" style="margin:12px 0 0">Sources behind the pitch:<a class="c" href="#src-F22">[F22]</a> <a class="c" href="#src-F23">[F23]</a>.</p>
+  </div>
+  <div class="ask">
+    <h3>The teammate ask</h3>
+    <ul>
+      <li><strong>First:</strong> a front-end or computer-vision builder, comfortable with JavaScript and in-browser pose estimation. They own rep counting, stance detection and the framing check. That is the main technical risk.</li>
+      <li><strong>If a third person joins:</strong> someone who reads research papers, such as a researcher, physical therapist or clinician. They read the full texts of <a class="c" href="#src-F22">[F22]</a> and <a class="c" href="#src-F23">[F23]</a>, transcribe the age-band tables by about 13:00, and help defend the science to the clinicians who vote.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 8. DEMO -->
+<section id="s-demo" aria-labelledby="h-demo">
+  <div class="sh"><span class="num">08</span><h2 id="h-demo">The 20:00 demo</h2></div>
+  <figure class="fig">
+    <svg viewBox="0 0 360 84" role="img" aria-labelledby="demo-t demo-d">
+      <title id="demo-t">Five demo beats across one minute</title>
+      <desc id="demo-d">A strip split into five segments in order: QR code, one-leg stand, chair stands, the room tries it, credibility card.</desc>
+      <rect x="12" y="12" width="56" height="32" class="sf-tealsoft ss ss-teal w2"/>
+      <rect x="68" y="12" width="84" height="32" class="sf-bluesoft ss ss-blue w2"/>
+      <rect x="152" y="12" width="84" height="32" class="sf-tealsoft ss ss-teal w2"/>
+      <rect x="236" y="12" width="56" height="32" class="sf-bluesoft ss ss-blue w2"/>
+      <rect x="292" y="12" width="56" height="32" class="sf-ambersoft ss ss-amber w2"/>
+      <text x="40" y="34" class="tbig mid">1</text>
+      <text x="110" y="34" class="tbig mid">2</text>
+      <text x="194" y="34" class="tbig mid">3</text>
+      <text x="264" y="34" class="tbig mid">4</text>
+      <text x="320" y="34" class="tbig mid">5</text>
+      <text x="12" y="68" class="tm">0 s</text>
+      <text x="348" y="68" class="tm end">60 s</text>
+    </svg>
+  </figure>
+  <ol class="beats">
+    <li><span class="bn">1</span><div><span class="t">0 to 10 s</span>A QR code on screen. "Open this on your phone now. No install, nothing leaves your device."</div></li>
+    <li><span class="bn">2</span><div><span class="t">10 to 25 s</span>A volunteer does a one-leg stand on stage. The live skeleton shows, the timer runs, the 10-second mark lights up, and the result appears as an age band with its source study <a class="c" href="#src-F22">[F22]</a>.</div></li>
+    <li><span class="bn">3</span><div><span class="t">25 to 40 s</span>Five chair stands. The camera count and a teammate's tap count appear side by side with the agreement figure, so the room sees the measured error <a class="c" href="#src-F24">[F24]</a>.</div></li>
+    <li><span class="bn">4</span><div><span class="t">40 to 50 s</span>The room tries it. Voters do a one-leg stand at their seats, holding a chair back, and see their own result card.</div></li>
+    <li><span class="bn">5</span><div><span class="t">50 to 60 s</span>A credibility card lists what each number rests on: <a class="c" href="#src-F22">[F22]</a>, <a class="c" href="#src-F23">[F23]</a>, and <a class="c" href="#src-F21">[F21]</a> <span class="unv">unverified</span>, limited to ages 51 to 75. It credits <a class="c" href="#src-F55">[F55]</a> as prior art and shows the line: an estimate from published reference data, not a medical device. Then the open-source repo link and the ask for votes.</div></li>
+  </ol>
+  <p class="small">Safety: a one-leg stand can cause a fall. Tell everyone to stand next to a wall or a chair back.</p>
+</section>
+
+<!-- 9. UNKNOWN -->
+<section id="s-unknown" aria-labelledby="h-unk">
+  <div class="sh"><span class="num">09</span><h2 id="h-unk">Still unknown</h2></div>
+  <ul class="unk">
+    <li>Can the full texts of the 2007 one-leg stand norms <a class="c" href="#src-F22">[F22]</a> and the Colombian sit-to-stand values <a class="c" href="#src-F23">[F23]</a> be opened today? Are their age bands fine enough to be useful?</li>
+    <li>What does the app show users under 40, since the youngest one-leg band spans 18 to 39 <a class="c" href="#src-F22">[F22]</a>?</li>
+    <li>Can <a class="c" href="#src-F21">[F21]</a> be verified from the full BJSM text? It stays <span class="unv">unverified</span> for now.</li>
+    <li>Does in-browser pose estimation count reps and detect foot-down on ordinary phone cameras in the venue's lighting, and from what distance?</li>
+    <li>What chair height and arm position do the tests in <a class="c" href="#src-F23">[F23]</a> use? That changes how comparable a voter's result is.</li>
+    <li>Will the 10:30 intro release data, a model or a prize that favors another modality (K3)?</li>
+    <li>What are Sundai's real judging and voting rules, team-size rule and open-source requirement? Only Wilson's notes say.</li>
+    <li>How many other teams pick movement or sit-to-stand? That decides how much the tap check and the sources card must carry.</li>
+  </ul>
+  <p class="gaps"><strong>Gaps in the research:</strong> no study was found that validates pose estimation for rep counting or balance timing. No evidence was obtained for the one-leg stand below age 51. No current permanent FaceAge weights link was confirmed. No hand-age model or code was found.</p>
+</section>
+
+<!-- 10. SOURCES -->
+<section id="s-sources" aria-labelledby="h-src">
+  <div class="sh"><span class="num">10</span><h2 id="h-src">Sources</h2></div>
+  <p class="small">One row per cited finding. Two are unverified: the original quote check failed, so treat them as context only.</p>
+  <ol class="src">
+    <li id="src-F11"><span class="sid">F11</span><span class="claim">FaceAge: cancer patients looked 4.79 years older than a non-cancerous reference cohort.</span>
+      <div class="meta"><a href="https://cris.maastrichtuniversity.nl/en/publications/faceage-a-deep-learning-system-to-estimate-biological-age-from-fa/" target="_blank" rel="noopener">cris.maastrichtuniversity.nl</a><span>2025</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F13"><span class="sid">F13</span><span class="claim">FaceAge in 6,196 cancer patients from two centers: older FaceAge went with worse survival.</span>
+      <div class="meta"><a href="https://www.eurekalert.org/news-releases/1082875" target="_blank" rel="noopener">eurekalert.org</a><span>date unknown</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F14"><span class="sid">F14</span><span class="claim">FaceAge code is public. The repo says it is not for clinical care or commercial use.</span>
+      <div class="meta"><a href="https://github.com/AIM-Harvard/FaceAge" target="_blank" rel="noopener">github.com</a><span>date unknown</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F16"><span class="sid">F16</span><span class="claim">Hand images can identify a person, as faces can. FaceAge authors say more research is needed before clinical use.</span>
+      <div class="meta"><a href="https://www.biometricupdate.com/202405/study-finds-dorsal-hand-images-as-effective-as-face-biometrics-for-age-estimation" target="_blank" rel="noopener">biometricupdate.com</a><span>2024</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F21"><span class="sid">F21</span><span class="claim">1702 adults aged 51 to 75: not completing a 10-second one-leg stance went with all-cause mortality, adjusted HR 1.84 (95% CI 1.23 to 2.78).</span>
+      <div class="meta"><a href="https://pubmed.ncbi.nlm.nih.gov/35728834/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov</a><span>2022</span><span class="unv">unverified</span></div></li>
+    <li id="src-F22"><span class="sid">F22</span><span class="claim">Norms for the one-leg stance test: 549 healthy adults aged 18 and over, six age bands, best of 3. The abstract gives no per-band seconds.</span>
+      <div class="meta"><a href="https://pubmed.ncbi.nlm.nih.gov/19839175/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov</a><span>2007</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F23"><span class="sid">F23</span><span class="claim">Sex- and age-specific reference values for 5-rep, 30-second and 1-minute sit-to-stand in 393 healthy Colombian adults. The abstract gives no percentile tables.</span>
+      <div class="meta"><a href="https://pubmed.ncbi.nlm.nih.gov/42183074/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov</a><span>2025</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F24"><span class="sid">F24</span><span class="claim">Remote video sit-to-stand showed good to moderate validity against in-person testing in 38 post-COVID adults. Minimal detectable change 6.6 and 10.5 reps.</span>
+      <div class="meta"><a href="https://pubmed.ncbi.nlm.nih.gov/41328073/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov</a><span>2025</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F25"><span class="sid">F25</span><span class="claim">Korean fitness-age equations built from 501,774 people.</span>
+      <div class="meta"><a href="https://pubmed.ncbi.nlm.nih.gov/39334055/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov</a><span>2024</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F26"><span class="sid">F26</span><span class="claim">2207 adults aged 60 and over: a fitness age ahead of birthday age went with depressive symptoms (aOR 1.88) and cognitive impairment (aOR 1.76).</span>
+      <div class="meta"><a href="https://pubmed.ncbi.nlm.nih.gov/42790361/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov</a><span>2026</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F32"><span class="sid">F32</span><span class="claim">Sleep regularity predicted all-cause mortality better than sleep duration. Cohort mean age 62.8, 7 days of wrist data. Does not carry over to adults aged 20 to 70.</span>
+      <div class="meta"><a href="https://academic.oup.com/sleep/article/47/1/zsad253/7280269" target="_blank" rel="noopener">academic.oup.com</a><span>2024-01</span><span class="unv">unverified</span></div></li>
+    <li id="src-F34"><span class="sid">F34</span><span class="claim">Open voice age model: error between 7.1 and 10.8 years depending on dataset. Chronological age only.</span>
+      <div class="meta"><a href="https://arxiv.org/abs/2306.16962" target="_blank" rel="noopener">arxiv.org</a><span>2023-06</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F35"><span class="sid">F35</span><span class="claim">Fingertip phone pulse matched resting ECG heart rate (r=.997, RMSE 1.03 beats/min) in healthy young adults. Face pulse was less accurate.</span>
+      <div class="meta"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5368348/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a><span>2017</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F41"><span class="sid">F41</span><span class="claim">DunedinPACE was modelled as a rate, from decline in 19 organ-system indicators over four time points spanning two decades.</span>
+      <div class="meta"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8853656/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a><span>2022</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F42"><span class="sid">F42</span><span class="claim">DunedinPACE showed high test-retest reliability and was associated with morbidity, disability and mortality.</span>
+      <div class="meta"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8853656/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a><span>2022</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F43"><span class="sid">F43</span><span class="claim">DNAm PhenoAge predicts all-cause mortality, cancers, healthspan, physical functioning and Alzheimer's disease.</span>
+      <div class="meta"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5940111/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a><span>2018</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F45"><span class="sid">F45</span><span class="claim">Plasma-protein study: nearly 20% show strongly accelerated age in one organ and 1.7% are multi-organ agers.</span>
+      <div class="meta"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10700136/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a><span>2023</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F46"><span class="sid">F46</span><span class="claim">The Biomarkers of Aging Consortium says the field lacks standards and consensus on what makes a reliable aging biomarker.</span>
+      <div class="meta"><a href="https://pubmed.ncbi.nlm.nih.gov/37657418/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov</a><span>2023</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F51"><span class="sid">F51</span><span class="claim">Sundai Hack 143 runs Sun 4 Oct 2026, 10:00 to 22:00 at Harvard. 10:30 Biomarkers of Aging overview, 11:00 team formation, 20:00 final presentations. No co-host or speaker listed.</span>
+      <div class="meta"><a href="https://www.sundai.club/events/boston/sundai-hack-143-biomarkers-of-aging-hack" target="_blank" rel="noopener">sundai.club</a><span>2026</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F52"><span class="sid">F52</span><span class="claim">The hack is part of Boston Longevity Week. The Consortium conference follows on Oct 5 to 6 at Harvard Medical School.</span>
+      <div class="meta"><a href="https://bostonlongevity.org/" target="_blank" rel="noopener">bostonlongevity.org</a><span>2026</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F53"><span class="sid">F53</span><span class="claim">The Consortium works toward standardized, clinically validated ways to measure aging. It runs an annual conference and the Biolearn library.</span>
+      <div class="meta"><a href="https://www.agingconsortium.org" target="_blank" rel="noopener">agingconsortium.org</a><span>date unknown</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F55"><span class="sid">F55</span><span class="claim">An iOS app already scores the chair rise from 240 fps phone video: time, velocity and muscle power. Its validation label is the developer's own claim.</span>
+      <div class="meta"><a href="https://apps.apple.com/us/app/id6450546794" target="_blank" rel="noopener">apps.apple.com</a><span>date unknown</span><span class="chip pass">verified</span></div></li>
+    <li id="src-F56"><span class="sid">F56</span><span class="claim">AgeQ estimates body age from fingertip pulse on the phone camera plus an activity questionnaire. Based on a search snippet, not a fetched page.</span>
+      <div class="meta"><a href="https://apps.apple.com/us/app/ageq-body-age-test/id6761166429" target="_blank" rel="noopener">apps.apple.com</a><span>date unknown</span><span class="chip pass">verified</span></div></li>
+  </ol>
+</section>
+
+<footer>
+  <p><strong>Not a medical device.</strong> Movement Age estimates an age band from published reference data. It does not diagnose anything, measure health or replace a clinician.</p>
+  <p>Every number on this page traces to a finding id in the research file. Findings marked unverified carry that word wherever they appear.</p>
+</footer>
+
+</main>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-pitch');
+  var text = document.getElementById('pitch-text');
+  var status = document.getElementById('copy-status');
+  function selectText() {
+    var range = document.createRange();
+    range.selectNodeContents(text);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    status.textContent = 'Text selected. Press copy.';
+  }
+  btn.addEventListener('click', function () {
+    var value = text.textContent.trim();
+    try {
+      navigator.clipboard.writeText(value).then(function () {
+        status.textContent = 'Copied.';
+      }).catch(selectText);
+    } catch (e) {
+      selectText();
+    }
+  });
+})();
+</script>
+</body>
+</html>
