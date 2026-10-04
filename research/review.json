@@ -1,0 +1,154 @@
+{
+ "killed": [
+  "F15"
+ ],
+ "appliesWarnings": {
+  "F15": "Numbers are swapped. The page gives hands 4.1 years and faces 4.7, so hands were better, not worse. Cohort is Indian females only, and the page does not describe the photo protocol, so transfer to a mixed adult cohort is unshown.",
+  "F31": "Claim omits the population and protocol. The cohort averages 62.8 years and sleep regularity came from 7 days of wrist accelerometer data, which a single unsupervised camera session cannot reproduce. Do not use the mortality figures for ages 20 to 70. The 20-48 percent range was not verified; I saw HR 0.52 and 0.70.",
+  "F32": "Same source mismatch: mean age 62.8 and 7-day accelerometer protocol, not transferable to a one-session app for adults 20 to 70. Regularity HR 0.52 and the stronger-than-duration finding are confirmed. The 0.69 duration HR was not seen."
+ },
+ "lenses": {
+  "F11": {
+   "correct": {
+    "verdict": "upheld",
+    "reason": "Page states mean increase of 4.79 years vs non-cancerous reference cohort; authors, Lancet Digital Health vol 7 issue 6 match."
+   },
+   "current": {
+    "verdict": "upheld",
+    "reason": "Maastricht record abstract still reports 4.79 years older vs non-cancerous reference cohort; no erratum or newer superseding result found."
+   },
+   "applies": {
+    "verdict": "upheld",
+    "reason": "Claim is explicitly scoped to cancer patients versus a reference cohort and the 4.79 year figure matches the abstract. It transfers only as prior art for face-based biological age, not as validation in healthy 20 to 70 year olds."
+   }
+  },
+  "F15": {
+   "correct": {
+    "verdict": "refuted",
+    "reason": "Numbers are swapped. Source gives hands 4.1 years and faces 4.7 years, so hands were more accurate, not less."
+   },
+   "current": {
+    "verdict": "upheld",
+    "reason": "Not superseded. Search results on the paper give hand MAE 4.7 and face 4.1. The cited Biometric Update page phrasing 4.1 and 4.7 respectively is ambiguous and reads as hand 4.1, so the claim source is shaky, but nothing newer contradicts it."
+   },
+   "applies": {
+    "verdict": "refuted",
+    "reason": "Numbers are swapped. The page gives hands 4.1 years and faces 4.7, so hands were better, not worse. Cohort is Indian females only, and the page does not describe the photo protocol, so transfer to a mixed adult cohort is unshown."
+   }
+  },
+  "F21": {
+   "correct": {
+    "verdict": "upheld",
+    "reason": "Via Europe PMC abstract of PMID 35728834 (PubMed blocked by cookie wall): 1702 aged 51-75, 20.4% unable, median 7-year follow-up, HR 1.84 (1.23 to 2.78)."
+   },
+   "current": {
+    "verdict": "upheld",
+    "reason": "Search results confirm 1702 adults aged 51-75, median 7 years follow-up, adjusted HR 1.84 (1.23 to 2.78). PubMed page itself blocked by cookie wall. No retraction or newer contradicting source found."
+   },
+   "applies": {
+    "verdict": "upheld",
+    "reason": "Sample 1702, age 51-75, and HR 1.84 (1.23 to 2.78) confirmed via Europe PMC abstract. The 20.4 percent and 7-year follow-up were not seen in the text I fetched. Claim states the 51-75 scope, so it must not be extended to under-50s."
+   }
+  },
+  "F22": {
+   "correct": {
+    "verdict": "upheld",
+    "reason": "Via Europe PMC: 549 healthy subjects 18+, six age groups, best of 3 times, performance age-specific and not related to gender; no per-band seconds in abstract."
+   },
+   "current": {
+    "verdict": "uncertain",
+    "reason": "PubMed page blocked by cookie wall, so could not check for newer normative values or corrections. No search budget used on it."
+   },
+   "applies": {
+    "verdict": "upheld",
+    "reason": "Abstract confirms n=549, 18 years or older, six age bands from 18-39 to 80+, eyes open and closed. This covers the 20 to 70 range. Best-of-3 and gender claims were not seen in the fetched text."
+   }
+  },
+  "F23": {
+   "correct": {
+    "verdict": "upheld",
+    "reason": "Via Europe PMC: 393 healthy Colombian adults aged 18-80, normative percentiles by sex and age for 5-rep, 30-s, 1-min tests; no percentile tables in abstract."
+   },
+   "current": {
+    "verdict": "uncertain",
+    "reason": "PubMed page blocked by cookie wall; could not verify or look for newer reference values."
+   },
+   "applies": {
+    "verdict": "upheld",
+    "reason": "Abstract confirms 393 participants, mean age 44, 5-rep, 30 s and 60 s sit-to-stand. Age range 18 to 80 and healthy status were not seen in the fetched text. Colombian sample and supervised testing may limit norms elsewhere."
+   }
+  },
+  "F25": {
+   "correct": {
+    "verdict": "upheld",
+    "reason": "Via Europe PMC: 501,774 individuals; older-adult equation has 2-min step, grip, 30-s chair stand, sit and reach, TUG, sex; adjusted R2 24.3% older, 93.6% adults."
+   },
+   "current": {
+    "verdict": "uncertain",
+    "reason": "PubMed page blocked by cookie wall; could not verify or check for a newer fitness-age model."
+   },
+   "applies": {
+    "verdict": "upheld",
+    "reason": "Abstract confirms n=501,774 (359,303 adults, 142,471 older adults) and adjusted R2 93.6 percent adults versus 24.3 percent older adults. The older-adult test list was not seen in my fetch. Korean supervised fitness-centre data."
+   }
+  },
+  "F26": {
+   "correct": {
+    "verdict": "upheld",
+    "reason": "Via Europe PMC: n=2207, 60+, PFA from peak expiratory flow, grip, walking speed, 5-time chair stand; aOR 1.88 depressive, 1.76 cognitive. The 2.5 y threshold detail was not confirmed (design cross-sectional)."
+   },
+   "current": {
+    "verdict": "uncertain",
+    "reason": "PubMed page blocked by cookie wall; could not verify the 2026 figures or check for corrections."
+   },
+   "applies": {
+    "verdict": "upheld",
+    "reason": "aORs 1.88 and 1.76 and n=2207 aged 60+ confirmed. Claim states the 60+ scope, so it does not apply to under-60s. Grip and peak flow need equipment, which a camera app lacks."
+   }
+  },
+  "F31": {
+   "correct": {
+    "verdict": "upheld",
+    "reason": "OUP page gives 60 977 UK Biobank participants and 20%-48% lower all-cause mortality in top four quintiles vs least regular quintile."
+   },
+   "current": {
+    "verdict": "upheld",
+    "reason": "OUP page confirms 60,977 participants and a 20%-48% lower all-cause mortality across top four quintiles. Only note is corrected and typeset 17 October 2023, which is pre-publication typesetting, not a supersession."
+   },
+   "applies": {
+    "verdict": "refuted",
+    "reason": "Claim omits the population and protocol. The cohort averages 62.8 years and sleep regularity came from 7 days of wrist accelerometer data, which a single unsupervised camera session cannot reproduce. Do not use the mortality figures for ages 20 to 70. The 20-48 percent range was not verified; I saw HR 0.52 and 0.70."
+   }
+  },
+  "F32": {
+   "correct": {
+    "verdict": "upheld",
+    "reason": "Page says regularity stronger than duration, HR 0.52 vs 0.69 in minimally adjusted models; regularity stays significant when duration is included. Duration comparison group is longest-duration group."
+   },
+   "current": {
+    "verdict": "upheld",
+    "reason": "Abstract confirms regularity was a stronger mortality predictor than duration. Specific HRs (0.52 vs 0.69) are not in the abstract, so unverified, but no newer source contradicts the claim."
+   },
+   "applies": {
+    "verdict": "refuted",
+    "reason": "Same source mismatch: mean age 62.8 and 7-day accelerometer protocol, not transferable to a one-session app for adults 20 to 70. Regularity HR 0.52 and the stronger-than-duration finding are confirmed. The 0.69 duration HR was not seen."
+   }
+  },
+  "F55": {
+   "correct": {
+    "verdict": "upheld",
+    "reason": "App listing shows developer Juan Diego Ruiz-Cardenas, time, velocity, muscle power from 240 fps video. Validation is the developer's own claim of passing scientific validation."
+   },
+   "current": {
+    "verdict": "upheld",
+    "reason": "App Store page shows the app is still available, latest version 2.1.2 updated Nov 8 2025, 240 fps video with time, velocity and power, described as scientifically validated. Nothing indicates removal or replacement."
+   },
+   "applies": {
+    "verdict": "upheld",
+    "reason": "App Store page confirms 240 fps video, time, velocity and power outputs. The validation claim is the developer's own marketing, not independent evidence, and the app is Apple-only. It stands as prior-art evidence that camera sit-to-stand exists."
+   }
+  }
+ },
+ "verdictsReturned": 30,
+ "verdictsExpected": 30
+}

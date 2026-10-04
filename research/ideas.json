@@ -1,0 +1,287 @@
+{
+ "ideas": [
+  {
+   "id": "I11",
+   "lane": "L1",
+   "name": "AgeGap Selfie Lab",
+   "oneLiner": "Browser-only app that takes a face photo and a dorsal-hand photo and shows a photo-age estimate next to the user's stated age, with an uncertainty band and a bias and consent panel.",
+   "modalities": [
+    "face photo",
+    "hand photo",
+    "webcam"
+   ],
+   "dataNeeded": "An open face-age model that runs in the browser or in a small API, plus a few public face and hand sample images for the demo. The FaceAge weights are research-only and their download path was not confirmed, so assume a substitute model. No hand-age model weights were found.",
+   "demoIn60s": true,
+   "buildRisk": "medium",
+   "whyItWins": "Judges can try it on themselves in seconds. It shows two modalities side by side. It reports the published errors honestly (hand 4.7 years, face 4.1 years) and says explicitly that this is chronological-age error, not biological age."
+  },
+  {
+   "id": "I12",
+   "lane": "L1",
+   "name": "Age-Gap Evidence Board",
+   "oneLiner": "A live explainer where users drag a photo-age gap onto cited published effect sizes (FaceAge survival link, the hand versus face error) and see what an age gap does and does not mean.",
+   "modalities": [
+    "face photo",
+    "literature-derived reference values"
+   ],
+   "dataNeeded": "Only the cited numbers from the verified pages. No patient data. Optional webcam photo processed locally.",
+   "demoIn60s": true,
+   "buildRisk": "low",
+   "whyItWins": "It is low-risk and honest. It suits a researcher and clinician audience that dislikes overclaiming. It can be built in 8 hours and combined with another team lane's wearable or voice modality."
+  },
+  {
+   "id": "I21",
+   "lane": "L2",
+   "name": "Chair-Rise Age",
+   "oneLiner": "Point a laptop or phone camera at yourself, do a timed 10-second one-leg stance and a 30-second chair stand counted by in-browser pose estimation, and get a movement-age readout against published norms.",
+   "modalities": [
+    "webcam video",
+    "pose estimation (MediaPipe in browser)",
+    "movement/fitness tests"
+   ],
+   "dataNeeded": "Age-band reference tables must be transcribed from full texts (Springer 2007 unipedal; Rikli and Jones or Strassmann sit-to-stand), which were NOT verified this run. Mortality anchor: Araujo 2022 HR 1.84 for failing 10-second one-leg stance (ages 51-75 only).",
+   "demoIn60s": true,
+   "buildRisk": "medium",
+   "whyItWins": "Judges can stand up and do it live; 10-second stance is a 10-second demo with a mortality-linked pass/fail, and everything runs client-side on GitHub Pages with no data leaving the device."
+  },
+  {
+   "id": "I22",
+   "lane": "L2",
+   "name": "Count vs Tap",
+   "oneLiner": "A validity harness: the camera counts chair stands while a teammate taps a button for each rep, and the app shows live agreement (mean error, Bland-Altman style) to prove the camera counter works.",
+   "modalities": [
+    "webcam video",
+    "pose estimation",
+    "manual reference tap"
+   ],
+   "dataNeeded": "None beyond live capture; framed against the tele-assessment finding that remote sit-to-stand has good-to-moderate validity with minimal detectable change of 6.6 to 10.5 reps. Published pose-estimation validity studies were not confirmed this run.",
+   "demoIn60s": true,
+   "buildRisk": "low",
+   "whyItWins": "Researchers and clinicians in the room care about validation; it turns a gimmick into measured error with visible numbers in a minute and can be bolted onto the first idea."
+  },
+  {
+   "id": "I31",
+   "lane": "L3",
+   "name": "Regularity Check",
+   "oneLiner": "Drop in your Apple Health export or a sleep CSV and get your Sleep Regularity Index, computed in the browser, shown against the UK Biobank median SRI of 81 and the mortality finding.",
+   "modalities": [
+    "sleep",
+    "wearable",
+    "accelerometer"
+   ],
+   "dataNeeded": "User's Apple Health export.xml (sleep analysis records) or a Fitbit or Oura sleep CSV, parsed client-side. Ship a synthetic sample file for the demo. Need SRI definition and UK Biobank quintile cutoffs from the paper full text; I only confirmed the median of 81.0 from the page summary.",
+   "demoIn60s": true,
+   "buildRisk": "low",
+   "whyItWins": "Real measurement from data the judges already carry, no server and no PHI leaves the browser, anchored to a cited 60,977-person mortality result. Claude Code can build the XML parser and SRI math in a few hours, leaving time for polish."
+  },
+  {
+   "id": "I32",
+   "lane": "L3",
+   "name": "Three-Signal Aging Panel",
+   "oneLiner": "In 60 seconds, a webcam and mic capture face-video heart rate, an HRV proxy and a 10-second voice age estimate, then show them as a labelled panel with honest error bars.",
+   "modalities": [
+    "camera rPPG",
+    "voice",
+    "heart rate variability"
+   ],
+   "dataNeeded": "Live webcam and microphone. Voice: audeering age model via the Zenodo ONNX export run in-browser (onnxruntime-web) or a small hosted endpoint; non-commercial license is acceptable for a hackathon. Heart rate: green-channel rPPG in JS, validated against the fingertip-versus-face accuracy gap in the 2017 study.",
+   "demoIn60s": true,
+   "buildRisk": "high",
+   "whyItWins": "Multimodal live demo is the most vivid thing on stage and matches the organizers' voice and camera directions. Risk: voice MAE is 7.1 to 10.8 years and this is chronological age, not biological age. Face rPPG is fragile under motion and lighting. Fall back to a recorded clip if the live capture fails."
+  },
+  {
+   "id": "I41",
+   "lane": "L4",
+   "name": "Clock Report Card",
+   "oneLiner": "Drop in any aging-clock output (CSV with age, score, optional repeat visit, optional risk factors) and get a one-page validation report card in the browser.",
+   "modalities": [
+    "any tabular biomarker",
+    "blood chemistry",
+    "wearable summaries"
+   ],
+   "dataNeeded": "Public cohort with blood chemistry and mortality or smoking and BMI (for example NHANES), plus a synthetic repeat-measure file for the demo. Check the PhenoAge coefficients against Levine 2018 before using them.",
+   "demoIn60s": true,
+   "buildRisk": "medium",
+   "whyItWins": "Judges are researchers and clinicians. Most teams will show an age number; this shows whether the number deserves trust. The card covers error versus chronological age (MAE, correlation), test-retest reliability (ICC), and association with known risk factors, mirroring the DunedinPACE-style evidence (reliability, outcome association). It is honest about what one day can show, and it runs client-side."
+  },
+  {
+   "id": "I42",
+   "lane": "L4",
+   "name": "Pace Not Age",
+   "oneLiner": "A multimodal pace-of-aging composite from two time windows of wearable data (resting HR, HRV, sleep, steps) that reports a rate of change with bootstrap confidence intervals and split-half reliability.",
+   "modalities": [
+    "wearable",
+    "cardiovascular",
+    "sleep",
+    "movement"
+   ],
+   "dataNeeded": "Apple Health or Fitbit export parsed in-browser, plus a public sample dataset or a synthetic cohort for the demo. No clinical validation claim; the app only demonstrates reliability and direction versus known risk factors.",
+   "demoIn60s": true,
+   "buildRisk": "medium",
+   "whyItWins": "It applies the rate-versus-level distinction behind DunedinPACE (a rate from repeated measures, not a single level) to data people already carry on their wrist. It answers 'how fast' directly, shows uncertainty, and the demo is drag a file, see a rate with a CI."
+  },
+  {
+   "id": "I51",
+   "lane": "L5",
+   "name": "Chair-Rise Age",
+   "oneLiner": "Phone browser camera counts 5x sit-to-stand with in-browser pose estimation and returns a functional-age percentile with a cited reference table.",
+   "modalities": [
+    "movement",
+    "computer vision"
+   ],
+   "dataNeeded": "Published 5xSTS norms by age and sex from a fetched paper; MediaPipe Pose in browser; no training data needed.",
+   "demoIn60s": true,
+   "buildRisk": "low",
+   "whyItWins": "Judges can stand up on stage and get a score in 30 seconds. Sit To Stand App exists only on iOS with 240fps and is not a web app or an age estimate, so the differentiator is browser-based, no install, norm-referenced."
+  },
+  {
+   "id": "I52",
+   "lane": "L5",
+   "name": "Aging Clock Arcade",
+   "oneLiner": "Web app that fuses face photo, 30-second sit-to-stand and finger-camera pulse into one transparent multi-modal age with per-signal uncertainty bars.",
+   "modalities": [
+    "face",
+    "movement",
+    "PPG"
+   ],
+   "dataNeeded": "Public reference ranges per signal; optional Biolearn clocks for context.",
+   "demoIn60s": true,
+   "buildRisk": "medium",
+   "whyItWins": "Matches the organizers' combine-modalities direction and shows honest uncertainty, which researchers and clinicians in the audience will reward."
+  }
+ ],
+ "gaps": [
+  {
+   "lane": "L1",
+   "gap": "PubMed pages were not readable. Search and article pages returned a reCAPTCHA or cookie wall, so no PubMed or PMC abstract was quoted for FaceAge, the hand paper or the retinal paper."
+  },
+  {
+   "lane": "L1",
+   "gap": "Lancet Digital Health full text and Wiley (Experimental Dermatology) article pages returned HTTP 403. The hand-study figures come from a news page and the FaceAge figures from a university repository page and a press release, not from journal abstracts."
+  },
+  {
+   "lane": "L1",
+   "gap": "Europe PMC and medRxiv pages returned 403. The retinal age gap finding (PubMed 35042683, Br J Ophthalmol, UK Biobank) appeared only in a search snippet (MAE 3.55 years, correlation 0.81, about 2 percent higher mortality per 1-year gap). I did not fetch it, so it is not cited and should be verified before use."
+  },
+  {
+   "lane": "L1",
+   "gap": "FaceAge weights: the repo page summary said weights were on Google Drive during peer review, with Zenodo planned. I did not confirm a current permanent weights URL, and the page showed no explicit license."
+  },
+  {
+   "lane": "L1",
+   "gap": "No HandAge-named model, public code, or hand radiograph age-gap work against mortality or disease was found. The only hand-photo work found was chronological-age prediction in an Indian female cohort, and its cohort size was not seen."
+  },
+  {
+   "lane": "L1",
+   "gap": "FaceAge hazard ratios and the authors' bias, consent and accuracy limits were not confirmed from the abstract. Only the press-release limitation was captured."
+  },
+  {
+   "lane": "L1",
+   "gap": "Fetch budget of 12 was used up. Search budget used: 3 of 4."
+  },
+  {
+   "lane": "L2",
+   "gap": "WebFetch budget (12) was exhausted; 0 of 4 WebSearch calls were used."
+  },
+  {
+   "lane": "L2",
+   "gap": "PubMed pages (pubmed.ncbi.nlm.nih.gov, including search URLs and PMIDs 20829298, 21205966) returned only a cookie-enable wall, so no PubMed page could be cited. Findings cite Europe PMC REST API result pages (JSON, not HTML) that I actually fetched; the quotes appear in them verbatim."
+  },
+  {
+   "lane": "L2",
+   "gap": "Cooper 2010 BMJ (physical capability and mortality meta-analysis): NOT confirmed. My guessed PMC ID PMC2938899 was the wrong article (a Barrett's oesophagus study). No effect sizes obtained."
+  },
+  {
+   "lane": "L2",
+   "gap": "Studenski 2011 JAMA gait speed and survival: NOT confirmed. Europe PMC query returned unrelated 2025-2026 papers."
+  },
+  {
+   "lane": "L2",
+   "gap": "Strassmann 2013 1-minute sit-to-stand reference values: NOT found; only a 2025 Colombian reference-values paper appeared."
+  },
+  {
+   "lane": "L2",
+   "gap": "Rikli and Jones 30-second chair stand norms: NOT checked."
+  },
+  {
+   "lane": "L2",
+   "gap": "HUNT fitness age / non-exercise VO2max model inputs and population: NOT found. Only Korean fitness-age equations, a Ultrahuman wearable Cardio Age study (442 users) and a Chinese PFA study appeared."
+  },
+  {
+   "lane": "L2",
+   "gap": "Pose-estimation validity (MediaPipe, BlazePose, OpenPose) for sit-to-stand counting or balance timing: no dedicated validation study found; only a tele-assessment study with human raters on video."
+  },
+  {
+   "lane": "L2",
+   "gap": "Springer 2007 abstract gives age bands and n=549 but no per-band seconds; the numeric eyes-open reference table was not retrieved. Chair height and arm position protocols for sit-to-stand were not retrieved."
+  },
+  {
+   "lane": "L2",
+   "gap": "Araujo 2022 applies to ages 51-75 (68% men); no evidence obtained for under 50."
+  },
+  {
+   "lane": "L3",
+   "gap": "Attia 2019 AI-ECG age (Circ Arrhythm Electrophysiol): PubMed returned a cookie wall, PMC returned a reCAPTCHA, Europe PMC returned 403. No page opened, so no AI-ECG age gap finding is cited."
+  },
+  {
+   "lane": "L3",
+   "gap": "Apple Heart and Movement Study PpgAge (Nature Communications, s41467-025-64275-4): nature.com redirected to an auth page and could not be fetched. A search snippet said 213,593 participants, MAE 2.43 years and HR 1.46 for incident cardiovascular disease; these numbers are unverified and not cited. The arXiv Apple preprint was not located. The Nie et al. AI-PPG age preprint that I did fetch is a different group, using UK Biobank."
+  },
+  {
+   "lane": "L3",
+   "gap": "Windred 2024 on PubMed was blocked by the cookie wall. I cited the OUP Sleep page instead. The 60,977 cohort size and the 0.52 versus 0.69 hazard ratios came from the fetch tool's summary, not from text I could confirm as verbatim."
+  },
+  {
+   "lane": "L3",
+   "gap": "Voice and biological aging or frailty: no evidence searched or fetched. Only a chronological-age model with published MAE was found."
+  },
+  {
+   "lane": "L3",
+   "gap": "Camera PPG for vascular aging (PubMed 33184391, smartphone PPG vascular aging prediction) appeared in search results but was not fetched. Only the 2017 Cardiio heart-rate validation was opened, in healthy young adults, so no vascular-aging evidence is cited."
+  },
+  {
+   "lane": "L3",
+   "gap": "Sleep Regularity Index quintile cutoffs and the formal SRI definition were not retrieved; only the UK Biobank median SRI of 81.0 appeared in the page summary."
+  },
+  {
+   "lane": "L4",
+   "gap": "PubMed pages (pubmed.ncbi.nlm.nih.gov) returned only a cookie wall, and the Nature Medicine page (nature.com/articles/s41591-023-02784-9) redirected to a login handler. The PMC page for Moqri 2024 (PMC11090477) hit a reCAPTCHA. I could not open the Moqri 2024 Nature Medicine validation article, so no published minimal-validation guidance is cited."
+  },
+  {
+   "lane": "L4",
+   "gap": "I did not fetch the Cell 2023 full text, so I cannot quote the Biomarkers of Aging Consortium criteria (mortality or morbidity prediction beyond chronological age, reliability, responsiveness to interventions). The Cell abstract came from the Europe PMC API (JSON), not the PMC HTML page (PMC11088934, which I did not fetch)."
+  },
+  {
+   "lane": "L4",
+   "gap": "No source was fetched for multimodal digital biomarkers (wearables, voice, movement). Lane question 3 is only partly covered, by DNAm PhenoAge (not blood-chemistry PhenoAge) and plasma proteomic organ ages."
+  },
+  {
+   "lane": "L4",
+   "gap": "Fetch budget (12) was fully spent. Search budget: 2 of 4 used. Quotes come from pages read through a summarising fetcher, so verify them verbatim in the later script check."
+  },
+  {
+   "lane": "L5",
+   "gap": "Sundai judging and voting rules, team size, open-source requirements, and featured or winning projects: sundai.club home and /projects pages returned only navigation, so nothing about these could be confirmed. The event page says only 'Final presentations' at 20:00."
+  },
+  {
+   "lane": "L5",
+   "gap": "No co-host, partner organization or named speaker for the Biomarkers of Aging intro on the Hack 143 page. bostonlongevity.org lists Sundai Club as sole organizer."
+  },
+  {
+   "lane": "L5",
+   "gap": "Biomarkers of Aging Consortium leadership: agingconsortium.org/team returned no names in the fetch. Challenge paper authors include Kejun Ying and Seth Paulson per the fetched summary, but not confirmed as consortium leads."
+  },
+  {
+   "lane": "L5",
+   "gap": "Nature editorial s43587-025-00838-w required an auth redirect and was not read. Biolearn GitHub URL guessed (biolearnai/biolearn) returned 404. The PMC summary gives github.com/biolearn/biolearn, not fetched."
+  },
+  {
+   "lane": "L5",
+   "gap": "WHOOP and Oura biological-age features not checked. Face-age apps (Check My Age, Face Age) appear only in search snippets and were not fetched. Quotes for the AgeQ finding and the BOA Consortium homepage mission line come from fetch or search summaries and may not match page text verbatim."
+  },
+  {
+   "lane": "L5",
+   "gap": "Fetch quotes returned by the summarizing tool may be paraphrased, so a verbatim check is advised, especially for the sundai.club event page quote, which came from a search snippet rather than the fetched page."
+  }
+ ]
+}

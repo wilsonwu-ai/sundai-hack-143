@@ -1,0 +1,666 @@
+{
+ "reviewed": true,
+ "counts": {
+  "verified": 26,
+  "killed": 1,
+  "unverified": 3
+ },
+ "lanesSent": 5,
+ "lanesReturned": 5,
+ "findings": [
+  {
+   "id": "F11",
+   "lane": "L1",
+   "claim": "FaceAge (Bontempi, Zalay, Bitterman and colleagues, Lancet Digital Health 2025, vol 7 no 6) found cancer patients looked about 4.79 years older than a non-cancerous reference cohort.",
+   "quote": "looked older than their chronological age (mean increase of 4\u00b779 years with respect to non-cancerous reference cohort, p<0\u00b70001)",
+   "sourceUrl": "https://cris.maastrichtuniversity.nl/en/publications/faceage-a-deep-learning-system-to-estimate-biological-age-from-fa/",
+   "publicationDate": "2025",
+   "sourceType": "other",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {
+    "correct": {
+     "verdict": "upheld",
+     "reason": "Page states mean increase of 4.79 years vs non-cancerous reference cohort; authors, Lancet Digital Health vol 7 issue 6 match."
+    },
+    "current": {
+     "verdict": "upheld",
+     "reason": "Maastricht record abstract still reports 4.79 years older vs non-cancerous reference cohort; no erratum or newer superseding result found."
+    },
+    "applies": {
+     "verdict": "upheld",
+     "reason": "Claim is explicitly scoped to cancer patients versus a reference cohort and the 4.79 year figure matches the abstract. It transfers only as prior art for face-based biological age, not as validation in healthy 20 to 70 year olds."
+    }
+   },
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F12",
+   "lane": "L1",
+   "claim": "FaceAge was developed at Mass General Brigham, led by Hugo Aerts. It was trained on 58,851 photos of presumed healthy people from public datasets.",
+   "quote": "trained on 58,851 photos of presumed healthy individuals from public datasets.",
+   "sourceUrl": "https://www.eurekalert.org/news-releases/1082875",
+   "publicationDate": "unknown",
+   "sourceType": "news",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F13",
+   "lane": "L1",
+   "claim": "FaceAge was evaluated in 6,196 cancer patients from two centers. Older FaceAge was associated with worse survival, especially in people who looked older than 85.",
+   "quote": "Older FaceAge was associated with worse survival outcomes, especially in individuals who appeared older than 85.",
+   "sourceUrl": "https://www.eurekalert.org/news-releases/1082875",
+   "publicationDate": "unknown",
+   "sourceType": "news",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F14",
+   "lane": "L1",
+   "claim": "FaceAge code is public at github.com/AIM-Harvard/FaceAge, with MTCNN face localization plus an Inception-ResNet v1 age estimator. The repo states it is not for clinical or commercial use. No license type was seen on the page.",
+   "quote": "The code and data of this repository are provided to promote reproducible research. They are not intended for clinical care or commercial use.",
+   "sourceUrl": "https://github.com/AIM-Harvard/FaceAge",
+   "publicationDate": "unknown",
+   "sourceType": "code-repo",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F15",
+   "lane": "L1",
+   "claim": "Dorsal-hand photo age estimation (Georgievskaya et al., Experimental Dermatology 2024, Indian female cohort) reached mean absolute error of 4.7 years for hands versus 4.1 for faces. This is chronological age, not biological age.",
+   "quote": "algorithms trained on hand images are comparable in accuracy to those that use face image, showing an average error of 4.1 and 4.7 years",
+   "sourceUrl": "https://www.biometricupdate.com/202405/study-finds-dorsal-hand-images-as-effective-as-face-biometrics-for-age-estimation",
+   "publicationDate": "2024",
+   "sourceType": "news",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {
+    "correct": {
+     "verdict": "refuted",
+     "reason": "Numbers are swapped. Source gives hands 4.1 years and faces 4.7 years, so hands were more accurate, not less."
+    },
+    "current": {
+     "verdict": "upheld",
+     "reason": "Not superseded. Search results on the paper give hand MAE 4.7 and face 4.1. The cited Biometric Update page phrasing 4.1 and 4.7 respectively is ambiguous and reads as hand 4.1, so the claim source is shaky, but nothing newer contradicts it."
+    },
+    "applies": {
+     "verdict": "refuted",
+     "reason": "Numbers are swapped. The page gives hands 4.1 years and faces 4.7, so hands were better, not worse. Cohort is Indian females only, and the page does not describe the photo protocol, so transfer to a mixed adult cohort is unshown."
+    }
+   },
+   "appliesWarning": "Numbers are swapped. The page gives hands 4.1 years and faces 4.7, so hands were better, not worse. Cohort is Indian females only, and the page does not describe the photo protocol, so transfer to a mixed adult cohort is unshown.",
+   "status": "killed"
+  },
+  {
+   "id": "F16",
+   "lane": "L1",
+   "claim": "Caveats: the hand-age study notes hand images can identify a person, as faces can (privacy risk). FaceAge authors say more research is needed before clinical use.",
+   "quote": "it is possible to identify a person based on dorsal hand images as in the case of facial photographs",
+   "sourceUrl": "https://www.biometricupdate.com/202405/study-finds-dorsal-hand-images-as-effective-as-face-biometrics-for-age-estimation",
+   "publicationDate": "2024",
+   "sourceType": "news",
+   "loadBearing": false,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F21",
+   "lane": "L2",
+   "claim": "Araujo 2022 (BJSM): in 1702 adults aged 51-75, inability to complete a 10-second one-legged stance was independently associated with all-cause mortality, adjusted HR 1.84 (95% CI 1.23 to 2.78); 20.4% could not do it; median follow-up 7 years.",
+   "quote": "In an adjusted model incorporating age, sex, body mass index and comorbidities, the HR of all-cause mortality was higher (1.84 (95% CI: 1.23 to 2.78) (p<0.001)) for NO individuals.",
+   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35728834/",
+   "publicationDate": "2022",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "retrievedVia": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22one-legged%20stance%22%20mortality%20Araujo&format=json&resultType=core&pageSize=3",
+   "citation": "Araujo CG et al. Successful 10-second one-legged stance performance predicts survival in middle-aged and older individuals. Br J Sports Med 2022",
+   "quotecheck": {
+    "status": "not_found",
+    "score": "0/1"
+   },
+   "review": {
+    "correct": {
+     "verdict": "upheld",
+     "reason": "Via Europe PMC abstract of PMID 35728834 (PubMed blocked by cookie wall): 1702 aged 51-75, 20.4% unable, median 7-year follow-up, HR 1.84 (1.23 to 2.78)."
+    },
+    "current": {
+     "verdict": "upheld",
+     "reason": "Search results confirm 1702 adults aged 51-75, median 7 years follow-up, adjusted HR 1.84 (1.23 to 2.78). PubMed page itself blocked by cookie wall. No retraction or newer contradicting source found."
+    },
+    "applies": {
+     "verdict": "upheld",
+     "reason": "Sample 1702, age 51-75, and HR 1.84 (1.23 to 2.78) confirmed via Europe PMC abstract. The 20.4 percent and 7-year follow-up were not seen in the text I fetched. Claim states the 51-75 scope, so it must not be extended to under-50s."
+    }
+   },
+   "appliesWarning": null,
+   "status": "unverified"
+  },
+  {
+   "id": "F22",
+   "lane": "L2",
+   "claim": "Springer 2007 normative unipedal stance test (eyes open and closed): 549 healthy adults 18+, six age bands, best of 3 trials, performance age-specific and not gender-related; abstract gives no per-band seconds.",
+   "quote": "Mean and best of 3 UPST times for males and females of 6 age groups (18-39, 40-49, 50-59, 60-69, 70-79, and 80+) were documented and inter-rater reliability was tested.",
+   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/19839175/",
+   "publicationDate": "2007",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "retrievedVia": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=(TITLE%3A%22Objectively%20measured%20physical%20capability%20levels%20and%20mortality%22%20OR%20TITLE%3A%22Gait%20speed%20and%20survival%20in%20older%20adults%22%20OR%20TITLE%3A%221-minute%20sit-to-stand%22%20OR%20TITLE%3A%22unipedal%20stance%22%20AND%20TITLE%3A%22normative%22)&format=json&resultType=core&pageSize=6",
+   "citation": "Springer BA, Marin R, Cyhan T, Roberts H, Gill NW. Normative values for the unipedal stance test with eyes open and closed. Journal of geriatric physical therapy (2001) 2007",
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1 (Europe PMC abstract)"
+   },
+   "review": {
+    "correct": {
+     "verdict": "upheld",
+     "reason": "Via Europe PMC: 549 healthy subjects 18+, six age groups, best of 3 times, performance age-specific and not related to gender; no per-band seconds in abstract."
+    },
+    "current": {
+     "verdict": "uncertain",
+     "reason": "PubMed page blocked by cookie wall, so could not check for newer normative values or corrections. No search budget used on it."
+    },
+    "applies": {
+     "verdict": "upheld",
+     "reason": "Abstract confirms n=549, 18 years or older, six age bands from 18-39 to 80+, eyes open and closed. This covers the 20 to 70 range. Best-of-3 and gender claims were not seen in the fetched text."
+    }
+   },
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F23",
+   "lane": "L2",
+   "claim": "Colombian multicenter study (2025) set sex- and age-specific percentile reference values for 5-repetition, 30-second and 1-minute sit-to-stand in 393 healthy adults aged 18 to 80; abstract gives no percentile tables.",
+   "quote": "To establish sex and age specific reference values for the 5-repetition, 30-second, and 1-minute sit-to-stand tests in community-dwelling Colombian adults.",
+   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42183074/",
+   "publicationDate": "2025",
+   "sourceType": "peer-reviewed",
+   "loadBearing": false,
+   "retrievedVia": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=Strassmann%201-minute%20sit-to-stand%20reference%20values&format=json&resultType=core&pageSize=3",
+   "citation": "Rodr\u00edguez-Castro J, Benavides-Cordoba V, Torres-Castro R, Otto-Y\u00e1\u00f1ez M, Betancourt-Pe\u00f1a J, \u00c1vila-Valencia JC. Reference values for sit-to-stand tests in Colombian adults: a multicenter cross-sectional study. Colombia medica (Cali, Colombia) 2025",
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1 (Europe PMC abstract)"
+   },
+   "review": {
+    "correct": {
+     "verdict": "upheld",
+     "reason": "Via Europe PMC: 393 healthy Colombian adults aged 18-80, normative percentiles by sex and age for 5-rep, 30-s, 1-min tests; no percentile tables in abstract."
+    },
+    "current": {
+     "verdict": "uncertain",
+     "reason": "PubMed page blocked by cookie wall; could not verify or look for newer reference values."
+    },
+    "applies": {
+     "verdict": "upheld",
+     "reason": "Abstract confirms 393 participants, mean age 44, 5-rep, 30 s and 60 s sit-to-stand. Age range 18 to 80 and healthy status were not seen in the fetched text. Colombian sample and supervised testing may limit norms elsewhere."
+    }
+   },
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F24",
+   "lane": "L2",
+   "claim": "Remote video-based sit-to-stand tele-assessment (synchronous and asynchronous) showed good to moderate validity against in-person testing in 38 post-COVID adults; asynchronous reliability between raters was high; minimal detectable change 6.6 and 10.5 reps.",
+   "quote": "The STS-S and STS-A showed minimal detectable change values of 6.6 and 10.5, respectively.",
+   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/41328073/",
+   "publicationDate": "2025",
+   "sourceType": "peer-reviewed",
+   "loadBearing": false,
+   "retrievedVia": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=Strassmann%201-minute%20sit-to-stand%20reference%20values&format=json&resultType=core&pageSize=3",
+   "citation": "Machado Marques J, Brasiliano da Paz M, Gomes Costa RR, Ribeiro Neto F. Validity, reliability and minimal detectable change in the sit-to-stand test for synchronous and asynchronous tele-assessment in post-COVID-19 condition. PeerJ 2025",
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1 (Europe PMC abstract)"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F25",
+   "lane": "L2",
+   "claim": "Korea National Fitness Award cohort (BMC Public Health 2024) built regression fitness-age equations from 501,774 people; the older-adult model uses 30-s chair stand, grip, 2-min step, sit-and-reach, TUG and sex (adjusted R2 24.3%); adult model R2 93.6%.",
+   "quote": "Data from 501,774 (359,303 adults, 142,471 older adults) individuals who participated in the Korea National Fitness Award Cohort Study from 2017 to 2021 were used.",
+   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39334055/",
+   "publicationDate": "2024",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "retrievedVia": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=(TITLE%3A%22fitness%20age%22%20AND%20TITLE%3A%22HUNT%22%20OR%20(TITLE%3A%22sit-to-stand%22%20AND%20(TITLE%3A%22MediaPipe%22%20OR%20TITLE%3A%22pose%20estimation%22%20OR%20TITLE%3A%22smartphone%22%20OR%20TITLE%3A%22video%22)))&format=json&resultType=core&pageSize=6",
+   "citation": "Yoon DH, Kim JH, Lee SU. A study on the development of a fitness age prediction model: the national fitness award cohort study 2017-2021. BMC public health 2024",
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1 (Europe PMC abstract)"
+   },
+   "review": {
+    "correct": {
+     "verdict": "upheld",
+     "reason": "Via Europe PMC: 501,774 individuals; older-adult equation has 2-min step, grip, 30-s chair stand, sit and reach, TUG, sex; adjusted R2 24.3% older, 93.6% adults."
+    },
+    "current": {
+     "verdict": "uncertain",
+     "reason": "PubMed page blocked by cookie wall; could not verify or check for a newer fitness-age model."
+    },
+    "applies": {
+     "verdict": "upheld",
+     "reason": "Abstract confirms n=501,774 (359,303 adults, 142,471 older adults) and adjusted R2 93.6 percent adults versus 24.3 percent older adults. The older-adult test list was not seen in my fetch. Korean supervised fitness-centre data."
+    }
+   },
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F26",
+   "lane": "L2",
+   "claim": "Chinese cohort (2026, n=2207, age 60+) derived a physical fitness age from a 5-time chair stand plus grip, walking speed and peak flow; accelerated aging (PFA minus age over 2.5 y) had aOR 1.88 for depressive symptoms and 1.76 for cognitive impairment.",
+   "quote": "PFA was derived using sex-stratified regression equations integrating peak expiratory flow, handgrip strength, walking speed, 5-time chair stand test, and CA",
+   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/42790361/",
+   "publicationDate": "2026",
+   "sourceType": "peer-reviewed",
+   "loadBearing": false,
+   "retrievedVia": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=(TITLE%3A%22fitness%20age%22%20AND%20TITLE%3A%22HUNT%22%20OR%20(TITLE%3A%22sit-to-stand%22%20AND%20(TITLE%3A%22MediaPipe%22%20OR%20TITLE%3A%22pose%20estimation%22%20OR%20TITLE%3A%22smartphone%22%20OR%20TITLE%3A%22video%22)))&format=json&resultType=core&pageSize=6",
+   "citation": "Xue K, Pan C, Yang L, Wang H, Zhao X. Aging patterns based on the difference between physical fitness age and chronological age are associated with physical, mental, and cognitive health in older adults. Geriatric nursing (New York, N.Y.) 2026",
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1 (Europe PMC abstract)"
+   },
+   "review": {
+    "correct": {
+     "verdict": "upheld",
+     "reason": "Via Europe PMC: n=2207, 60+, PFA from peak expiratory flow, grip, walking speed, 5-time chair stand; aOR 1.88 depressive, 1.76 cognitive. The 2.5 y threshold detail was not confirmed (design cross-sectional)."
+    },
+    "current": {
+     "verdict": "uncertain",
+     "reason": "PubMed page blocked by cookie wall; could not verify the 2026 figures or check for corrections."
+    },
+    "applies": {
+     "verdict": "upheld",
+     "reason": "aORs 1.88 and 1.76 and n=2207 aged 60+ confirmed. Claim states the 60+ scope, so it does not apply to under-60s. Grip and peak flow need equipment, which a camera app lacks."
+    }
+   },
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F31",
+   "lane": "L3",
+   "claim": "UK Biobank accelerometer cohort: higher Sleep Regularity Index was associated with 20-48% lower all-cause mortality across the top four quintiles versus the least regular quintile. Cohort of 60,977 participants per the OUP page summary; adjusted for sociodemographic, lifestyle and health factors.",
+   "quote": "Higher sleep regularity was associated with a 20%\u201348% lower risk of all-cause mortality (p < .001 to p = 0.004)",
+   "sourceUrl": "https://academic.oup.com/sleep/article/47/1/zsad253/7280269",
+   "publicationDate": "2024-01",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "fetch_fail",
+    "score": null
+   },
+   "review": {
+    "correct": {
+     "verdict": "upheld",
+     "reason": "OUP page gives 60 977 UK Biobank participants and 20%-48% lower all-cause mortality in top four quintiles vs least regular quintile."
+    },
+    "current": {
+     "verdict": "upheld",
+     "reason": "OUP page confirms 60,977 participants and a 20%-48% lower all-cause mortality across top four quintiles. Only note is corrected and typeset 17 October 2023, which is pre-publication typesetting, not a supersession."
+    },
+    "applies": {
+     "verdict": "refuted",
+     "reason": "Claim omits the population and protocol. The cohort averages 62.8 years and sleep regularity came from 7 days of wrist accelerometer data, which a single unsupervised camera session cannot reproduce. Do not use the mortality figures for ages 20 to 70. The 20-48 percent range was not verified; I saw HR 0.52 and 0.70."
+    }
+   },
+   "appliesWarning": "Claim omits the population and protocol. The cohort averages 62.8 years and sleep regularity came from 7 days of wrist accelerometer data, which a single unsupervised camera session cannot reproduce. Do not use the mortality figures for ages 20 to 70. The 20-48 percent range was not verified; I saw HR 0.52 and 0.70.",
+   "status": "unverified"
+  },
+  {
+   "id": "F32",
+   "lane": "L3",
+   "claim": "Windred 2024: sleep regularity was a stronger predictor of all-cause mortality than sleep duration. Minimally adjusted top-quintile hazard ratio 0.52 for regularity versus 0.69 for duration, per the page summary only; the HR figures were not in the verbatim text I could quote.",
+   "quote": "These findings indicate that sleep regularity is an important predictor of mortality risk and is a stronger predictor than sleep duration.",
+   "sourceUrl": "https://academic.oup.com/sleep/article/47/1/zsad253/7280269",
+   "publicationDate": "2024-01",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "fetch_fail",
+    "score": null
+   },
+   "review": {
+    "correct": {
+     "verdict": "upheld",
+     "reason": "Page says regularity stronger than duration, HR 0.52 vs 0.69 in minimally adjusted models; regularity stays significant when duration is included. Duration comparison group is longest-duration group."
+    },
+    "current": {
+     "verdict": "upheld",
+     "reason": "Abstract confirms regularity was a stronger mortality predictor than duration. Specific HRs (0.52 vs 0.69) are not in the abstract, so unverified, but no newer source contradicts the claim."
+    },
+    "applies": {
+     "verdict": "refuted",
+     "reason": "Same source mismatch: mean age 62.8 and 7-day accelerometer protocol, not transferable to a one-session app for adults 20 to 70. Regularity HR 0.52 and the stronger-than-duration finding are confirmed. The 0.69 duration HR was not seen."
+    }
+   },
+   "appliesWarning": "Same source mismatch: mean age 62.8 and 7-day accelerometer protocol, not transferable to a one-session app for adults 20 to 70. Regularity HR 0.52 and the stronger-than-duration finding are confirmed. The 0.69 duration HR was not seen.",
+   "status": "unverified"
+  },
+  {
+   "id": "F33",
+   "lane": "L3",
+   "claim": "Open-weights voice age model: audeering wav2vec2-large-robust-24-ft-age-gender on Hugging Face outputs age on a 0 to 1 scale (0-100 years) plus child/female/male probabilities. License is CC-BY-NC-SA-4.0 (non-commercial). ONNX export on Zenodo. Trained on aGender, Common Voice, Timit, Voxceleb 2.",
+   "quote": "outputs predictions for age in a range of approximately 0...1 (0...100 years)",
+   "sourceUrl": "https://huggingface.co/audeering/wav2vec2-large-robust-24-ft-age-gender",
+   "publicationDate": "unknown",
+   "sourceType": "code-repo",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F34",
+   "lane": "L3",
+   "claim": "Paper behind the audeering model (Burkhardt et al., arXiv June 2023): age mean absolute error between 7.1 and 10.8 years depending on dataset, gender accuracy above 91.1%. Chronological age only, not biological age, so voice age gap is a weak aging proxy.",
+   "quote": "between 7.1 years and 10.8 years for age",
+   "sourceUrl": "https://arxiv.org/abs/2306.16962",
+   "publicationDate": "2023-06",
+   "sourceType": "preprint",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F35",
+   "lane": "L3",
+   "claim": "Smartphone camera PPG validation (Cardiio app, healthy young adults): fingertip PPG heart rate matched resting ECG with r=.997 and RMSE 1.03 beats/min. Facial (contact-free) PPG was less accurate than fingertip, especially after exercise.",
+   "quote": "Fingertip PPG-estimated HRs were strongly correlated with resting ECG HR (r=.997, RMSE=1.03 beats/min or 1.40%)",
+   "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5368348/",
+   "publicationDate": "2017",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F36",
+   "lane": "L3",
+   "claim": "AI-PPG age (Nie et al., arXiv Feb 2025, Peking University group, not Apple): deep learning age from PPG, 212,231 UK Biobank participants, external check in MIMIC-III (2,343). Page summary says an age gap over 9 years carried substantially elevated cardiovascular risk.",
+   "quote": "Photoplethysmography (PPG), increasingly available through wearable devices, provides a non-invasive means of monitoring human hemodynamics",
+   "sourceUrl": "https://arxiv.org/abs/2502.12990",
+   "publicationDate": "2025-02",
+   "sourceType": "preprint",
+   "loadBearing": false,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F41",
+   "lane": "L4",
+   "claim": "DunedinPACE was modelled as a rate: within-individual decline in 19 organ-system indicators over four time points spanning two decades, then distilled into a one-time DNA-methylation blood test.",
+   "quote": "tracking within-individual decline in 19 indicators of organ-system integrity across four time points spanning two decades to model Pace of Aging",
+   "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8853656/",
+   "publicationDate": "2022",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F42",
+   "lane": "L4",
+   "claim": "DunedinPACE showed high test-retest reliability and was associated with morbidity, disability and mortality. Effect sizes were similar to GrimAge, and it added prediction beyond GrimAge. Reliability and outcome prediction are the validation template.",
+   "quote": "DunedinPACE showed high test-retest reliability, was associated with morbidity, disability, and mortality, and indicated faster aging in young adults with childhood adversity.",
+   "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8853656/",
+   "publicationDate": "2022",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F43",
+   "lane": "L4",
+   "claim": "DNAm PhenoAge (Levine 2018) is an epigenetic clock trained on composite clinical phenotypic age. It predicts all-cause mortality, cancers, healthspan, physical functioning and Alzheimer's disease. It is the DNA-methylation version, not the blood-chemistry PhenoAge.",
+   "quote": "strongly outperforms previous measures in regards to predictions for a variety of aging outcomes, including all-cause mortality, cancers, healthspan, physical functioning, and Alzheimer's disease",
+   "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5940111/",
+   "publicationDate": "2018",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F44",
+   "lane": "L4",
+   "claim": "Oh et al. 2023 Nature built organ-specific plasma-proteomic ages for 11 organs in 5,676 adults across five cohorts. Accelerated organ aging carries 20-50% higher mortality risk, and accelerated heart aging carries a 250% increased heart failure risk.",
+   "quote": "Accelerated organ aging confers 20\u201350% higher mortality risk, and organ-specific diseases relate to faster aging of those organs. We find individuals with accelerated heart aging have a 250% increased heart failure risk",
+   "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10700136/",
+   "publicationDate": "2023",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F45",
+   "lane": "L4",
+   "claim": "Oh et al. 2023: nearly 20% of the population show strongly accelerated age in one organ, and 1.7% are multi-organ agers. This supports a per-organ profile rather than a single age number.",
+   "quote": "nearly 20% of the population show strongly accelerated age in one organ and 1.7% are multi-organ agers",
+   "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10700136/",
+   "publicationDate": "2023",
+   "sourceType": "peer-reviewed",
+   "loadBearing": false,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F46",
+   "lane": "L4",
+   "claim": "Moqri et al. 2023 Cell (Biomarkers of Aging Consortium) states the field lacks standards and consensus on the properties of a reliable aging biomarker. It proposes a framework for terminology and characterization and discusses validation steps. The abstract does not itself enumerate the criteria.",
+   "quote": "the current lack of standards and consensus on the properties of a reliable aging biomarker hinders their further development and validation for clinical applications",
+   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37657418/",
+   "publicationDate": "2023",
+   "sourceType": "peer-reviewed",
+   "loadBearing": false,
+   "retrievedVia": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:37657418%20AND%20SRC:MED&resultType=core&format=json",
+   "citation": "Moqri M, Herzog C, Poganik JR, Biomarkers of Aging Consortium, Justice J, Belsky DW, Higgins-Chen A, Moskalev A, Fuellen G, Cohen AA, Bautmans I, Widschwendter M, Ding J, Fleming A, Mannick J, Han JJ, Zhavoronkov A, Barzilai N, Kaeberlein M, Cummings S, Kennedy BK, Ferrucci L, Horvath S, Verdin E, Maier AB, Snyder MP, Sebastiano V, Gladyshev VN. Biomarkers of aging for the identification and evaluation of longevity interventions. Cell 2023",
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1 (Europe PMC abstract)"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F51",
+   "lane": "L5",
+   "claim": "Sundai Hack 143 runs Sun 4 Oct 2026, 10:00-22:00 at Harvard; schedule has a 10:30 Biomarkers of Aging overview, 11:00 team formation, 20:00 final presentations. No co-host or named speaker is listed.",
+   "quote": "Sundai Club is the largest MIT / Harvard AI hacker group that meets every Sunday to build a new AI app from scratch by the end of the day.",
+   "sourceUrl": "https://www.sundai.club/events/boston/sundai-hack-143-biomarkers-of-aging-hack",
+   "publicationDate": "2026",
+   "sourceType": "event-page",
+   "loadBearing": false,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F52",
+   "lane": "L5",
+   "claim": "Boston Longevity Hub lists Sundai Hack 143 as part of Boston Longevity Week (Oct 1-7 2026), organized by Sundai Club. The 2026 BOA Conference follows on Oct 5-6 at Harvard Medical School (Joseph B. Martin Conference Center), organized by the Consortium.",
+   "quote": "A one-day AI hackathon to build and test aging biomarkers from imaging, wearables, and physiological signals",
+   "sourceUrl": "https://bostonlongevity.org/",
+   "publicationDate": "2026",
+   "sourceType": "organization",
+   "loadBearing": false,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F53",
+   "lane": "L5",
+   "claim": "The Biomarkers of Aging Consortium runs an annual 2-day Harvard Medical School conference, the open-source Biolearn library, and the Biomarkers of Aging Challenge. It is fiscally sponsored by the Methuselah Foundation. Leaders not retrieved.",
+   "quote": "support the geroscience community by creating standardized, clinically validated ways to measure aging and assess intervention outcomes.",
+   "sourceUrl": "https://www.agingconsortium.org",
+   "publicationDate": "unknown",
+   "sourceType": "organization",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F54",
+   "lane": "L5",
+   "claim": "Biomarkers of Aging Challenge Phase I used DNA methylation data from 500 individuals aged 18-99, which is blood-based and not camera-based. Phases: chronological age, mortality, multi-morbidity. Top MAE 2.45-2.55 years per fetched summary.",
+   "quote": "Open scientific competitions have successfully driven biomedical advances but remain underutilized in aging research, where biological complexity and heterogeneity require methodological innovations.",
+   "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11565782/",
+   "publicationDate": "2024",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F55",
+   "lane": "L5",
+   "claim": "Sit To Stand App (iOS, developer Juan Diego Ruiz-Cardenas) already scores the chair-rise test from 240 fps phone video: time, velocity, muscle power. So camera sit-to-stand already exists as a validated app.",
+   "quote": "Sit to Stand App is the first scientifically validated application for the biomechanics evaluation of the chair rising test based on high-speed video recording (240 frames-per-second).",
+   "sourceUrl": "https://apps.apple.com/us/app/id6450546794",
+   "publicationDate": "unknown",
+   "sourceType": "other",
+   "loadBearing": true,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {
+    "correct": {
+     "verdict": "upheld",
+     "reason": "App listing shows developer Juan Diego Ruiz-Cardenas, time, velocity, muscle power from 240 fps video. Validation is the developer's own claim of passing scientific validation."
+    },
+    "current": {
+     "verdict": "upheld",
+     "reason": "App Store page shows the app is still available, latest version 2.1.2 updated Nov 8 2025, 240 fps video with time, velocity and power, described as scientifically validated. Nothing indicates removal or replacement."
+    },
+    "applies": {
+     "verdict": "upheld",
+     "reason": "App Store page confirms 240 fps video, time, velocity and power outputs. The validation claim is the developer's own marketing, not independent evidence, and the app is Apple-only. It stands as prior-art evidence that camera sit-to-stand exists."
+    }
+   },
+   "appliesWarning": null,
+   "status": "verified"
+  },
+  {
+   "id": "F56",
+   "lane": "L5",
+   "claim": "AgeQ app estimates body age from fingertip PPG on the phone camera plus an activity questionnaire, an existing consumer phone-camera biological-age product. Quote comes from the search result snippet, not a fetched page.",
+   "quote": "AgeQ - Body Age Test App - App Store",
+   "sourceUrl": "https://apps.apple.com/us/app/ageq-body-age-test/id6761166429",
+   "publicationDate": "unknown",
+   "sourceType": "other",
+   "loadBearing": false,
+   "quotecheck": {
+    "status": "verified",
+    "score": "1/1"
+   },
+   "review": {},
+   "appliesWarning": null,
+   "status": "verified"
+  }
+ ]
+}

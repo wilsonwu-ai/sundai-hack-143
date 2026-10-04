@@ -1,0 +1,182 @@
+[
+ {
+  "id": "F11",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://cris.maastrichtuniversity.nl/en/publications/faceage-a-deep-learning-system-to-estimate-biological-age-from-fa/"
+ },
+ {
+  "id": "F12",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://www.eurekalert.org/news-releases/1082875"
+ },
+ {
+  "id": "F13",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://www.eurekalert.org/news-releases/1082875"
+ },
+ {
+  "id": "F14",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://github.com/AIM-Harvard/FaceAge"
+ },
+ {
+  "id": "F15",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://www.biometricupdate.com/202405/study-finds-dorsal-hand-images-as-effective-as-face-biometrics-for-age-estimation"
+ },
+ {
+  "id": "F16",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://www.biometricupdate.com/202405/study-finds-dorsal-hand-images-as-effective-as-face-biometrics-for-age-estimation"
+ },
+ {
+  "id": "F21",
+  "status": "not_found",
+  "score": "0/1",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/35728834/"
+ },
+ {
+  "id": "F22",
+  "status": "verified",
+  "score": "1/1 (Europe PMC abstract)",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/19839175/"
+ },
+ {
+  "id": "F23",
+  "status": "verified",
+  "score": "1/1 (Europe PMC abstract)",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/42183074/"
+ },
+ {
+  "id": "F24",
+  "status": "verified",
+  "score": "1/1 (Europe PMC abstract)",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/41328073/"
+ },
+ {
+  "id": "F25",
+  "status": "verified",
+  "score": "1/1 (Europe PMC abstract)",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/39334055/"
+ },
+ {
+  "id": "F26",
+  "status": "verified",
+  "score": "1/1 (Europe PMC abstract)",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/42790361/"
+ },
+ {
+  "id": "F31",
+  "status": "fetch_fail",
+  "score": null,
+  "url": "https://academic.oup.com/sleep/article/47/1/zsad253/7280269"
+ },
+ {
+  "id": "F32",
+  "status": "fetch_fail",
+  "score": null,
+  "url": "https://academic.oup.com/sleep/article/47/1/zsad253/7280269"
+ },
+ {
+  "id": "F33",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://huggingface.co/audeering/wav2vec2-large-robust-24-ft-age-gender"
+ },
+ {
+  "id": "F34",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://arxiv.org/abs/2306.16962"
+ },
+ {
+  "id": "F35",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5368348/"
+ },
+ {
+  "id": "F36",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://arxiv.org/abs/2502.12990"
+ },
+ {
+  "id": "F41",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8853656/"
+ },
+ {
+  "id": "F42",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8853656/"
+ },
+ {
+  "id": "F43",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5940111/"
+ },
+ {
+  "id": "F44",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10700136/"
+ },
+ {
+  "id": "F45",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10700136/"
+ },
+ {
+  "id": "F46",
+  "status": "verified",
+  "score": "1/1 (Europe PMC abstract)",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/37657418/"
+ },
+ {
+  "id": "F51",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://www.sundai.club/events/boston/sundai-hack-143-biomarkers-of-aging-hack"
+ },
+ {
+  "id": "F52",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://bostonlongevity.org/"
+ },
+ {
+  "id": "F53",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://www.agingconsortium.org"
+ },
+ {
+  "id": "F54",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11565782/"
+ },
+ {
+  "id": "F55",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://apps.apple.com/us/app/id6450546794"
+ },
+ {
+  "id": "F56",
+  "status": "verified",
+  "score": "1/1",
+  "url": "https://apps.apple.com/us/app/ageq-body-age-test/id6761166429"
+ }
+]

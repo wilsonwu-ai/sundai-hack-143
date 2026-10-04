@@ -42,23 +42,82 @@ def get(url):
     return cache[url]
 
 
-def check(url, quote):
-    page = get(url)
-    if page is None:
-        return 'fetch_fail', None
-    parts = [norm(p) for p in re.split(r'\.\.\.|…', quote)]
+def epmc_abstract(pmid):
+    """The same article's published abstract via Europe PMC, for PubMed pages that
+    serve a bot check or a truncated abstract to scripts."""
+    key = f'epmc:{pmid}'
+    if key not in cache:
+        api = ('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:'
+               f'{pmid}%20AND%20SRC:MED&resultType=core&format=json')
+        try:
+            req = urllib.request.Request(api, headers={'User-Agent': UA, 'Accept': 'application/json'})
+            res = json.loads(urllib.request.urlopen(req, timeout=25).read())['resultList']['result']
+            text = ' '.join(r.get('title', '') + ' ' + r.get('abstractText', '') for r in res)
+            cache[key] = norm(html.unescape(re.sub(r'<[^>]+>', ' ', text)))
+        except Exception as e:
+            cache[key] = None
+            print('FETCH FAIL', api, str(e)[:80], file=sys.stderr)
+    return cache[key]
+
+
+def match(page, quote):
+    parts = [norm(p) for p in re.split(r'\.\.\.|…', html.unescape(quote))]
     parts = [p for p in parts if len(p) >= 12]
     if not parts:
         return 'too_short', None
     hit = sum(1 for p in parts if p in page)
-    status = 'verified' if hit == len(parts) else ('partial' if hit else 'not_found')
-    return status, f'{hit}/{len(parts)}'
+    return ('verified' if hit == len(parts) else ('partial' if hit else 'not_found')), f'{hit}/{len(parts)}'
+
+
+def epmc_fulltext(pmcid):
+    """Open-access full text via Europe PMC, for PMC pages that rate-limit scripts."""
+    key = f'epmcft:{pmcid}'
+    if key not in cache:
+        api = f'https://www.ebi.ac.uk/europepmc/webservices/rest/{pmcid}/fullTextXML'
+        try:
+            req = urllib.request.Request(api, headers={'User-Agent': UA})
+            raw = urllib.request.urlopen(req, timeout=25).read().decode('utf-8', 'ignore')
+            cache[key] = norm(html.unescape(re.sub(r'<[^>]+>', ' ', raw)))
+        except Exception as e:
+            cache[key] = None
+            print('FETCH FAIL', api, str(e)[:80], file=sys.stderr)
+    return cache[key]
+
+
+def check(url, quote):
+    page = get(url)
+    status, score = match(page, quote) if page is not None else ('fetch_fail', None)
+    if status == 'verified':
+        return status, score
+    pmid = re.search(r'pubmed\.ncbi\.nlm\.nih\.gov/(\d+)', url)
+    pmcid = re.search(r'(PMC\d+)', url)
+    fallbacks = []
+    if pmid:
+        fallbacks.append((epmc_abstract, pmid.group(1), 'Europe PMC abstract'))
+    if pmcid:
+        fallbacks.append((epmc_fulltext, pmcid.group(1), 'Europe PMC full text'))
+    for fetch, ident, label in fallbacks:
+        text = fetch(ident)
+        if text is not None:
+            alt, alt_score = match(text, quote)
+            if alt == 'verified':
+                return 'verified', f'{alt_score} ({label})'
+    return status, score
 
 
 def main(src, out):
     findings = json.load(open(src))['findings']
+    # A verbatim match is deterministic evidence; a later fetch failure or bot page is a
+    # false negative. Keep a prior verified result for the same id and URL.
+    try:
+        prior = {(r['id'], r['url']): r for r in json.load(open(out)) if r['status'] == 'verified'}
+    except Exception:
+        prior = {}
     rows = []
     for f in findings:
+        if (f['id'], f['sourceUrl']) in prior:
+            rows.append(prior[(f['id'], f['sourceUrl'])])
+            continue
         status, score = check(f['sourceUrl'], f['quote'])
         rows.append({'id': f['id'], 'status': status, 'score': score, 'url': f['sourceUrl']})
     json.dump(rows, open(out, 'w'), indent=1)
