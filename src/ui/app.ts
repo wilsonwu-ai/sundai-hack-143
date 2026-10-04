@@ -6,13 +6,17 @@ import type {
   Performance,
   PoseTracker,
   Sex,
+  SlsBand,
+  SlsPlacement,
   SourceRef,
 } from '../contracts'
+import { SLS_MAX_MS } from '../contracts'
 import { createChairCounter } from '../pose/chair'
 import { createStanceTimer } from '../pose/stance'
 import { checkFraming } from '../pose/framing'
 import { drawPose } from '../pose/draw'
 import { placeSts } from '../norms/sts'
+import { placeSls } from '../norms/sls'
 import { summarizeBalance } from '../norms/balance'
 
 const EXPLAINER_URL = './explainer/'
@@ -26,9 +30,8 @@ const SIT_MS = 4000
 const COUNT_MS = 3000
 const GO_AT_MS = STAND_MS + SIT_MS + COUNT_MS
 const THIRTY_MS = 30000
-const BALANCE_MAX_MS = 30000
 const BALANCE_MARK_MS = 10000
-const MAX_ATTEMPTS = 3
+const MAX_ATTEMPTS = 2
 
 type ChairMode = '5rep' | '30s'
 type Facing = 'user' | 'environment'
@@ -46,6 +49,11 @@ interface ChairResult {
   camSeconds: number | null
   tapSeconds: number | null
   basis: 'camera' | 'taps'
+}
+
+interface BalanceAttempt {
+  heldMs: number
+  liftedSide: 'left' | 'right' | null
 }
 
 interface Cam {
@@ -101,6 +109,19 @@ function bandRange(bands: AgeBand[]): string {
   return `${first.split('-')[0]} to ${last.split('-')[1]}`
 }
 
+/** One start-to-end range for the single-leg stand bands; the open-ended 70+ band reads "70 and over". */
+function slsBandRange(bands: SlsBand[]): string {
+  const first = bands[0]
+  const last = bands[bands.length - 1]
+  const start = first === '70+' ? '70' : first.split('-')[0]
+  if (last === '70+') return `${start} and over`
+  return `${start} to ${last.split('-')[1]}`
+}
+
+function slsBandLabel(band: SlsBand): string {
+  return band === '70+' ? '70 and over' : band.replace('-', ' to ')
+}
+
 const PERFORMANCE_WORDS: Record<Performance, string> = {
   'well-below': 'well below typical',
   below: 'below typical',
@@ -142,7 +163,7 @@ export const mountApp: MountApp = (root) => {
 
   const inputs: Inputs = { age: null, sex: null, chair: '5rep' }
   let chairResult: ChairResult | null = null
-  let balanceBestMs: number | null = null
+  let balanceBest: BalanceAttempt | null = null
   let cam: Cam | null = null
   let wakeLock: WakeLockSentinel | null = null
   let wantWake = false
@@ -229,7 +250,7 @@ export const mountApp: MountApp = (root) => {
   function renderStart(): void {
     teardownCamera()
     chairResult = null
-    balanceBestMs = null
+    balanceBest = null
 
     const screen = el('div', 'screen')
     const title = el('h1', 'title', 'Movement Age')
@@ -711,14 +732,15 @@ export const mountApp: MountApp = (root) => {
       c.hook = null
       setText(title, 'One-leg stand')
       hudMain.setAttribute('aria-live', 'off')
-      const timer = createStanceTimer({ maxMs: BALANCE_MAX_MS })
-      const attempts: number[] = []
+      const timer = createStanceTimer({ maxMs: SLS_MAX_MS })
+      const maxSeconds = SLS_MAX_MS / 1000
+      const attempts: BalanceAttempt[] = []
       let active = true
 
       const instruction = el(
         'p',
         'lead',
-        'Stand next to a wall. Lift one foot and hold as long as you can, up to 30 seconds.',
+        `Stand barefoot next to a wall, hands on your hips, eyes open. Lift one foot and hold as long as you can, up to ${maxSeconds} seconds. You get two tries, and the best one counts.`,
       )
       const attemptLine = el('p', 'status')
       attemptLine.setAttribute('role', 'status')
@@ -731,11 +753,16 @@ export const mountApp: MountApp = (root) => {
       actions.append(again, see, skip)
       panel.replaceChildren(instruction, attemptLine, list, actions)
 
-      function best(): number | null {
-        return attempts.length > 0 ? Math.max(...attempts) : null
+      // The best attempt keeps its own lifted side; an earlier attempt wins a tie.
+      function best(): BalanceAttempt | null {
+        let top: BalanceAttempt | null = null
+        for (const a of attempts) {
+          if (top === null || a.heldMs > top.heldMs) top = a
+        }
+        return top
       }
       function toResult(): void {
-        balanceBestMs = best()
+        balanceBest = best()
         renderResult()
       }
       function startAttempt(): void {
@@ -748,18 +775,21 @@ export const mountApp: MountApp = (root) => {
           main: '0.0 s',
           kind: 'time',
           sub: 'Lift one foot when you are ready',
+          time: `Maximum ${maxSeconds} s`,
           bar: 0,
           lit: false,
         })
       }
-      function endAttempt(heldMs: number): void {
+      function endAttempt(heldMs: number, liftedSide: 'left' | 'right' | null): void {
         active = false
-        attempts.push(heldMs)
+        attempts.push({ heldMs, liftedSide })
         list.replaceChildren(
-          ...attempts.map((ms, i) => el('li', undefined, `Attempt ${i + 1}: ${fmt1(ms / 1000)} s`)),
+          ...attempts.map((a, i) =>
+            el('li', undefined, `Attempt ${i + 1}: ${fmt1(a.heldMs / 1000)} s`),
+          ),
         )
         list.hidden = false
-        const bestMs = best() ?? 0
+        const bestMs = best()?.heldMs ?? 0
         setText(
           attemptLine,
           `Held ${fmt1(heldMs / 1000)} s. Best so far: ${fmt1(bestMs / 1000)} s.`,
@@ -782,10 +812,11 @@ export const mountApp: MountApp = (root) => {
               : st.status === 'holding'
                 ? 'Holding'
                 : 'Done',
-          bar: st.heldMs / BALANCE_MAX_MS,
+          time: `Maximum ${maxSeconds} s`,
+          bar: st.heldMs / SLS_MAX_MS,
           lit: st.heldMs >= BALANCE_MARK_MS,
         })
-        if (st.status === 'ended') endAttempt(st.heldMs)
+        if (st.status === 'ended') endAttempt(st.heldMs, st.liftedSide)
       }
     }
 
@@ -806,6 +837,8 @@ export const mountApp: MountApp = (root) => {
     const addSource = (s: SourceRef): void => {
       if (!sources.some((x) => x.id === s.id)) sources.push(s)
     }
+
+    const summaryParts: string[] = []
 
     // Leg strength row
     const leg = el('section', 'card row')
@@ -850,6 +883,7 @@ export const mountApp: MountApp = (root) => {
             leg.appendChild(
               el('p', 'range', `Your result is typical of ages ${bandRange(p.typicalOf)}.`),
             )
+            summaryParts.push(`Leg strength: typical of ages ${bandRange(p.typicalOf)}.`)
           }
           if (p.ownBand !== null && p.performance !== null) {
             leg.appendChild(
@@ -878,11 +912,71 @@ export const mountApp: MountApp = (root) => {
     // Balance row
     const bal = el('section', 'card row')
     bal.appendChild(el('h2', undefined, 'Balance'))
-    if (balanceBestMs === null) {
+    const best = balanceBest
+    if (best === null) {
       bal.appendChild(el('p', undefined, 'Skipped.'))
     } else {
-      const s = summarizeBalance(balanceBestMs)
-      bal.appendChild(el('p', 'big', `Held ${fmt1(s.heldSeconds)} s`))
+      const s = summarizeBalance(best.heldMs)
+      let placement: SlsPlacement | null = null
+      if (inputs.age !== null) {
+        try {
+          placement = placeSls(best.heldMs, best.liftedSide, inputs.age)
+        } catch {
+          placement = null
+        }
+      }
+      const legWords =
+        placement === null || placement.stanceLeg === 'either'
+          ? ''
+          : `, standing on your ${placement.stanceLeg} leg`
+      bal.appendChild(el('p', 'big', `Held ${fmt1(s.heldSeconds)} s${legWords}`))
+      if (placement === null) {
+        bal.appendChild(el('p', undefined, 'This result could not be placed on the table.'))
+      } else {
+        if (placement.capped) {
+          bal.appendChild(
+            el(
+              'p',
+              undefined,
+              `You held the full ${SLS_MAX_MS / 1000} seconds, the test maximum.`,
+            ),
+          )
+        }
+        if (placement.aboveAllBands) {
+          bal.appendChild(
+            el(
+              'p',
+              'range',
+              'That is above the average range of every age band, including 18 to 29.',
+            ),
+          )
+          summaryParts.push('Balance: above every age band.')
+        } else if (placement.matchesAverageOf.length > 0) {
+          const range = slsBandRange(placement.matchesAverageOf)
+          bal.appendChild(
+            el('p', 'range', `Your hold matches the average for ages ${range}.`),
+          )
+          summaryParts.push(`Balance: matches ages ${range}.`)
+        }
+        if (placement.ownBand !== null && placement.performance !== null) {
+          bal.appendChild(
+            el(
+              'p',
+              undefined,
+              `For your age band (${slsBandLabel(placement.ownBand)}): ${PERFORMANCE_WORDS[placement.performance]}.`,
+            ),
+          )
+        } else {
+          bal.appendChild(
+            el(
+              'p',
+              undefined,
+              'The balance table starts at age 18, so this cannot be placed in your own age band.',
+            ),
+          )
+        }
+        addSource(placement.source)
+      }
       const chip = el('span', s.passedTenSeconds ? 'chip pass' : 'chip fail')
       const glyph = el('span', undefined, s.passedTenSeconds ? '✓' : '✕')
       glyph.setAttribute('aria-hidden', 'true')
@@ -894,9 +988,13 @@ export const mountApp: MountApp = (root) => {
       addSource(s.source)
     }
 
-    screen.append(title, leg, bal)
+    screen.appendChild(title)
+    if (summaryParts.length > 0) {
+      screen.appendChild(el('p', 'lead summary', summaryParts.join(' ')))
+    }
+    screen.append(leg, bal)
 
-    if (r === null && balanceBestMs === null) {
+    if (r === null && best === null) {
       screen.appendChild(el('p', undefined, 'You skipped both tests, so there is nothing to place yet.'))
     }
 

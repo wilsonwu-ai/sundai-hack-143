@@ -260,7 +260,7 @@ input:focus-visible,
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 33.333%;
+  left: 16.667%; /* 10 s of the 60 s maximum */
   width: 3px;
   background: #fff;
 }

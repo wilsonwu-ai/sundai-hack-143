@@ -54,12 +54,12 @@ Before choosing, we had research agents survey five lanes (imaging, movement and
 - **Reads:** camera video of a person standing on one leg and rising from a chair, with pose estimation in the browser.
 - **How it estimates aging:** timing and rep counts are placed on published age-band reference tables.
 - **Evidence:**
-  - Unipedal stance norms for 549 healthy adults aged 18 and over, with six age bands from 18 to 39 up to 80 and over, for eyes open and closed [F22]. The abstract gives no per-band seconds.
-  - Sit-to-stand percentiles by sex and age (5-rep, 30-second and 1-minute tests) in 393 healthy Colombian adults [F23]. The abstract gives no percentile tables.
+  - The classic unipedal stance norms (549 adults, 2007) are paywalled [F22], so we use an open-access table instead: single-leg stance averages for 240 healthy Iranian adults in six age bands from 18 to 29 up to 70 and over, barefoot, hands on hips, up to 60 seconds, read from the full text in code [F61].
+  - Sit-to-stand percentiles by sex for six age bands from 18 to 29 up to 70 to 80 (5-rep, 30-second and 1-minute tests) in 393 Colombian adults, read from the open-access full text in code [F23].
   - Inability to complete a 10-second one-leg stance was associated with all-cause mortality after adjusting for age, sex, BMI and comorbidities, hazard ratio 1.84 (95% CI 1.23 to 2.78), in 1702 adults aged 51 to 75 [F21]. It must not be applied to people under 51.
   - Remote video sit-to-stand assessment showed good to moderate validity against in-person testing in 38 post-COVID adults, with minimal detectable change values of 6.6 and 10.5 repetitions [F24]. Human raters did that rating, not pose estimation.
   - Thin spots: we found no study validating pose estimation for rep counting or balance timing. We did not retrieve chair height and arm position protocols.
-- **One-day build:** realistic. It is a static site with no server and no training. The risk is transcribing reference tables from full texts and getting the camera framing right.
+- **One-day build:** realistic. It is a static site with no server and no training. Both reference tables are read from the open-access full texts in code, so the remaining risk is camera framing on real phones.
 - **60 seconds:** yes, with the whole body in view, so a friend holds the phone or it is propped up.
 
 #### Sleep
@@ -92,7 +92,7 @@ We looked at four ways to fuse signals:
 
 - A three-signal panel: face-video heart rate, a heart-rate-variability proxy and a voice age estimate. The most vivid AI on stage, and the weakest science. The voice error is [F34] and face pulse is less accurate than fingertip [F35].
 - An "arcade" combining face photo, 30-second sit-to-stand and fingertip pulse into one age. No published method in our findings combines these signals into one age, and three captures will not fit in 60 seconds.
-- Face estimate beside the movement bands. The movement half carries the evidence [F22] [F23], and the face half would need a licensed model while FaceAge is research-only [F14].
+- Face estimate beside the movement bands. The movement half carries the evidence [F23] [F61], and the face half would need a licensed model while FaceAge is research-only [F14].
 - Movement plus fingertip pulse before and after chair stands, with separate bars. Showing domains separately follows the per-organ argument in proteomic aging [F45], which is an analogy and not evidence for these signals.
 
 Evidence overall: thin. Combination makes for good theatre, but we found nothing that validates a fused age.
@@ -128,7 +128,7 @@ The pick is Movement Age: prop up your phone, do a one-leg stand and five chair 
 
 Why:
 
-- Every voter can test themselves in the room, and the result rests on published reference values that span adult ages for both tests [F22] [F23].
+- Every voter can test themselves in the room, and the result rests on published reference values that span adult ages for both tests [F23] [F61].
 - It is the only phone-friendly test in our findings with a mortality association after adjusting for age, sex, BMI and comorbidities [F21]. It is narrow (adults aged 51 to 75), so we show it as context and never as a prediction about the user.
 - Remote video assessment of sit-to-stand already showed good to moderate validity against in-person testing [F24]. Adding a live tap check, where a friend taps for each rep and the app shows camera count against tap count, turns that into a visible measured error. That fits the reliability-first template this audience uses [F42] [F46].
 - It fits a day's build: a static site, pose estimation on the device, no server and no training [F51].
@@ -136,16 +136,16 @@ Why:
 
 Honest limits, which we show in the app:
 
-- The age-band numbers are not in the abstracts of [F22] or [F23]. They have to be read from the full texts and transcribed. If we cannot open the full texts, the fallback is to show raw time and reps with the study bands described, and no placement.
-- The youngest band in [F22] covers 18 to 39, so we show an age band and never an exact year.
-- [F23] is a Colombian sample tested under supervision, [F22] dates from 2007, and chair height may shift results.
+- Both age tables come from the open-access full texts, read in code: [F23] for chair stands and [F61] for the one-leg stand.
+- We show age bands and never an exact year. Averages for ages 18 to 59 sit between 46 and 57 seconds out of 60 [F61], so balance separates older adults better than younger ones.
+- [F23] is a Colombian sample and [F61] an Iranian one, both tested under supervision, and chair height and footwear may shift results.
 - A one-leg stand can cause a fall, so the app tells users to stand next to a wall or chair back.
 
 Kill criteria we set before choosing, and their status as of the synthesis:
 
 | ID | Criterion | Status |
 |---|---|---|
-| K1 | A published reference table for the chosen tests covers adults from roughly 20 to 80. | Pass on coverage [F22] [F23]. The per-band numbers are not yet in hand. |
+| K1 | A published reference table for the chosen tests covers adults from roughly 20 to 80. | Pass: chair-stand percentiles [F23] and one-leg stand averages [F61], both read from open-access full texts in code. |
 | K2 | Evidence that the measure predicts mortality or morbidity beyond chronological age. | Narrow pass: [F21], adults aged 51 to 75 only. For chair stands the only outcome link is a composite fitness age in adults aged 60 and over [F26]. Nothing in our findings covers ages 20 to 50. |
 | K3 | The 10:30 intro does not hand out data, a model or a prize that favours another modality. | Pending, to be judged live at 10:30 [F51]. |
 | K4 | No teammate brings a better idea at 11:00. | Pending, to be judged at team formation. |

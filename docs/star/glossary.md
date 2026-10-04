@@ -11,7 +11,7 @@
 - **95% confidence interval (CI):** the range of values the data are reasonably consistent with; a wide range means more uncertainty.
 - **Mean absolute error (MAE):** the average size of a model's mistakes, in the units of what it predicts, such as years [F34].
 - **Pose estimation:** software that finds body joints in video, so an app can see a knee bend or a lifted ankle.
-- **Reference table (norms):** published results from a group of people, split by age and sex, used to see where a new result falls [F22] [F23].
-- **Unipedal stance test:** standing on one leg for as long as possible, up to a limit; our balance test [F22].
+- **Reference table (norms):** published results from a group of people, split by age and sex, used to see where a new result falls [F23] [F61].
+- **Unipedal stance test:** standing on one leg for as long as possible, up to a limit (60 seconds in our protocol); our balance test [F61].
 - **Sit-to-stand test:** rising from a chair repeatedly, counted by reps or by time; our leg-strength test [F23].
 - **Minimal detectable change:** the smallest change in a score that is bigger than measurement noise; reported as 6.6 and 10.5 repetitions for remote sit-to-stand [F24].

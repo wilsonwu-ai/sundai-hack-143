@@ -315,6 +315,18 @@
    "publicationDate": "unknown",
    "sourceType": "other",
    "loadBearing": false
+  },
+  {
+   "id": "F61",
+   "lane": "L6",
+   "claim": "Single-leg stance norms (barefoot, hands on hips, up to 60 s) for 240 healthy Iranian adults in six age bands: right-leg means fall from 56.4 s at 18 to 29 to 14.6 s at 70 and over.",
+   "quote": "The mean values of the SLS test were significantly different between the two older groups, with those who were 60\u201369 years having better performances than those who were \u226570 years (right leg 35.0 vs. 14.6, p < 0.001; left leg 30.4 vs. 13.4, p < 0.001).",
+   "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9422043/",
+   "publicationDate": "2022",
+   "sourceType": "peer-reviewed",
+   "loadBearing": true,
+   "citation": "Nakhostin-Ansari A et al. Normative values of functional reach test, single-leg stance test, and timed UP and GO with and without dual-task in healthy Iranian adults. Ann Med Surg (Lond) 2022;80:104053",
+   "addedBy": "W2 build-time research (research/balance-norms.json), quote taken from the full text in code"
   }
  ],
  "ideas": [

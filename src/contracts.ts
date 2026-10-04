@@ -9,6 +9,7 @@
 //   src/pose/draw.ts     -> export const drawPose: DrawPose
 //   src/norms/sts.ts     -> export const placeSts: PlaceSts
 //   src/norms/balance.ts -> export const summarizeBalance: SummarizeBalance
+//   src/norms/sls.ts     -> export const placeSls: PlaceSls
 //   src/ui/app.ts        -> export const mountApp: MountApp
 
 /** A MediaPipe pose landmark: x and y normalised to [0, 1] of the image, y growing downward. */
@@ -162,6 +163,31 @@ export interface BalanceSummary {
   source: SourceRef
 }
 export type SummarizeBalance = (heldMs: number) => BalanceSummary
+
+/** The single-leg stance protocol of F61: barefoot, hands on hips, eyes open, up to 60 seconds. */
+export const SLS_MAX_MS = 60000
+
+export type SlsBand = '18-29' | '30-39' | '40-49' | '50-59' | '60-69' | '70+'
+
+export interface SlsPlacement {
+  /** heldMs / 1000, rounded to one decimal */
+  heldSeconds: number
+  /** heldMs >= SLS_MAX_MS */
+  capped: boolean
+  /** The leg the person stood on: the opposite of the lifted foot; 'either' when the lifted side is unknown, which uses the mean of both legs' values. */
+  stanceLeg: 'left' | 'right' | 'either'
+  /** 18 <= age < 30 is '18-29', ..., 60 <= age < 70 is '60-69', age >= 70 is '70+'; null under 18. */
+  ownBand: SlsBand | null
+  /** null when ownBand is null. z = (heldSeconds - mean) / sd for ownBand and stanceLeg: z < -2 well-below, -2 <= z < -1 below, -1 <= z <= 1 typical, 1 < z <= 2 above, z > 2 well-above. */
+  performance: Performance | null
+  /** Bands whose 95% CI of the mean (for stanceLeg) contains heldSeconds, youngest first. If none does, the band(s) with the nearest mean, ties youngest first. */
+  matchesAverageOf: SlsBand[]
+  /** heldSeconds is above every band's 95% CI upper bound for stanceLeg. */
+  aboveAllBands: boolean
+  source: SourceRef
+}
+/** Places a single-leg stance hold on the F61 reference table in src/data/sls-norms.json. */
+export type PlaceSls = (heldMs: number, liftedSide: 'left' | 'right' | null, age: number) => SlsPlacement
 
 // ---------- ui: src/ui/ ----------
 
