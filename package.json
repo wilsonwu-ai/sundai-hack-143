@@ -14,7 +14,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "readme": "node scripts/build-readme.mjs"
+    "readme": "node scripts/build-readme.mjs",
+    "docs:images": "node scripts/wrap-explainer.mjs && node scripts/extract-diagrams.mjs && node scripts/shoot-explainer.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",

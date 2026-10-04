@@ -37,6 +37,8 @@ Biomarkers come in many forms. Some are blood based. DNAm PhenoAge is an epigene
 
 An analogy: think of a car again. The odometer is age in years. A biomarker is the mechanic's reading of the engine: compression, oil quality, wear. Two cars with the same mileage can read very differently.
 
+<p align="center"><img src="docs/img/same-odometer.svg" alt="Two cars share one odometer reading, but car A shows light engine wear and car B heavy wear" width="520"></p>
+
 ### Biological age versus pace of aging
 
 Chronological age is the count of years since birth. Biological age is a measure of where a person's body stands on a scale of wear. Many models only predict chronological age. The voice model above is one of them, so it is a weak aging proxy [F34].
@@ -46,6 +48,8 @@ Pace of aging is different again. It is a rate, not a level. DunedinPACE was mod
 The idea of one number is also under pressure. In the proteomic work, nearly 20% of the population show strongly accelerated age in one organ and 1.7% are multi-organ agers, which supports a per-organ profile rather than a single age number [F45].
 
 ### What scientists require of a valid biomarker
+
+<p align="center"><img src="docs/img/measure-twice.svg" alt="A tape measure with the words: measure it twice, same answer?" width="520"></p>
 
 The validation template we kept coming back to is DunedinPACE: high test-retest reliability (you get about the same answer when you measure again), plus association with morbidity, disability and mortality [F42]. Accelerated organ aging in the proteomic study carries 20 to 50% higher mortality risk [F44]. The Consortium says the lack of standards and consensus on the properties of a reliable aging biomarker hinders further development and validation for clinical applications [F46].
 

@@ -6,9 +6,24 @@
 
 A STAR write-up of Sundai Hack 143 at the Harvard Innovation Lab: the **Situation** (what the hack asked, and what a biomarker of aging is), the **Task and Action** (every candidate approach, and why we chose ours), and the **Result** (what we built and deployed).
 
+## Start here: the picture explainer
+
+**[Open the picture explainer](https://wilsonwu-ai.github.io/sundai-hack-143/explainer/)**: the whole hack in big pictures and few words, built to read on a phone. What the hack asks, what wins the vote, the ideas ranked, why we picked Movement Age, and the pitch.
+
+<a href="https://wilsonwu-ai.github.io/sundai-hack-143/explainer/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/img/explainer-preview-dark.png">
+    <img src="docs/img/explainer-preview-light.png" alt="The picture explainer: a birthday clock beside a body clock, under the question of how to measure how fast someone is aging" width="760">
+  </picture>
+</a>
+
+The same page is in this repo at [`research/explainer.html`](research/explainer.html) (source) and [`public/explainer/`](public/explainer/) (what GitHub Pages serves). The diagrams below are extracted from it by [`scripts/extract-diagrams.mjs`](scripts/extract-diagrams.mjs), so the page and this README never drift apart.
+
 Every number in this repo cites a finding ID like [F21]. Findings live in `research/verified.json` with their source URL, publication date and how they were checked.
 
 ## ELI5: the whole hack in one paragraph
+
+<p align="center"><img src="docs/img/birthday-vs-body-clock.svg" alt="A birthday clock beside a body clock: years since you were born, and how worn the body is" width="560"></p>
 
 Think of a used car. The odometer tells you how many miles it has driven, and that is like your age in years. But two cars with the same mileage can be in very different shape, and one can be wearing out faster than the other. Scientists look for "biomarkers of aging", which are measurements that act like a mechanic's checks: they try to tell how worn the engine really is, and how fast it is wearing, not just what the odometer says. Sundai Hack 143 asked teams to build, in one day, a small web app that does this kind of check using things we can collect today, like a phone camera [F51] [F52]. We chose to have the camera watch a person do a one-leg stand and a few chair stands, then compare the result with tables that researchers published for people of different ages, the way a test drive is compared with a table of results from many cars of each age. The app shows where the result falls and which study the table came from. It does not tell anyone their health, and it is not a medical device.
 
@@ -77,6 +92,8 @@ Biomarkers come in many forms. Some are blood based. DNAm PhenoAge is an epigene
 
 An analogy: think of a car again. The odometer is age in years. A biomarker is the mechanic's reading of the engine: compression, oil quality, wear. Two cars with the same mileage can read very differently.
 
+<p align="center"><img src="docs/img/same-odometer.svg" alt="Two cars share one odometer reading, but car A shows light engine wear and car B heavy wear" width="520"></p>
+
 ### Biological age versus pace of aging
 
 Chronological age is the count of years since birth. Biological age is a measure of where a person's body stands on a scale of wear. Many models only predict chronological age. The voice model above is one of them, so it is a weak aging proxy [F34].
@@ -86,6 +103,8 @@ Pace of aging is different again. It is a rate, not a level. DunedinPACE was mod
 The idea of one number is also under pressure. In the proteomic work, nearly 20% of the population show strongly accelerated age in one organ and 1.7% are multi-organ agers, which supports a per-organ profile rather than a single age number [F45].
 
 ### What scientists require of a valid biomarker
+
+<p align="center"><img src="docs/img/measure-twice.svg" alt="A tape measure with the words: measure it twice, same answer?" width="520"></p>
 
 The validation template we kept coming back to is DunedinPACE: high test-retest reliability (you get about the same answer when you measure again), plus association with morbidity, disability and mortality [F42]. Accelerated organ aging in the proteomic study carries 20 to 50% higher mortality risk [F44]. The Consortium says the lack of standards and consensus on the properties of a reliable aging biomarker hinders further development and validation for clinical applications [F46].
 
@@ -196,6 +215,8 @@ Evidence overall: thin. Combination makes for good theatre, but we found nothing
 
 We scored each idea from 0 to 5 on five criteria, with these weights: live demo 25, science 25, differentiation 15, buildability 20, AI and wow 15. Totals below are computed in code from those weights and are out of 100. They are exactly as in `research/synthesis.json`.
 
+<p align="center"><img src="docs/img/idea-ranking.svg" alt="Horizontal bar chart of the 12 ideas by weighted score out of 100, led by Movement Age at 77" width="520"></p>
+
 | Rank | Idea (ref) | Live demo | Science | Differentiation | Buildability | AI and wow | Total |
 |---|---|---|---|---|---|---|---|
 | 1 | Movement Age (PRIOR) | 4 | 4 | 3 | 4 | 4 | 77 |
@@ -216,6 +237,8 @@ Three notes on the table. First, the selfie idea has the best live demo and the 
 ### Why we chose Movement Age
 
 The pick is Movement Age: prop up your phone, do a one-leg stand and five chair stands, and on-device pose estimation places each result on a published age-band reference table, with the source shown and nothing leaving the device.
+
+<p align="center"><img src="docs/img/movement-age.svg" alt="A propped phone watches a one-leg stand, and a result card shows balance and leg strength as age bands with their source" width="420"> <img src="docs/img/movement-age-scores.svg" alt="Movement Age scores 4 of 5 on live demo, science, buildability and AI wow, and 3 of 5 on differentiation" width="420"></p>
 
 Why:
 

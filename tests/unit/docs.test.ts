@@ -30,6 +30,23 @@ describe('public docs', () => {
     expect(bad).toEqual([])
   })
 
+  it('reference only images that exist', () => {
+    const readme = readFileSync(join(ROOT, 'README.md'), 'utf8')
+    const refs = [...readme.matchAll(/(?:src|srcset)="([^"]+)"|!\[[^\]]*\]\(([^)\s]+)\)/g)]
+      .map((m) => m[1] ?? m[2])
+      .filter((p) => !/^https?:/.test(p))
+    expect(refs.filter((p) => !existsSync(join(ROOT, p)))).toEqual([])
+  })
+
+  it('ship SVGs without HTML-only entities, which break standalone images', () => {
+    const dir = join(ROOT, 'docs/img')
+    if (!existsSync(dir)) return
+    const bad = readdirSync(dir)
+      .filter((f) => f.endsWith('.svg'))
+      .filter((f) => /&(?!amp;|lt;|gt;|quot;|apos;|#)[a-z]+;/i.test(readFileSync(join(dir, f), 'utf8')))
+    expect(bad).toEqual([])
+  })
+
   it('cite only findings that survived verification', () => {
     const verifiedPath = join(ROOT, 'research/verified.json')
     if (!existsSync(verifiedPath)) return

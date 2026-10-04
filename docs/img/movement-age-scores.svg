@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 392 192" width="784" height="384" role="img" aria-labelledby="dots-t">
+<style><![CDATA[
+svg {
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --bg: #eef4f3;
+  --panel: #ffffff;
+  --panel2: #e1ecea;
+  --fg: #112a2e;
+  --muted: #4a6468;
+  --line: #b9cdcb;
+  --teal: #0a6f6a;
+  --teal-soft: #cfe8e4;
+  --amber: #c2610f;
+  --amber-ink: #8f4608;
+  --amber-soft: #fbe3c9;
+  --blue: #2a5ba8;
+  --blue-soft: #d9e4f5;
+  --pass: #1c7a3f;
+  --pass-bg: #d7efdf;
+  --pend: #7d5800;
+  --pend-bg: #f8ecc4;
+  --fail: #b3261e;
+  --fail-bg: #f7d9d6;
+  --focus: #1b4fd6;
+  
+}
+@media (prefers-color-scheme: dark) { svg {
+    --bg: #0e1c20;
+    --panel: #15292e;
+    --panel2: #1c353b;
+    --fg: #e3efee;
+    --muted: #9db8b8;
+    --line: #2f4d53;
+    --teal: #4fc9bd;
+    --teal-soft: #1b4a4a;
+    --amber: #f0a64e;
+    --amber-ink: #f4b469;
+    --amber-soft: #4a3216;
+    --blue: #8db4f2;
+    --blue-soft: #23375c;
+    --pass: #6fd197;
+    --pass-bg: #1b4430;
+    --pend: #f0cc66;
+    --pend-bg: #4a3c10;
+    --fail: #f59a93;
+    --fail-bg: #4d1f1c;
+    --focus: #9ec1ff;
+    
+  } }
+.card { fill: var(--bg); stroke: var(--line); stroke-width: 1; }
+.sf-panel { fill: var(--panel); }
+.sf-panel2 { fill: var(--panel2); }
+.sf-teal { fill: var(--teal); }
+.sf-tealsoft { fill: var(--teal-soft); }
+.sf-amber { fill: var(--amber); }
+.sf-ambersoft { fill: var(--amber-soft); }
+.sf-blue { fill: var(--blue); }
+.sf-bluesoft { fill: var(--blue-soft); }
+.sf-fg { fill: var(--fg); }
+.sf-line { fill: var(--line); }
+.sf-none { fill: none; }
+.ss { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ss-fg { stroke: var(--fg); }
+.ss-line { stroke: var(--line); }
+.ss-teal { stroke: var(--teal); }
+.ss-amber { stroke: var(--amber); }
+.ss-blue { stroke: var(--blue); }
+.ss-muted { stroke: var(--muted); }
+.w1 { stroke-width: 1; }
+.w2 { stroke-width: 2; }
+.w3 { stroke-width: 3; }
+.w4 { stroke-width: 4; }
+.dash { stroke-dasharray: 4 4; }
+.tx { fill: var(--fg); font-family: var(--body); font-size: 13px; }
+.tm { fill: var(--muted); font-family: var(--body); font-size: 12px; }
+.tb { font-weight: 700; }
+.ta { fill: var(--amber-ink); }
+.tt { fill: var(--teal); }
+.tbg { fill: var(--bg); }
+.tbig { font-family: var(--display); font-size: 14px; font-weight: 700; fill: var(--fg); }
+.mid { text-anchor: middle; }
+.end { text-anchor: end; }
+.mk { fill: var(--muted); }
+]]></style>
+<rect class="card" x="-15.5" y="-15.5" width="391" height="191" rx="14"/>
+<title id="dots-t">Movement Age scores on five criteria</title>
+      <desc id="dots-d">Five rows of five dots. Live demo 4 filled, science 4 filled, differentiation 3 filled, buildability 4 filled, AI wow 4 filled.</desc>
+      <text x="8" y="26" class="tx">Live demo</text>
+      <circle cx="170" cy="22" r="8" class="sf-teal"/><circle cx="198" cy="22" r="8" class="sf-teal"/><circle cx="226" cy="22" r="8" class="sf-teal"/><circle cx="254" cy="22" r="8" class="sf-teal"/><circle cx="282" cy="22" r="8" class="sf-none ss ss-teal w2"/>
+      <text x="8" y="56" class="tx">Science</text>
+      <circle cx="170" cy="52" r="8" class="sf-teal"/><circle cx="198" cy="52" r="8" class="sf-teal"/><circle cx="226" cy="52" r="8" class="sf-teal"/><circle cx="254" cy="52" r="8" class="sf-teal"/><circle cx="282" cy="52" r="8" class="sf-none ss ss-teal w2"/>
+      <text x="8" y="86" class="tx">Differentiation</text>
+      <circle cx="170" cy="82" r="8" class="sf-teal"/><circle cx="198" cy="82" r="8" class="sf-teal"/><circle cx="226" cy="82" r="8" class="sf-teal"/><circle cx="254" cy="82" r="8" class="sf-none ss ss-teal w2"/><circle cx="282" cy="82" r="8" class="sf-none ss ss-teal w2"/>
+      <text x="8" y="116" class="tx">Buildability</text>
+      <circle cx="170" cy="112" r="8" class="sf-teal"/><circle cx="198" cy="112" r="8" class="sf-teal"/><circle cx="226" cy="112" r="8" class="sf-teal"/><circle cx="254" cy="112" r="8" class="sf-teal"/><circle cx="282" cy="112" r="8" class="sf-none ss ss-teal w2"/>
+      <text x="8" y="146" class="tx">AI wow</text>
+      <circle cx="170" cy="142" r="8" class="sf-teal"/><circle cx="198" cy="142" r="8" class="sf-teal"/><circle cx="226" cy="142" r="8" class="sf-teal"/><circle cx="254" cy="142" r="8" class="sf-teal"/><circle cx="282" cy="142" r="8" class="sf-none ss ss-teal w2"/>
+</svg>

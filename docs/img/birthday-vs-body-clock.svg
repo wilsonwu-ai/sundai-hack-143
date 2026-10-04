@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 392 232" width="784" height="464" role="img" aria-labelledby="hero-t">
+<style><![CDATA[
+svg {
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --bg: #eef4f3;
+  --panel: #ffffff;
+  --panel2: #e1ecea;
+  --fg: #112a2e;
+  --muted: #4a6468;
+  --line: #b9cdcb;
+  --teal: #0a6f6a;
+  --teal-soft: #cfe8e4;
+  --amber: #c2610f;
+  --amber-ink: #8f4608;
+  --amber-soft: #fbe3c9;
+  --blue: #2a5ba8;
+  --blue-soft: #d9e4f5;
+  --pass: #1c7a3f;
+  --pass-bg: #d7efdf;
+  --pend: #7d5800;
+  --pend-bg: #f8ecc4;
+  --fail: #b3261e;
+  --fail-bg: #f7d9d6;
+  --focus: #1b4fd6;
+  
+}
+@media (prefers-color-scheme: dark) { svg {
+    --bg: #0e1c20;
+    --panel: #15292e;
+    --panel2: #1c353b;
+    --fg: #e3efee;
+    --muted: #9db8b8;
+    --line: #2f4d53;
+    --teal: #4fc9bd;
+    --teal-soft: #1b4a4a;
+    --amber: #f0a64e;
+    --amber-ink: #f4b469;
+    --amber-soft: #4a3216;
+    --blue: #8db4f2;
+    --blue-soft: #23375c;
+    --pass: #6fd197;
+    --pass-bg: #1b4430;
+    --pend: #f0cc66;
+    --pend-bg: #4a3c10;
+    --fail: #f59a93;
+    --fail-bg: #4d1f1c;
+    --focus: #9ec1ff;
+    
+  } }
+.card { fill: var(--bg); stroke: var(--line); stroke-width: 1; }
+.sf-panel { fill: var(--panel); }
+.sf-panel2 { fill: var(--panel2); }
+.sf-teal { fill: var(--teal); }
+.sf-tealsoft { fill: var(--teal-soft); }
+.sf-amber { fill: var(--amber); }
+.sf-ambersoft { fill: var(--amber-soft); }
+.sf-blue { fill: var(--blue); }
+.sf-bluesoft { fill: var(--blue-soft); }
+.sf-fg { fill: var(--fg); }
+.sf-line { fill: var(--line); }
+.sf-none { fill: none; }
+.ss { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ss-fg { stroke: var(--fg); }
+.ss-line { stroke: var(--line); }
+.ss-teal { stroke: var(--teal); }
+.ss-amber { stroke: var(--amber); }
+.ss-blue { stroke: var(--blue); }
+.ss-muted { stroke: var(--muted); }
+.w1 { stroke-width: 1; }
+.w2 { stroke-width: 2; }
+.w3 { stroke-width: 3; }
+.w4 { stroke-width: 4; }
+.dash { stroke-dasharray: 4 4; }
+.tx { fill: var(--fg); font-family: var(--body); font-size: 13px; }
+.tm { fill: var(--muted); font-family: var(--body); font-size: 12px; }
+.tb { font-weight: 700; }
+.ta { fill: var(--amber-ink); }
+.tt { fill: var(--teal); }
+.tbg { fill: var(--bg); }
+.tbig { font-family: var(--display); font-size: 14px; font-weight: 700; fill: var(--fg); }
+.mid { text-anchor: middle; }
+.end { text-anchor: end; }
+.mk { fill: var(--muted); }
+]]></style>
+<rect class="card" x="-15.5" y="-15.5" width="391" height="231" rx="14"/>
+<title id="hero-t">A birthday clock beside a body clock</title>
+      <desc id="hero-d">Two clock faces side by side. The left one counts years since birth. The right one has a pulse line and shows how worn the body is. They may differ.</desc>
+      <defs>
+        <g id="hero-ticks" class="ss ss-muted w2">
+          <path d="M90 38 V32 M117 45 L120 40 M137 65 L142 62 M144 92 H150 M137 119 L142 122 M117 139 L120 144 M90 146 V152 M63 139 L60 144 M43 119 L38 122 M36 92 H30 M43 65 L38 62 M63 45 L60 40"/>
+        </g>
+      </defs>
+      <circle cx="90" cy="92" r="64" class="sf-panel ss ss-fg w3"/>
+      <use href="#hero-ticks"/>
+      <path d="M90 92 V46" class="ss ss-fg w3"/>
+      <path d="M90 92 L110 104" class="ss ss-fg w4"/>
+      <circle cx="90" cy="92" r="4" class="sf-fg"/>
+      <circle cx="270" cy="92" r="64" class="sf-panel ss ss-amber w3"/>
+      <use href="#hero-ticks" transform="translate(180 0)"/>
+      <path d="M270 92 L300 64" class="ss ss-amber w3"/>
+      <path d="M270 92 L250 80" class="ss ss-amber w4"/>
+      <path d="M236 118 H252 L258 106 L264 130 L270 110 L276 118 H304" class="ss ss-teal w2"/>
+      <circle cx="270" cy="92" r="4" class="sf-amber"/>
+      <text x="180" y="102" class="tbig mid" style="font-size:28px">≠</text>
+      <text x="90" y="178" class="tbig mid">Birthday clock</text>
+      <text x="90" y="194" class="tm mid">years since you were born</text>
+      <text x="270" y="178" class="tbig mid">Body clock</text>
+      <text x="270" y="194" class="tm mid">how worn the body is</text>
+</svg>

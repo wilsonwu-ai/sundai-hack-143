@@ -101,6 +101,8 @@ Evidence overall: thin. Combination makes for good theatre, but we found nothing
 
 We scored each idea from 0 to 5 on five criteria, with these weights: live demo 25, science 25, differentiation 15, buildability 20, AI and wow 15. Totals below are computed in code from those weights and are out of 100. They are exactly as in `research/synthesis.json`.
 
+<p align="center"><img src="docs/img/idea-ranking.svg" alt="Horizontal bar chart of the 12 ideas by weighted score out of 100, led by Movement Age at 77" width="520"></p>
+
 | Rank | Idea (ref) | Live demo | Science | Differentiation | Buildability | AI and wow | Total |
 |---|---|---|---|---|---|---|---|
 | 1 | Movement Age (PRIOR) | 4 | 4 | 3 | 4 | 4 | 77 |
@@ -121,6 +123,8 @@ Three notes on the table. First, the selfie idea has the best live demo and the 
 ### Why we chose Movement Age
 
 The pick is Movement Age: prop up your phone, do a one-leg stand and five chair stands, and on-device pose estimation places each result on a published age-band reference table, with the source shown and nothing leaving the device.
+
+<p align="center"><img src="docs/img/movement-age.svg" alt="A propped phone watches a one-leg stand, and a result card shows balance and leg strength as age bands with their source" width="420"> <img src="docs/img/movement-age-scores.svg" alt="Movement Age scores 4 of 5 on live demo, science, buildability and AI wow, and 3 of 5 on differentiation" width="420"></p>
 
 Why:
 

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 392 192" width="784" height="384" role="img" aria-labelledby="pick-t">
+<style><![CDATA[
+svg {
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --bg: #eef4f3;
+  --panel: #ffffff;
+  --panel2: #e1ecea;
+  --fg: #112a2e;
+  --muted: #4a6468;
+  --line: #b9cdcb;
+  --teal: #0a6f6a;
+  --teal-soft: #cfe8e4;
+  --amber: #c2610f;
+  --amber-ink: #8f4608;
+  --amber-soft: #fbe3c9;
+  --blue: #2a5ba8;
+  --blue-soft: #d9e4f5;
+  --pass: #1c7a3f;
+  --pass-bg: #d7efdf;
+  --pend: #7d5800;
+  --pend-bg: #f8ecc4;
+  --fail: #b3261e;
+  --fail-bg: #f7d9d6;
+  --focus: #1b4fd6;
+  
+}
+@media (prefers-color-scheme: dark) { svg {
+    --bg: #0e1c20;
+    --panel: #15292e;
+    --panel2: #1c353b;
+    --fg: #e3efee;
+    --muted: #9db8b8;
+    --line: #2f4d53;
+    --teal: #4fc9bd;
+    --teal-soft: #1b4a4a;
+    --amber: #f0a64e;
+    --amber-ink: #f4b469;
+    --amber-soft: #4a3216;
+    --blue: #8db4f2;
+    --blue-soft: #23375c;
+    --pass: #6fd197;
+    --pass-bg: #1b4430;
+    --pend: #f0cc66;
+    --pend-bg: #4a3c10;
+    --fail: #f59a93;
+    --fail-bg: #4d1f1c;
+    --focus: #9ec1ff;
+    
+  } }
+.card { fill: var(--bg); stroke: var(--line); stroke-width: 1; }
+.sf-panel { fill: var(--panel); }
+.sf-panel2 { fill: var(--panel2); }
+.sf-teal { fill: var(--teal); }
+.sf-tealsoft { fill: var(--teal-soft); }
+.sf-amber { fill: var(--amber); }
+.sf-ambersoft { fill: var(--amber-soft); }
+.sf-blue { fill: var(--blue); }
+.sf-bluesoft { fill: var(--blue-soft); }
+.sf-fg { fill: var(--fg); }
+.sf-line { fill: var(--line); }
+.sf-none { fill: none; }
+.ss { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ss-fg { stroke: var(--fg); }
+.ss-line { stroke: var(--line); }
+.ss-teal { stroke: var(--teal); }
+.ss-amber { stroke: var(--amber); }
+.ss-blue { stroke: var(--blue); }
+.ss-muted { stroke: var(--muted); }
+.w1 { stroke-width: 1; }
+.w2 { stroke-width: 2; }
+.w3 { stroke-width: 3; }
+.w4 { stroke-width: 4; }
+.dash { stroke-dasharray: 4 4; }
+.tx { fill: var(--fg); font-family: var(--body); font-size: 13px; }
+.tm { fill: var(--muted); font-family: var(--body); font-size: 12px; }
+.tb { font-weight: 700; }
+.ta { fill: var(--amber-ink); }
+.tt { fill: var(--teal); }
+.tbg { fill: var(--bg); }
+.tbig { font-family: var(--display); font-size: 14px; font-weight: 700; fill: var(--fg); }
+.mid { text-anchor: middle; }
+.end { text-anchor: end; }
+.mk { fill: var(--muted); }
+]]></style>
+<rect class="card" x="-15.5" y="-15.5" width="391" height="191" rx="14"/>
+<title id="pick-t">Phone watches a one-leg stand and shows an age band</title>
+      <desc id="pick-d">A propped-up phone looks at a stick figure standing on one leg with joint dots. An arrow leads to a result card with two band bars, one for balance and one for leg strength, and a source line.</desc>
+      <defs>
+        <marker id="pick-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="mk"/></marker>
+      </defs>
+      <path d="M84 80 H128" class="ss ss-muted w2" marker-end="url(#pick-arrow)"/>
+      <rect x="16" y="24" width="60" height="112" rx="8" class="sf-panel ss ss-fg w3"/>
+      <circle cx="46" cy="38" r="4" class="sf-fg"/>
+      <path d="M36 128 H56" class="ss ss-line w3"/>
+      <path d="M170 54 V92 M150 66 H190 M170 92 V132 M170 92 L192 108 L184 126" class="ss ss-teal w3"/>
+      <circle cx="170" cy="42" r="10" class="sf-panel ss ss-teal w3"/>
+      <circle cx="170" cy="54" r="3.5" class="sf-amber"/>
+      <circle cx="150" cy="66" r="3.5" class="sf-amber"/>
+      <circle cx="190" cy="66" r="3.5" class="sf-amber"/>
+      <circle cx="170" cy="92" r="3.5" class="sf-amber"/>
+      <circle cx="192" cy="108" r="3.5" class="sf-amber"/>
+      <circle cx="184" cy="126" r="3.5" class="sf-amber"/>
+      <circle cx="170" cy="132" r="3.5" class="sf-amber"/>
+      <path d="M156 138 H184" class="ss ss-line w3"/>
+      <path d="M212 80 H228" class="ss ss-muted w2" marker-end="url(#pick-arrow)"/>
+      <rect x="236" y="20" width="112" height="120" rx="6" class="sf-panel ss ss-fg w2"/>
+      <text x="246" y="44" class="tx tb">Balance</text>
+      <rect x="246" y="50" width="12" height="8" class="sf-line"/><rect x="260" y="50" width="12" height="8" class="sf-line"/><rect x="274" y="50" width="12" height="8" class="sf-teal"/><rect x="288" y="50" width="12" height="8" class="sf-line"/><rect x="302" y="50" width="12" height="8" class="sf-line"/><rect x="316" y="50" width="12" height="8" class="sf-line"/>
+      <text x="246" y="84" class="tx tb">Leg strength</text>
+      <rect x="246" y="90" width="12" height="8" class="sf-line"/><rect x="260" y="90" width="12" height="8" class="sf-line"/><rect x="274" y="90" width="12" height="8" class="sf-line"/><rect x="288" y="90" width="12" height="8" class="sf-blue"/><rect x="302" y="90" width="12" height="8" class="sf-line"/><rect x="316" y="90" width="12" height="8" class="sf-line"/>
+      <text x="246" y="122" class="tm">age band + source</text>
+</svg>

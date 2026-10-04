@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 392 572" width="784" height="1144" role="img" aria-labelledby="bar-t">
+<style><![CDATA[
+svg {
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --bg: #eef4f3;
+  --panel: #ffffff;
+  --panel2: #e1ecea;
+  --fg: #112a2e;
+  --muted: #4a6468;
+  --line: #b9cdcb;
+  --teal: #0a6f6a;
+  --teal-soft: #cfe8e4;
+  --amber: #c2610f;
+  --amber-ink: #8f4608;
+  --amber-soft: #fbe3c9;
+  --blue: #2a5ba8;
+  --blue-soft: #d9e4f5;
+  --pass: #1c7a3f;
+  --pass-bg: #d7efdf;
+  --pend: #7d5800;
+  --pend-bg: #f8ecc4;
+  --fail: #b3261e;
+  --fail-bg: #f7d9d6;
+  --focus: #1b4fd6;
+  
+}
+@media (prefers-color-scheme: dark) { svg {
+    --bg: #0e1c20;
+    --panel: #15292e;
+    --panel2: #1c353b;
+    --fg: #e3efee;
+    --muted: #9db8b8;
+    --line: #2f4d53;
+    --teal: #4fc9bd;
+    --teal-soft: #1b4a4a;
+    --amber: #f0a64e;
+    --amber-ink: #f4b469;
+    --amber-soft: #4a3216;
+    --blue: #8db4f2;
+    --blue-soft: #23375c;
+    --pass: #6fd197;
+    --pass-bg: #1b4430;
+    --pend: #f0cc66;
+    --pend-bg: #4a3c10;
+    --fail: #f59a93;
+    --fail-bg: #4d1f1c;
+    --focus: #9ec1ff;
+    
+  } }
+.card { fill: var(--bg); stroke: var(--line); stroke-width: 1; }
+.sf-panel { fill: var(--panel); }
+.sf-panel2 { fill: var(--panel2); }
+.sf-teal { fill: var(--teal); }
+.sf-tealsoft { fill: var(--teal-soft); }
+.sf-amber { fill: var(--amber); }
+.sf-ambersoft { fill: var(--amber-soft); }
+.sf-blue { fill: var(--blue); }
+.sf-bluesoft { fill: var(--blue-soft); }
+.sf-fg { fill: var(--fg); }
+.sf-line { fill: var(--line); }
+.sf-none { fill: none; }
+.ss { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ss-fg { stroke: var(--fg); }
+.ss-line { stroke: var(--line); }
+.ss-teal { stroke: var(--teal); }
+.ss-amber { stroke: var(--amber); }
+.ss-blue { stroke: var(--blue); }
+.ss-muted { stroke: var(--muted); }
+.w1 { stroke-width: 1; }
+.w2 { stroke-width: 2; }
+.w3 { stroke-width: 3; }
+.w4 { stroke-width: 4; }
+.dash { stroke-dasharray: 4 4; }
+.tx { fill: var(--fg); font-family: var(--body); font-size: 13px; }
+.tm { fill: var(--muted); font-family: var(--body); font-size: 12px; }
+.tb { font-weight: 700; }
+.ta { fill: var(--amber-ink); }
+.tt { fill: var(--teal); }
+.tbg { fill: var(--bg); }
+.tbig { font-family: var(--display); font-size: 14px; font-weight: 700; fill: var(--fg); }
+.mid { text-anchor: middle; }
+.end { text-anchor: end; }
+.mk { fill: var(--muted); }
+]]></style>
+<rect class="card" x="-15.5" y="-15.5" width="391" height="571" rx="14"/>
+<title id="bar-t">Ranked ideas, weighted score out of 100</title>
+      <desc id="bar-d">Horizontal bars. Movement Age scores 77, Chair-Rise Age 73, Count vs Tap 71, Look Age vs Move Age 67, AgeGap Selfie Lab 62, Age-Gap Evidence Board 62, Three-Signal Aging Panel 57, Aging Clock Arcade 57, Pulse plus Pose 55, Clock Report Card 47, Regularity Check 44, Pace Not Age 41.</desc>
+      <path d="M8 4 V492 M154 4 V492 M300 4 V492" class="ss ss-line w1 dash"/>
+
+      <text x="8" y="22" class="tx tb">Movement Age (our pick)</text>
+      <rect x="8" y="28" width="224.8" height="12" rx="3" class="sf-amber"/>
+      <text x="238.8" y="39" class="tx tb">77</text>
+
+      <text x="8" y="62" class="tx">Chair-Rise Age (merged with I51)</text>
+      <rect x="8" y="68" width="213.2" height="12" rx="3" class="sf-teal"/>
+      <text x="227.2" y="79" class="tx tb">73</text>
+
+      <text x="8" y="102" class="tx">Count vs Tap</text>
+      <rect x="8" y="108" width="207.3" height="12" rx="3" class="sf-teal"/>
+      <text x="221.3" y="119" class="tx tb">71</text>
+
+      <text x="8" y="142" class="tx">Look Age vs Move Age</text>
+      <rect x="8" y="148" width="195.6" height="12" rx="3" class="sf-teal"/>
+      <text x="209.6" y="159" class="tx tb">67</text>
+
+      <text x="8" y="182" class="tx">AgeGap Selfie Lab</text>
+      <rect x="8" y="188" width="181" height="12" rx="3" class="sf-teal"/>
+      <text x="195" y="199" class="tx tb">62</text>
+
+      <text x="8" y="222" class="tx">Age-Gap Evidence Board</text>
+      <rect x="8" y="228" width="181" height="12" rx="3" class="sf-teal"/>
+      <text x="195" y="239" class="tx tb">62</text>
+
+      <text x="8" y="262" class="tx">Three-Signal Aging Panel</text>
+      <rect x="8" y="268" width="166.4" height="12" rx="3" class="sf-teal"/>
+      <text x="180.4" y="279" class="tx tb">57</text>
+
+      <text x="8" y="302" class="tx">Aging Clock Arcade</text>
+      <rect x="8" y="308" width="166.4" height="12" rx="3" class="sf-teal"/>
+      <text x="180.4" y="319" class="tx tb">57</text>
+
+      <text x="8" y="342" class="tx">Pulse plus Pose</text>
+      <rect x="8" y="348" width="160.6" height="12" rx="3" class="sf-teal"/>
+      <text x="174.6" y="359" class="tx tb">55</text>
+
+      <text x="8" y="382" class="tx">Clock Report Card</text>
+      <rect x="8" y="388" width="137.2" height="12" rx="3" class="sf-teal"/>
+      <text x="151.2" y="399" class="tx tb">47</text>
+
+      <text x="8" y="422" class="tx">Regularity Check</text>
+      <rect x="8" y="428" width="128.5" height="12" rx="3" class="sf-teal"/>
+      <text x="142.5" y="439" class="tx tb">44</text>
+
+      <text x="8" y="462" class="tx">Pace Not Age</text>
+      <rect x="8" y="468" width="119.7" height="12" rx="3" class="sf-teal"/>
+      <text x="133.7" y="479" class="tx tb">41</text>
+
+      <text x="8" y="512" class="tm">0</text>
+      <text x="154" y="512" class="tm mid">50</text>
+      <text x="300" y="512" class="tm mid">100</text>
+      <text x="8" y="532" class="tm">Weighted score, out of 100</text>
+</svg>
